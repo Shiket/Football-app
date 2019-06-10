@@ -5,10 +5,18 @@ import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+import ball from '../../img/ball.png'
+
 const SignUpPage = () => (
-    <div>
-        <h1>SignUp</h1>
-        <SignUpForm/>
+    <div className="flex-container-col">
+        <div className="form-container">
+            <div className="flex-container-row">
+                <img className="form-img" src={ball} width="48" height="48" alt="ball" />
+                <p className="form-logo">Football app</p>
+            </div>
+            <p className="title">Sign Up</p>
+            <SignUpForm />
+        </div>
     </div>
 );
 
@@ -102,7 +110,7 @@ class SignUpFormBase extends Component {
                     type="password"
                     placeholder="Confirm Password"
                 />
-                <button disabled={isInvalid} type="submit">Sign Up</button>
+                <button className="button-send" disabled={isInvalid} type="submit">Sign Up</button>
 
                 {error && <p>{error.message}</p>}
             </form>
@@ -111,8 +119,8 @@ class SignUpFormBase extends Component {
 }
 
 const SignUpLink = () => (
-    <p>
-        Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+    <p className="form-link">
+        <Link to={ROUTES.SIGN_UP}>Don't have an account? Sign Up</Link>
     </p>
 );
 const SignUpForm = compose(

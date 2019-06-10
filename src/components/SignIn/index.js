@@ -7,12 +7,20 @@ import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+import ball from '../../img/ball.png'
+
 const SignInPage = () => (
-    <div>
-        <h1>SignIn</h1>
-        <SignInForm />
-        <PasswordForgetLink />
-        <SignUpLink />
+    <div className="flex-container-col">
+        <div className="form-container">
+            <div className="flex-container-row">
+                <img className="form-img" src={ball} width="48" height="48" alt="ball" />
+                <p className="form-logo">Football app</p>
+            </div>
+            <p className="title">Sign In</p>
+            <SignInForm />
+            <PasswordForgetLink />
+            <SignUpLink />
+        </div>
     </div>
 );
 
@@ -29,6 +37,9 @@ class SignInFormBase extends Component {
         this.state = { ...INITIAL_STATE };
     }
 
+    componentDidMount() {
+        document.body.classList.remove("bgswap");
+    }
     onSubmit = event => {
         const { email, password } = this.state;
 
@@ -70,9 +81,11 @@ class SignInFormBase extends Component {
                     type="password"
                     placeholder="Password"
                 />
-                <button disabled={isInvalid} type="submit">
-                    Sign In
-        </button>
+                <div className="flex">
+                    <button className="button-send" disabled={isInvalid} type="submit">
+                        Sign In
+                    </button>
+                </div>
 
                 {error && <p>{error.message}</p>}
             </form>

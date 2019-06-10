@@ -4,10 +4,18 @@ import { Link } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+import ball from '../../img/ball.png'
+
 const PasswordForgetPage = () => (
-    <div>
-        <h1>PasswordForget</h1>
-        <PasswordForgetForm />
+    <div className="flex-container-col">
+        <div className="form-container">
+            <div className="flex-container-row">
+                <img className="form-img" src={ball} width="48" height="48" alt="ball" />
+                <p className="form-logo">Football app</p>
+            </div>
+            <p className="title">Password forget?</p>
+            <PasswordForgetForm />
+        </div>
     </div>
 );
 
@@ -56,7 +64,7 @@ class PasswordForgetFormBase extends Component {
                     type="text"
                     placeholder="Email Address"
                 />
-                <button disabled={isInvalid} type="submit">
+                <button className="button-send" disabled={isInvalid} type="submit">
                     Reset My Password
         </button>
 
@@ -67,7 +75,7 @@ class PasswordForgetFormBase extends Component {
 }
 
 const PasswordForgetLink = () => (
-    <p>
+    <p className="form-link">
         <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
     </p>
 );
