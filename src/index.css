@@ -1,4 +1,5 @@
 body {
+  background-color: #000;
   font-family: 'Helvetica Neue light';
   background: url(../src/img/bg.jpg) no-repeat center center fixed;
   margin:0;
@@ -7,7 +8,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   color: #fff;
-  height: 100vh;
+    height: 100%;
 }
 
 .bgswap{
@@ -121,19 +122,19 @@ input {
   box-sizing: border-box;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
   color: #fff;
 }
 
-::-moz-placeholder { /* Firefox 19+ */
+::-moz-placeholder {
   color: #fff;
 }
 
-:-ms-input-placeholder { /* IE 10+ */
+:-ms-input-placeholder {
   color: #fff;
 }
 
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder {
   color: #fff;
 }
 
@@ -163,4 +164,24 @@ button:disabled {
 .form-link{
   align-self: flex-start;
   margin-left:10%;
+}
+
+.leagues-container{
+  display:flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+
+.box{
+  margin-top: 6vh;
+  background-color: rgba(117, 117, 117, 0.7);
+  width: 80%;
+  height: calc(80vh);
+}
+table{
+  width:100%;
+}
+tr:nth-child(n+2){
+  background-color: #2f2f2fa6
 }
