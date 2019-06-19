@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
+
+const StyledWrapper = styled.div`
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    `;
+
 class LandingPage extends Component {
 
     componentDidMount() {
@@ -10,29 +19,12 @@ class LandingPage extends Component {
                 console.log(persons)
             })
     }
+
     render() {
         return (
-            <div className="leagues-container">
-                <div className="box">
-                    <table>
-                        <tr>
-                            <td>logo</td>
-                            <td>league name</td>
-                            <td>trophy</td>
-                            <td>first team</td>
-                            <td>favourite</td>
-                        </tr>
+            <StyledWrapper>
 
-                        <tr>
-                            <td>logo</td>
-                            <td>league name</td>
-                            <td>trophy</td>
-                            <td>first team</td>
-                            <td>favourite</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            </StyledWrapper>
         )
     }
 }

@@ -1,22 +1,37 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { SignUpLink } from '../../components/SignUp'
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 import ball from '../../img/ball.png'
+import Layout from '../../Layout/Layout';
+
+import Button from '../../styleComponents/Button/Button';
+import FormWrapper from '../../styleComponents/Form/FormWrapper';
+import Input from '../../styleComponents/Form/Input'
+import Form from '../../styleComponents/Form/Form';
+import Wrapper from '../../styleComponents/Wrapper/Wrapper'
+import BottomLinks from '../../styleComponents/Form/BottomLinks';
+import FormLogo from '../../styleComponents/Form/FormLogo';
+import FormTitle from '../../styleComponents/Form/FormTitle'
+
 
 const PasswordForgetPage = () => (
-    <div className="flex-container-col">
-        <div className="form-container">
-            <div className="flex-container-row">
-                <img className="form-img" src={ball} width="48" height="48" alt="ball" />
-                <p className="form-logo">Football app</p>
-            </div>
-            <p className="title">Password forget?</p>
-            <PasswordForgetForm />
-        </div>
-    </div>
+    <Layout>
+        <Wrapper>
+            <FormWrapper>
+                <Wrapper row>
+                    <img src={ball} width="48" height="48" alt="ball" />
+                    <FormLogo>Football app</FormLogo>
+                </Wrapper>
+                <FormTitle>Sign Up</FormTitle>
+                <PasswordForgetForm />
+                <SignUpLink />
+            </FormWrapper>
+        </Wrapper>
+    </Layout>
 );
 
 const INITIAL_STATE = {
@@ -56,28 +71,28 @@ class PasswordForgetFormBase extends Component {
         const isInvalid = email === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
+            <Form onSubmit={this.onSubmit}>
+                <Input
                     name="email"
                     value={this.state.email}
                     onChange={this.onChange}
                     type="text"
                     placeholder="Email Address"
                 />
-                <button className="button-send" disabled={isInvalid} type="submit">
+                <Button className="button-send" disabled={isInvalid} type="submit">
                     Reset My Password
-        </button>
+        </Button>
 
                 {error && <p>{error.message}</p>}
-            </form>
+            </Form>
         );
     }
 }
 
 const PasswordForgetLink = () => (
-    <p className="form-link">
-        <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
-    </p>
+    <BottomLinks as={Link}to={ROUTES.PASSWORD_FORGET}>
+        Forgot Password?
+    </BottomLinks>
 );
 
 export default PasswordForgetPage;

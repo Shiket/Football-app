@@ -4,20 +4,33 @@ import { compose } from 'recompose';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import { SignInLink } from '../SignIn';
 
 import ball from '../../img/ball.png'
+import Button from '../../styleComponents/Button/Button'
+import Layout from '../../Layout/Layout';
+import FormWrapper from '../../styleComponents/Form/FormWrapper'
+import Input from '../../styleComponents/Form/Input'
+import Form from '../../styleComponents/Form/Form';
+import Wrapper from '../../styleComponents/Wrapper/Wrapper'
+import BottomLinks from '../../styleComponents/Form/BottomLinks';
+import FormLogo from '../../styleComponents/Form/FormLogo'
+import FormTitle from '../../styleComponents/Form/FormTitle';
 
 const SignUpPage = () => (
-    <div className="flex-container-col">
-        <div className="form-container">
-            <div className="flex-container-row">
-                <img className="form-img" src={ball} width="48" height="48" alt="ball" />
-                <p className="form-logo">Football app</p>
-            </div>
-            <p className="title">Sign Up</p>
-            <SignUpForm />
-        </div>
-    </div>
+    <Layout bg>
+        <Wrapper>
+            <FormWrapper>
+                <Wrapper row>
+                    <img src={ball} width="48" height="48" alt="ball" />
+                    <FormLogo>Football app</FormLogo>
+                </Wrapper>
+                <FormTitle>Sign Up</FormTitle>
+                <SignUpForm />
+                <SignInLink />
+            </FormWrapper>
+        </Wrapper>
+    </Layout>
 );
 
 const INITIAL_STATE = {
@@ -81,48 +94,49 @@ class SignUpFormBase extends Component {
             username === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
+            <Form onSubmit={this.onSubmit}>
+                <Input
                     name="username"
                     value={username}
                     onChange={this.onChange}
                     type="text"
                     placeholder="Full Name"
                 />
-                <input
+                <Input
                     name="email"
                     value={email}
                     onChange={this.onChange}
                     type="text"
                     placeholder="Email Address"
                 />
-                <input
+                <Input
                     name="passwordOne"
                     value={passwordOne}
                     onChange={this.onChange}
                     type="password"
                     placeholder="Password"
                 />
-                <input
+                <Input
                     name="passwordTwo"
                     value={passwordTwo}
                     onChange={this.onChange}
                     type="password"
                     placeholder="Confirm Password"
                 />
-                <button className="button-send" disabled={isInvalid} type="submit">Sign Up</button>
+                <Button disabled={isInvalid} type="submit">Sign Up</Button>
 
                 {error && <p>{error.message}</p>}
-            </form>
+            </Form>
         );
     }
 }
 
 const SignUpLink = () => (
-    <p className="form-link">
-        <Link to={ROUTES.SIGN_UP}>Don't have an account? Sign Up</Link>
-    </p>
+    <BottomLinks as={Link} to={ROUTES.SIGN_UP}>
+        Don't have an account? Sign Up
+    </BottomLinks>
 );
+
 const SignUpForm = compose(
     withRouter,
     withFirebase,

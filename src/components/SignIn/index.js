@@ -6,22 +6,34 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import { Link } from 'react-router-dom'
 
 import ball from '../../img/ball.png'
+import Layout from '../../Layout/Layout';
+import Button from '../../styleComponents/Button/Button';
+import Input from '../../styleComponents/Form/Input'
+import FormWrapper from '../../styleComponents/Form/FormWrapper'
+import Form from '../../styleComponents/Form/Form';
+import Wrapper from '../../styleComponents/Wrapper/Wrapper'
+import FormTitle from '../../styleComponents/Form/FormTitle';
+import FormLogo from '../../styleComponents/Form/FormLogo';
+import BottomLinks from '../../styleComponents/Form/BottomLinks'
 
 const SignInPage = () => (
-    <div className="flex-container-col">
-        <div className="form-container">
-            <div className="flex-container-row">
-                <img className="form-img" src={ball} width="48" height="48" alt="ball" />
-                <p className="form-logo">Football app</p>
-            </div>
-            <p className="title">Sign In</p>
-            <SignInForm />
-            <PasswordForgetLink />
-            <SignUpLink />
-        </div>
-    </div>
+    <Layout>
+        <Wrapper>
+            <FormWrapper>
+                <Wrapper row>
+                    <img src={ball} width="48" height="48" alt="ball" />
+                    <FormLogo>Football app</FormLogo>
+                </Wrapper>
+                <FormTitle>Sign In</FormTitle>
+                <SignInForm />
+                <PasswordForgetLink />
+                <SignUpLink />
+            </FormWrapper>
+        </Wrapper>
+    </Layout>
 );
 
 const INITIAL_STATE = {
@@ -66,32 +78,36 @@ class SignInFormBase extends Component {
         const isInvalid = password === '' || email === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
+            <Form onSubmit={this.onSubmit}>
+                <Input
                     name="email"
                     value={email}
                     onChange={this.onChange}
                     type="text"
                     placeholder="Email Address"
                 />
-                <input
+                <Input
                     name="password"
                     value={password}
                     onChange={this.onChange}
                     type="password"
                     placeholder="Password"
                 />
-                <div className="flex">
-                    <button className="button-send" disabled={isInvalid} type="submit">
-                        Sign In
-                    </button>
-                </div>
+                <Button disabled={isInvalid} type="submit">
+                    Sign In
+                    </Button>
 
                 {error && <p>{error.message}</p>}
-            </form>
+            </Form>
         );
     }
 }
+const SignInLink = () => (
+    <BottomLinks as={Link} to={ROUTES.SIGN_IN}>
+        Do you have an account? Sign In
+    </BottomLinks>
+);
+
 
 const SignInForm = compose(
     withRouter,
@@ -100,4 +116,4 @@ const SignInForm = compose(
 
 export default SignInPage;
 
-export { SignInForm };
+export { SignInForm, SignInLink};

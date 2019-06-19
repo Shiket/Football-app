@@ -4,23 +4,26 @@ import * as ROUTES from '../../constants/routes';
 import SignOutButton from '../SignOut';
 import { AuthUserContext } from '../Session';
 import ball from '../../img/ball.png'
+import Layout from '../../Layout/Layout';
+import Header from '../../styleComponents/Header/Header';
+import Logo from '../../styleComponents/Header/Logo'
+import Wrapper from '../../styleComponents/Wrapper/Wrapper'
 
 const Navigation = () => (
+    <Layout>
+        <Header>
+            <Wrapper row as={Link} to={ROUTES.LANDING}>
+                <img src={ball} width="37" height="37" alt="logo-img" />
+                <Logo>Football app</Logo>
+            </Wrapper>
 
-    <div className="header">
-        <Link className="logo" to={ROUTES.LANDING}>
-            <img className="logo-img" src={ball} width="38" height="38" alt="ball" />
-            <div className="logo-name">Football app</div>
-        </Link>
-
-        <div className="nav">
-            <AuthUserContext.Consumer>
-                {authUser =>
-                    authUser ? <NavigationAuth /> : <NavigationNonAuth />
-                }
-            </AuthUserContext.Consumer>
-        </div>
-    </div>
+                <AuthUserContext.Consumer>
+                    {authUser =>
+                        authUser ? <NavigationAuth /> : <NavigationNonAuth />
+                    }
+                </AuthUserContext.Consumer>
+        </Header>
+    </Layout>
 
 );
 

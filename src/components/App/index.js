@@ -11,13 +11,13 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
 import indexHOC from './indexHOC';
-
+import Layout from '../../Layout/Layout'
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 
 const App = () => (
     <Router>
-        <div>
+        <Layout>
             <Navigation />
 
             <Route exact path={ROUTES.LANDING} component={LandingPage} />
@@ -28,7 +28,7 @@ const App = () => (
             <Route path={ROUTES.ACCOUNT} component={AccountPage} />
             <Route path={ROUTES.ADMIN} component={AdminPage} />
 
-        </div>
+        </Layout>
     </Router>
 );
 
