@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
 class LandingPage extends Component {
 
     componentDidMount() {
-        document.body.classList.add("bgswap");
+        document.body.classList.remove("bgForm");
         axios.get(`https://www.thesportsdb.com/api/v1/json/1/all_leagues.php`)
             .then(res => {
                 const persons = res.data;

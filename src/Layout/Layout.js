@@ -1,13 +1,14 @@
 import React from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { theme } from '../utils/theme';
-import loginBg from '../img/bg.jpg'
+import bg from '../img/bg1.jpg'
 
 const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Helvetica Neue light';
-        background: url(${loginBg}) no-repeat center center fixed;
+        background: url(${bg}) no-repeat center center fixed;
         margin:0;
+        padding:0;
         color: ${({ theme }) => theme.colors.white}
         background-size: cover;
         height: 100%;
@@ -26,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ children }) => (
     <ThemeProvider theme={theme}>
         <>
-            <GlobalStyle />
+            <GlobalStyle/>
             {children}
         </>
     </ThemeProvider>

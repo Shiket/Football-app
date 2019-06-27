@@ -50,8 +50,10 @@ class SignInFormBase extends Component {
     }
 
     componentDidMount() {
-        document.body.classList.remove("bgswap");
+        document.body.classList.add("bgForm");
+        console.log(this.props)
     }
+
     onSubmit = event => {
         const { email, password } = this.state;
 
