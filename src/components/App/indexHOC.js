@@ -4,34 +4,34 @@ import axios from 'axios';
 export default (WrappedComponent) => {
     return class indexHOC extends React.Component {
         state = {
-            leagues: {},
+            leagues: [],
         }
-        //
-        componentDidMount() {
+
+        async componentDidMount() {
             const leagueUrl = 'https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=';
-            const leagueId = [4328,4332,4335,4331,4337,4334];
-            // 4332 sa 4335 lalig 4331 bundes 4337 ere 4334 fr
-            let league = {
-                name:[],
+            const leagueId = [4328, 4332, 4335, 4331, 4337, 4334]; // 28pl 32sa 35la 31bn 37er 34fr
+            //constans
+            let data = [];
+
+            for (const item of leagueId) {
+                data.push(await axios.get(leagueUrl + item));
             }
 
-            leagueId.forEach(el => {
-                axios.get(leagueUrl + el.toString())
-                .then(res =>{
-                    league.name.push(res.data.leagues[0].strLeague.split(' ').splice(1).join(' '))
-                })
-            })
-            console.log(league)
-            // let data = axios.all([leagueUrl + `4328`, leagueUrl + '4335', leagueUrl + '4331', leagueUrl + '4337', leagueUrl + '4334'])
-            //     .then(axios.spread(function (acct, perms) {
-            //         console.log(perms);
-            //     }))
-          }
+            const leaguesData = data.map((res) => ({
+                name: res.data.leagues[0].strLeague.split(' ').splice(1).join(' '),
+                country: res.data.leagues[0].strCountry,
+                logo: res.data.leagues[0].strBadge
+            }));
+
+            this.setState({
+                leagues: [...leaguesData]
+            });
+        }
         render() {
-            if (this.state.length === 0) return <div>Loading..</div>
+            if (this.state.leagues.length === 0) return <div>Loading..</div>
             return (
-                <WrappedComponent {...this.props} />
-                // context do sesji
+                <WrappedComponent {...this.props}
+                    leagues={this.state.leagues} />
             )
         }
     }

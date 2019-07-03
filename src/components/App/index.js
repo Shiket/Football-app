@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Navigation from '../Navigation';
@@ -15,21 +15,25 @@ import Layout from '../../Layout/Layout'
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 
-const App = () => (
-    <Router>
-        <Layout>
-            <Navigation />
+class App extends Component {
+    render() {
+        return (
+            <Router>
+                <Layout>
+                    <Navigation />
 
-            <Route exact path={ROUTES.LANDING} component={LandingPage} />
-            <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-            <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-            <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-            <Route path={ROUTES.HOME} component={HomePage} />
-            <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-            <Route path={ROUTES.ADMIN} component={AdminPage} />
+                    <Route exact path={ROUTES.LANDING} render={() => <LandingPage leagues={this.props.leagues} />} />
+                    <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+                    <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+                    <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+                    <Route path={ROUTES.HOME} component={HomePage} />
+                    <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+                    <Route path={ROUTES.ADMIN} component={AdminPage} />
 
-        </Layout>
-    </Router>
-);
+                </Layout>
+            </Router>
+        );
+    }
+}
 
-export default indexHOC(withAuthentication(App));
+export default withAuthentication(indexHOC(App));
