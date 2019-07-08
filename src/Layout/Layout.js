@@ -4,8 +4,10 @@ import { theme } from '../utils/theme';
 import bg from '../img/bg1.jpg'
 
 const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
     body {
-        font-family: 'Helvetica Neue light';
+        font-family: 'Montserrat','Helvetica Neue light';
         background: url(${bg}) no-repeat center center fixed;
         margin:0;
         padding:0;

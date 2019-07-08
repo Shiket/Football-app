@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
+import Wrapper from '../../styleComponents/Wrapper/Wrapper'
 import { ReactTableDefaults } from 'react-table'
 
-const StyledWrapper = styled.div`
-    display:flex;
-    flex-direction: column;
-    align-self: center;
-    align-items: center;
-    padding-top:20px;
-    `;
+
 
 Object.assign(ReactTableDefaults, {
     minRows: 2,
@@ -22,7 +17,8 @@ Object.assign(ReactTableDefaults, {
         backgroundColor: "rgba(117, 117, 117, 0.8)",
         color: "#fff",
         fontSize: 17,
-        border: 'none'
+        border: 'none',
+        marginTop: 50
     },
 })
 
@@ -33,7 +29,8 @@ class LandingPage extends Component {
     }
 
     render() {
-        const columns = [{
+        const columns = [
+            {
             accessor: 'logo',
             minWidth: 100,
             Cell: props => <img src={props.value} alt='logo' width="80" height="80" />,
@@ -47,10 +44,10 @@ class LandingPage extends Component {
                 height: '100%',
                 marginLeft: '10%'
             }}>{props.value}</span>,
-            minWidth: 200,
+            minWidth: 140,
         }, {
             accessor: 'country',
-            minWidth: 200,
+            minWidth: 120,
             Cell: props => <span style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -58,18 +55,44 @@ class LandingPage extends Component {
                 height: '100%'
             }}>{props.value}</span>
         }, {
+            accessor: 'medal',
+            minWidth: 35,
+            style: { display: 'flex', flexDirection: 'column', justifyContent: "center", }
+
+        }, {
             accessor: 'firstTeam',
-            minWidth: 200,
+            minWidth: 120,
+            Cell: props => <span style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                height: '100%',
+            }}>{props.value}</span>
+        }, {
+            accessor: 'secondMedal',
+            minWidth: 35,
+            style: { display: 'flex', flexDirection: 'column', justifyContent: "center", }
+
+        }, {
+            accessor: 'secondTeam',
+            minWidth: 120,
+            Cell: props => <span style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                height: '100%',
+            }}>{props.value}</span>
         }
+
         ]
         return (
-            <StyledWrapper>
+            <Wrapper>
                 <ReactTable
                     data={this.props.leagues}
                     columns={columns}
                     className="-striped"
                 />
-            </StyledWrapper>
+            </Wrapper>
         )
     }
 }
