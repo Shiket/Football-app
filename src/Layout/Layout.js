@@ -16,6 +16,18 @@ const GlobalStyle = createGlobalStyle`
         height: 100%;
     }
 
+    body .ReactTable.-striped .rt-tr.-odd { background:rgba(0,0,0,0.25) };
+    body .ReactTable.-striped .rt-tr:hover { background:rgba(0,0,0,0.2) };
+    body .ReactTable .rt-tr:hover .rt-td {
+    background: rgba(0,0,0,0.5);
+    transition:0.5s;
+    }
+    body .ReactTable .rt-tbody .rt-tr-group{
+        border-bottom:none;
+    }
+    body .ReactTable .rt-tr .rt-td{ border:none }
+  }
+
     *, *::before, *::after {
         box-sizing: border-box;
     }

@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import medal from '../../img/medal.png'
 import secondMedal from '../../img/medal2.png'
+import Loader from '../../styleComponents/Loader/Loader'
+import * as DATA from '../../constants/data';
 
 export default (WrappedComponent) => {
     return class indexHOC extends React.Component {
@@ -10,19 +12,15 @@ export default (WrappedComponent) => {
         }
 
         async componentDidMount() {
-            const leagueUrl = 'https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=';
-            const tableUrl = 'https://www.thesportsdb.com/api/v1/json/1/lookuptable.php?l=';
-            const leagueId = [4328, 4332, 4335, 4331, 4337, 4334]; // 28pl 32sa 35la 31bn 37er 34fr
-            //constans
             let data = [];
             let tables = [];
 
-            for (const item of leagueId) {
-                tables.push(await axios.get(tableUrl + item + '&s=1819'));
+            for (const item of DATA.LEAGUE_ID) {
+                tables.push(await axios.get(DATA.TABLE_URL + item + '&s=1819'));
             }
 
-            for (const item of leagueId) {
-                data.push(await axios.get(leagueUrl + item));
+            for (const item of DATA.LEAGUE_ID) {
+                data.push(await axios.get(DATA.LEAGUE_URL + item));
             }
 
             const tablesData = tables.map((res,i) =>  ({
@@ -45,7 +43,7 @@ export default (WrappedComponent) => {
             });
         }
         render() {
-            if (this.state.leagues.length === 0) return <div>Loading..</div>
+            if (this.state.leagues.length === 0) return <Loader><div></div></Loader>
             return (
                 <WrappedComponent {...this.props}
                     leagues={this.state.leagues} />
