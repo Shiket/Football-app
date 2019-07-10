@@ -9,9 +9,14 @@ export default (WrappedComponent) => {
     return class indexHOC extends React.Component {
         state = {
             leagues: [],
+            width: 0,
         }
 
         async componentDidMount() {
+
+            this.updateWindowDimensions();
+            window.addEventListener("resize", this.updateWindowDimensions);
+
             let data = [];
             let tables = [];
 
@@ -42,11 +47,21 @@ export default (WrappedComponent) => {
                 leagues: [...leaguesData]
             });
         }
+
+        componentWillUnmount() {
+            window.removeEventListener("resize", this.updateWindowDimensions);
+        }
+
+        updateWindowDimensions = () => {
+            this.setState({ width: window.innerWidth });
+        };
+
         render() {
-            if (this.state.leagues.length === 0) return <Loader><div></div></Loader>
+            if (this.state.leagues.length === 0 || this.state.width === 0) return <Loader><div></div></Loader>
             return (
                 <WrappedComponent {...this.props}
-                    leagues={this.state.leagues} />
+                    leagues={this.state.leagues}
+                    windowWidth={this.state.width} />
             )
         }
     }

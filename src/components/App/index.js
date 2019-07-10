@@ -22,7 +22,7 @@ class App extends Component {
                 <Layout>
                     <Navigation />
 
-                    <Route exact path={ROUTES.LANDING} render={() => <LandingPage leagues={this.props.leagues} />} />
+                    <Route exact path={ROUTES.LANDING} render={() => <LandingPage leagues={this.props.leagues} windowWidth={this.props.windowWidth} />} />
                     <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
                     <Route path={ROUTES.SIGN_IN} component={SignInPage} />
                     <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
