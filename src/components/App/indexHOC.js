@@ -32,7 +32,6 @@ export default (WrappedComponent) => {
                 table: res.data.table,
             }));
 
-            tablesData.forEach(a => console.log(a.table))
             const leaguesData = data.map((res, i) => ({
                 name: res.data.leagues[0].strLeague.split(' ').splice(1).join(' '),
                 country: res.data.leagues[0].strCountry,

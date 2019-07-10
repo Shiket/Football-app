@@ -3,6 +3,7 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import Wrapper from '../../styleComponents/Wrapper/Wrapper'
 import { ReactTableDefaults } from 'react-table'
+import { Link } from 'react-router-dom'
 
 Object.assign(ReactTableDefaults, {
     minRows: 2,
@@ -35,13 +36,14 @@ class LandingPage extends Component {
                 height: '100%',
             }, {
                 accessor: 'name',
-                Cell: props => <span style={{
+                Cell: props  =>
+                    <span style={{
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
                     height: '100%',
                     marginLeft: '10%'
-                }}>{props.value}</span>,
+                    }}>{props.value}</span>,
                 minWidth: 140,
             }, {
                 accessor: 'country',
@@ -52,7 +54,7 @@ class LandingPage extends Component {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     height: '100%'
-                }}></span>
+                }}>{props.value}</span>
             }, {
                 accessor: 'medal',
                 minWidth: 35,
@@ -93,9 +95,12 @@ class LandingPage extends Component {
                     data={this.props.leagues}
                     columns={columns}
                     className="-striped"
-                    getTrProps={() => {
+                    getTrProps={(state, rowInfo, row, instance) => {
                         return {
-                            style: { height: '105px' }
+                            style: { height: '105px' },
+                            onClick: () => {
+                              //<Link to={`${rowInfo.original.name.split(' ').join('')}`}></Link>
+                            }
                         }
                     }}
                     getTheadProps={() => {
