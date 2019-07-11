@@ -3,7 +3,6 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import Wrapper from '../../styleComponents/Wrapper/Wrapper'
 import { ReactTableDefaults } from 'react-table'
-import { Link } from 'react-router-dom'
 
 Object.assign(ReactTableDefaults, {
     minRows: 2,
