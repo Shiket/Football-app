@@ -9,6 +9,7 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
+import League from '../League/index'
 
 import indexHOC from './indexHOC';
 import Layout from '../../Layout/Layout'
@@ -29,6 +30,7 @@ class App extends Component {
                     <Route path={ROUTES.HOME} component={HomePage} />
                     <Route path={ROUTES.ACCOUNT} component={AccountPage} />
                     <Route path={ROUTES.ADMIN} component={AdminPage} />
+                    <Route path={ROUTES.LEAGUE} component={League} />
 
                 </Layout>
             </Router>
