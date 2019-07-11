@@ -3,6 +3,7 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import Wrapper from '../../styleComponents/Wrapper/Wrapper'
 import { ReactTableDefaults } from 'react-table'
+import { withRouter } from "react-router";
 
 Object.assign(ReactTableDefaults, {
     minRows: 2,
@@ -23,6 +24,7 @@ class LandingPage extends Component {
 
     componentDidMount() {
         document.body.classList.remove("bgForm");
+        console.log(this.props)
     }
 
     render() {
@@ -98,7 +100,8 @@ class LandingPage extends Component {
                         return {
                             style: { height: '105px' },
                             onClick: () => {
-                              //<Link to={`${rowInfo.original.name.split(' ').join('')}`}></Link>
+                                this.props.history.push(`${rowInfo.original.name.split(' ').join('')}`)
+                                   // `${rowInfo.original.name.split(' ').join('')}`
                             }
                         }
                     }}
@@ -113,4 +116,4 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);

@@ -9,6 +9,7 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
+import League from '../League/index'
 import NotFound from '../NotFound'
 
 import indexHOC from './indexHOC';
@@ -31,7 +32,8 @@ class App extends Component {
                         <Route path={ROUTES.HOME} component={HomePage} />
                         <Route path={ROUTES.ACCOUNT} component={AccountPage} />
                         <Route path={ROUTES.ADMIN} component={AdminPage} />
-
+                        <Route path={ROUTES.LEAGUE} component={League} />
+                          
                         <Route component={NotFound} />
                     </Switch>
 
