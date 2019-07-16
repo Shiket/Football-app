@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Button = styled.button`
   margin:0px 0 25px 0;
   padding:6px 20px;
   margin-left:auto;
   margin-right:auto;
-  background-color: ${({theme}) => theme.colors.transparent};
+  background-color: ${({ theme }) => theme.colors.transparent};
   color: ${({ theme }) => theme.colors.white}
   font-size:1em;
   border-style:solid;
@@ -18,4 +18,4 @@ export const Button = styled.button`
     color:  ${({ theme }) => theme.colors.farGray};
     border-color:${({ theme }) => theme.colors.farGray} !important;
   }
-`
+`;

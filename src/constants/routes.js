@@ -15,5 +15,5 @@ export const ROUTES = {
   account: '/account',
   passwordForget: '/pw-forget',
   league: '/standings/:league',
-  admin: '/admin'
+  admin: '/admin',
 };

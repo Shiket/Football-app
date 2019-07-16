@@ -1,10 +1,10 @@
-import React from 'react'
-import { Wrapper, Message } from '../../styleComponents'
+import React from 'react';
+import { Wrapper, Message } from '../../styleComponents';
 
 const NotFound = () => (
-    <Wrapper>
-        <Message>404 - Page not found</Message>
-    </Wrapper>
+  <Wrapper>
+    <Message>404 - Page not found</Message>
+  </Wrapper>
 );
 
-export default NotFound
+export default NotFound;

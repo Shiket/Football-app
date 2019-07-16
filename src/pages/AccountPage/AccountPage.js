@@ -5,13 +5,15 @@ import { PasswordForgetForm } from '../../components/PasswordForget/PasswordForg
 import PasswordChangeForm from '../../components/PasswordChange/PasswordChange';
 
 const AccountPage = () => (
-    <AuthUserContext.Consumer>
-        {authUser => !!authUser ? (
-            <div>
-                <h1>Account: {authUser.email}</h1>
-                <PasswordForgetForm />
-                <PasswordChangeForm />
-            </div>
-        ) : null}
-    </AuthUserContext.Consumer>
+  <AuthUserContext.Consumer>
+    {authUser =>
+      !!authUser ? (
+        <div>
+          <h1>Account: {authUser.email}</h1>
+          <PasswordForgetForm />
+          <PasswordChangeForm />
+        </div>
+      ) : null
+    }
+  </AuthUserContext.Consumer>
 );
