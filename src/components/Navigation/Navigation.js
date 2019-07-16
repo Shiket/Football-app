@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
-import SignOutButton from '../SignOut';
+import SignOutButton from '../SignOut/SignOut';
 import { AuthUserContext } from '../Session';
 import ball from '../../img/ball.png'
 import Layout from '../../Layout/Layout';

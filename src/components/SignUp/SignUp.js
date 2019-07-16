@@ -4,7 +4,7 @@ import { compose } from 'recompose';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
-import { SignInLink } from '../SignIn';
+import { SignInLink } from '../SignIn/SignIn';
 
 import ball from '../../img/ball.png'
 import Button from '../../styleComponents/Button/Button'

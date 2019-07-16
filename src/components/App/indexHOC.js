@@ -4,13 +4,13 @@ import medal from '../../img/medal.png'
 import secondMedal from '../../img/medal2.png'
 import Loader from '../../styleComponents/Loader/Loader'
 import * as DATA from '../../constants/data';
-
+// with router
 export default (WrappedComponent) => {
     return class indexHOC extends React.Component {
         state = {
             leagues: [],
             width: 0,
-        }
+        };
 
         async componentDidMount() {
 
@@ -56,11 +56,11 @@ export default (WrappedComponent) => {
         };
 
         render() {
-            if (this.state.leagues.length === 0 || this.state.width === 0) return <Loader><div></div></Loader>
+            if (this.state.leagues.length === 0 || this.state.width === 0) return <Loader><div></div></Loader>;
             return (
                 <WrappedComponent {...this.props}
-                    leagues={this.state.leagues}
-                    windowWidth={this.state.width} />
+                                  leagues={this.state.leagues}
+                                  windowWidth={this.state.width} />
             )
         }
     }

@@ -39,17 +39,17 @@ class LandingPage extends Component {
                 accessor: 'name',
                 Cell: props  =>
                     <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    height: '100%',
-                    marginLeft: '10%'
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        height: '100%',
+                        marginLeft: '10%'
                     }}>{props.value}</span>,
                 minWidth: 140,
             }, {
                 accessor: 'country',
                 minWidth: 100,
-                show: (this.props.windowWidth > 500 ? true : false),
+                show: (this.props.windowWidth > 500),
                 Cell: props => <span style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -59,13 +59,13 @@ class LandingPage extends Component {
             }, {
                 accessor: 'medal',
                 minWidth: 35,
-                show: (this.props.windowWidth > 750 ? true : false),
+                show: (this.props.windowWidth > 750),
                 style: { display: 'flex', flexDirection: 'column', justifyContent: "center", }
 
             }, {
                 accessor: 'firstTeam',
                 minWidth: 120,
-                show: (this.props.windowWidth > 750 ? true : false),
+                show: (this.props.windowWidth > 750),
                 Cell: props => <span style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -75,13 +75,13 @@ class LandingPage extends Component {
             }, {
                 accessor: 'secondMedal',
                 minWidth: 35,
-                show: (this.props.windowWidth > 1000 ? true : false),
+                show: (this.props.windowWidth > 1000),
                 style: { display: 'flex', flexDirection: 'column', justifyContent: "center" }
 
             }, {
                 accessor: 'secondTeam',
                 minWidth: 120,
-                show: (this.props.windowWidth > 1000 ? true : false),
+                show: (this.props.windowWidth > 1000),
                 Cell: props => <span style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -100,8 +100,8 @@ class LandingPage extends Component {
                         return {
                             style: { height: '105px' },
                             onClick: () => {
-                                this.props.history.push(`${rowInfo.original.name.split(' ').join('')}`)
-                                   // `${rowInfo.original.name.split(' ').join('')}`
+                                this.props.history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`)
+                                // `${rowInfo.original.name.split(' ').join('')}`
                             }
                         }
                     }}
