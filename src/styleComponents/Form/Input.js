@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Input = styled.input`
+export const Input = styled.input`
   color: ${({ theme }) => theme.colors.white};
   border: 3px solid ${({ theme }) => theme.colors.farGray};
   background-color: ${({ theme }) => theme.colors.darkGray};
@@ -20,5 +20,3 @@ const Input = styled.input`
   color: #fff;
 }
 `
-
-export default Input

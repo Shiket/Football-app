@@ -5,19 +5,10 @@ import { compose } from 'recompose';
 import { SignUpLink } from '../SignUp/SignUp';
 import { PasswordForgetLink } from '../PasswordForget/PasswordForget';
 import { withFirebase } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
+import { ROUTES } from '../../constants/routes';
 import { Link } from 'react-router-dom'
-
-import ball from '../../img/ball.png'
-import Layout from '../../Layout/Layout';
-import Button from '../../styleComponents/Button/Button';
-import Input from '../../styleComponents/Form/Input'
-import FormWrapper from '../../styleComponents/Form/FormWrapper'
-import Form from '../../styleComponents/Form/Form';
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
-import FormTitle from '../../styleComponents/Form/FormTitle';
-import FormLogo from '../../styleComponents/Form/FormLogo';
-import BottomLinks from '../../styleComponents/Form/BottomLinks'
+import ball from '../../assets/ball.png'
+import { Layout, Button, Input, Form, FormWrapper, Wrapper, FormLogo, FormTitle, BottomLinks } from '../../styleComponents';
 
 const SignInPage = () => (
     <Layout>
@@ -61,7 +52,7 @@ class SignInFormBase extends Component {
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push(ROUTES.HOME);
+                this.props.history.push(ROUTES.home);
             })
             .catch(error => {
                 this.setState({ error });
@@ -105,7 +96,7 @@ class SignInFormBase extends Component {
     }
 }
 const SignInLink = () => (
-    <BottomLinks as={Link} to={ROUTES.SIGN_IN}>
+    <BottomLinks as={Link} to={ROUTES.signIn}>
         Do you have an account? Sign In
     </BottomLinks>
 );

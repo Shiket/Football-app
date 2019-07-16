@@ -1,11 +1,3 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class League extends Component{
-    render(){
-        console.log(this.props)
-        return(
-            <div>hello</div>
-        )
-    }
-}
-export default League
+export const League = () => <div>Hello</div>;

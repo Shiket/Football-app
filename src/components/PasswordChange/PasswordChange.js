@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Form, Field } from 'react-final-form';
 import { withFirebase } from '../Firebase';
 
 const INITIAL_STATE = {
@@ -7,7 +7,23 @@ const INITIAL_STATE = {
     passwordTwo: '',
     error: null,
 };
-
+// na przykladzie react-final-form
+// export const PasswordChangeForm = () => {
+//     return (
+//         <div>
+//             <Form
+//                 onSubmit={(props) => console.log(props)}
+//                 render={({ handleSubmit }) => (
+//                     <form onSubmit={handleSubmit}>
+//                         <Field name='oldPassword' component='input' />
+//                         <Field name='newPassword' component='input' />
+//                         <button type='submit'>Zmien haslo</button>
+//                     </form>
+//                 )}
+//             />
+//         </div>
+//     )
+// }
 class PasswordChangeForm extends Component {
     constructor(props) {
         super(props);

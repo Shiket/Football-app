@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as ROUTES from '../../constants/routes';
+import { ROUTES } from '../../constants/routes';
 import SignOutButton from '../SignOut/SignOut';
 import { AuthUserContext } from '../Session';
-import ball from '../../img/ball.png'
+import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
-import Header from '../../styleComponents/Header/Header';
-import Logo from '../../styleComponents/Header/Logo'
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
+import { Header, Logo, Wrapper } from '../../styleComponents';
 
 const Navigation = () => (
     <Layout>
         <Header>
-            <Wrapper row as={Link} to={ROUTES.LANDING}>
+            <Wrapper row as={Link} to={ROUTES.landing}>
                 <img src={ball} width="37" height="37" alt="logo-img" />
                 <Logo>Football app</Logo>
             </Wrapper>

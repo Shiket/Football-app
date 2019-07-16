@@ -3,19 +3,12 @@ import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { withFirebase } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
+import { ROUTES } from '../../constants/routes';
 import { SignInLink } from '../SignIn/SignIn';
 
-import ball from '../../img/ball.png'
-import Button from '../../styleComponents/Button/Button'
+import ball from '../../assets/ball.png'
+import { Button, FormWrapper, Input, Form, Wrapper, BottomLinks, FormTitle, FormLogo } from '../../styleComponents'
 import Layout from '../../Layout/Layout';
-import FormWrapper from '../../styleComponents/Form/FormWrapper'
-import Input from '../../styleComponents/Form/Input'
-import Form from '../../styleComponents/Form/Form';
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
-import BottomLinks from '../../styleComponents/Form/BottomLinks';
-import FormLogo from '../../styleComponents/Form/FormLogo'
-import FormTitle from '../../styleComponents/Form/FormTitle';
 
 const SignUpPage = () => (
     <Layout bg>
@@ -64,7 +57,7 @@ class SignUpFormBase extends Component {
             })
             .then(authUser => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push(ROUTES.HOME);
+                this.props.history.push(ROUTES.home);
 
             })
             .catch(error => {
@@ -132,7 +125,7 @@ class SignUpFormBase extends Component {
 }
 
 const SignUpLink = () => (
-    <BottomLinks as={Link} to={ROUTES.SIGN_UP}>
+    <BottomLinks as={Link} to={ROUTES.signUp}>
         Don't have an account? Sign Up
     </BottomLinks>
 );

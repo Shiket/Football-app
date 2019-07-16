@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import medal from '../../img/medal.png'
-import secondMedal from '../../img/medal2.png'
+import medal from '../../assets/medal.png'
+import secondMedal from '../../assets/medal2.png'
 import Loader from '../../styleComponents/Loader/Loader'
 import * as DATA from '../../constants/data';
 // with router

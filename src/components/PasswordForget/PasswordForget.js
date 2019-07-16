@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import { SignUpLink } from '../SignUp/SignUp'
 import { withFirebase } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
-
-import ball from '../../img/ball.png'
+import { ROUTES } from '../../constants/routes';
+import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
-
-import Button from '../../styleComponents/Button/Button';
-import FormWrapper from '../../styleComponents/Form/FormWrapper';
-import Input from '../../styleComponents/Form/Input'
-import Form from '../../styleComponents/Form/Form';
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
-import BottomLinks from '../../styleComponents/Form/BottomLinks';
-import FormLogo from '../../styleComponents/Form/FormLogo';
-import FormTitle from '../../styleComponents/Form/FormTitle'
+import { Button, FormWrapper, Input, Form, Wrapper, BottomLinks, FormLogo, FormTitle } from '../../styleComponents'
 
 
 const PasswordForgetPage = () => (

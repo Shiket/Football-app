@@ -1,6 +1,6 @@
-import styled from  'styled-components'
+import styled from 'styled-components'
 
-const Button = styled.button`
+export const Button = styled.button`
   margin:0px 0 25px 0;
   padding:6px 20px;
   margin-left:auto;
@@ -19,5 +19,3 @@ const Button = styled.button`
     border-color:${({ theme }) => theme.colors.farGray} !important;
   }
 `
-
-export default Button

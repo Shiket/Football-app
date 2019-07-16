@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import bg from '../../img/bg1.jpg'
-const Loader = styled.div`
+import bg from '../../assets/bg1.jpg'
+export const Loader = styled.div`
 div,div:before
 	{display:block;position:absolute}
 
@@ -41,4 +41,3 @@ div:before{
 	to{transform:translate(-50%,-50%) rotate(360deg)}
 	}
 `
-export default Loader;
