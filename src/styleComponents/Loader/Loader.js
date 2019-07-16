@@ -4,7 +4,7 @@ const Loader = styled.div`
 div,div:before
 	{display:block;position:absolute}
 
-div{width:100%;height:100%; background: url(${bg})no-repeat center center fixed}
+div{width:100%;height:calc(100% - 150px); background: url(${bg})no-repeat center center fixed}
 
 div:before{
 	background-color:rgba(0,0,0,0);

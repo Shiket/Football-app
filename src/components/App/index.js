@@ -12,7 +12,6 @@ import AdminPage from '../Admin/Admin';
 import League from '../League/League'
 import NotFound from '../NotFound/NotFound'
 
-import indexHOC from './indexHOC';
 import Layout from '../../Layout/Layout'
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -25,7 +24,7 @@ class App extends Component {
                     <Navigation />
 
                     <Switch>
-                        <Route exact path={ROUTES.LANDING} render={() => <LandingPage leagues={this.props.leagues} windowWidth={this.props.windowWidth} />} />
+                        <Route exact path={ROUTES.LANDING} component={LandingPage} />} />
                         <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
                         <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
                         <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
@@ -43,4 +42,4 @@ class App extends Component {
     }
 }
 
-export default withAuthentication(indexHOC(App));
+export default withAuthentication(App);

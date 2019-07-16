@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import Wrapper from '../../styleComponents/Wrapper/Wrapper'
 import { ReactTableDefaults } from 'react-table'
-import { withRouter } from "react-router";
+import { withRouter } from "react-router"
+import landingHOC from './LandingHOC'
 
 Object.assign(ReactTableDefaults, {
     minRows: 2,
@@ -18,12 +19,11 @@ Object.assign(ReactTableDefaults, {
         border: 'none',
         marginTop: '8vh'
     }
-})
+});
 
 class LandingPage extends Component {
 
     componentDidMount() {
-        document.body.classList.remove("bgForm");
         console.log(this.props)
     }
 
@@ -89,19 +89,18 @@ class LandingPage extends Component {
                     height: '100%',
                 }}>{props.value}</span>
             }
-        ]
+        ];
         return (
             <Wrapper>
                 <ReactTable
                     data={this.props.leagues}
                     columns={columns}
                     className="-striped"
-                    getTrProps={(state, rowInfo, row, instance) => {
+                    getTrProps={(state, rowInfo) => {
                         return {
                             style: { height: '105px' },
                             onClick: () => {
                                 this.props.history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`)
-                                // `${rowInfo.original.name.split(' ').join('')}`
                             }
                         }
                     }}
@@ -116,4 +115,4 @@ class LandingPage extends Component {
     }
 }
 
-export default withRouter(LandingPage);
+export default withRouter(landingHOC(LandingPage));
