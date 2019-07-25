@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Header = styled.div`
+export const Header = styled.div`
     background-color:#2f2f2fa6;
     height:75px;
     width:100%;
@@ -13,6 +13,4 @@ const Header = styled.div`
     *{
         list-style: none;
     }
-`
-
-export default Header
+`;

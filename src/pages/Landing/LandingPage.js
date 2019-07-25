@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
+import { Wrapper } from '../../styleComponents/index'
 import { ReactTableDefaults } from 'react-table'
 import { withRouter } from "react-router"
 import landingHOC from './LandingHOC'
@@ -21,11 +21,7 @@ Object.assign(ReactTableDefaults, {
     }
 });
 
-class LandingPage extends Component {
-
-    componentDidMount() {
-        console.log(this.props)
-    }
+class Landing extends Component {
 
     render() {
         const columns = [
@@ -114,5 +110,4 @@ class LandingPage extends Component {
         )
     }
 }
-
-export default withRouter(landingHOC(LandingPage));
+export const LandingPage = withRouter(landingHOC(Landing));

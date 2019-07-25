@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
-import SignOutButton from '../SignOut/SignOut';
+import { SignOutButton } from '../../pages/index';
 import { AuthUserContext } from '../Session';
-import ball from '../../img/ball.png'
+import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
-import Header from '../../styleComponents/Header/Header';
-import Logo from '../../styleComponents/Header/Logo'
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
+import { Header, Logo, Wrapper } from '../../styleComponents/index';
 
 const Navigation = () => (
     <Layout>
@@ -54,6 +52,5 @@ const NavigationNonAuth = () => (
         </li>
     </ul>
 );
-
 
 export default Navigation;

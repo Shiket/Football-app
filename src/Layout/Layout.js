@@ -1,7 +1,7 @@
 import React from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { theme } from '../utils/theme';
-import bg from '../img/bg1.jpg'
+import bg from '../assets/bg1.jpg'
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.white};
         text-decoration: none;
     }
-`
+`;
 
 const Layout = ({ children }) => (
     <ThemeProvider theme={theme}>
@@ -46,6 +46,6 @@ const Layout = ({ children }) => (
         </>
     </ThemeProvider>
 
-)
+);
 
 export default Layout

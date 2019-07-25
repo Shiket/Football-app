@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
-class League extends Component{
+export class LeaguePage extends Component{
     render(){
-        console.log(this.props)
         return(
             <div>hello</div>
         )
     }
 }
-export default League

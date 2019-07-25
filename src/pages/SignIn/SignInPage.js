@@ -1,23 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
-import { SignUpLink } from '../SignUp/SignUp';
-import { PasswordForgetLink } from '../PasswordForget/PasswordForget';
-import { withFirebase } from '../Firebase';
+import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
+import { SignUpLink, PasswordForgetLink } from '../index';
 import { Link } from 'react-router-dom'
-
-import ball from '../../img/ball.png'
+import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
-import Button from '../../styleComponents/Button/Button';
-import Input from '../../styleComponents/Form/Input'
-import FormWrapper from '../../styleComponents/Form/FormWrapper'
-import Form from '../../styleComponents/Form/Form';
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
-import FormTitle from '../../styleComponents/Form/FormTitle';
-import FormLogo from '../../styleComponents/Form/FormLogo';
-import BottomLinks from '../../styleComponents/Form/BottomLinks'
+import { Button, Input, FormWrapper, Form, Wrapper, FormTitle,
+    FormLogo, BottomLinks} from '../../styleComponents/index';
 
 const SignInPage = () => (
     <Layout>
@@ -116,6 +107,4 @@ const SignInForm = compose(
     withFirebase,
 )(SignInFormBase);
 
-export default SignInPage;
-
-export { SignInForm, SignInLink};
+export { SignInForm, SignInLink, SignInPage};
