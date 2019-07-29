@@ -9,6 +9,7 @@ export default (WrappedComponent) => {
     return class indexHOC extends React.Component {
         state = {
             leagues: [],
+            standings: [],
             width: 0,
         };
 
@@ -39,7 +40,8 @@ export default (WrappedComponent) => {
                 medal: <img src={medal} width="35" height="35" alt='medal'/>,
                 secondMedal: <img src={secondMedal} width="35" height="35" alt='medal' />,
                 firstTeam: tablesData[i].table[0].name,
-                secondTeam: tablesData[i].table[1].name
+                secondTeam: tablesData[i].table[1].name,
+                table: tablesData[i].table
             }));
 
             this.setState({

@@ -10,7 +10,7 @@ Object.assign(ReactTableDefaults, {
     minRows: 2,
     showPagination: false,
     resizable: false,
-    sortable: false,
+    sortable: true,
     style: {
         width: '85%',
         backgroundColor: "rgba(105, 105, 105, 0.78)",
@@ -96,7 +96,8 @@ class Landing extends Component {
                         return {
                             style: { height: '105px' },
                             onClick: () => {
-                                this.props.history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`)
+                                 this.props.history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`,
+                                     {state: this.props.leagues[rowInfo.index].table})
                             }
                         }
                     }}
