@@ -4,7 +4,6 @@ import 'react-table/react-table.css'
 import { Wrapper } from '../../styleComponents/index'
 import { ReactTableDefaults } from 'react-table'
 import { withRouter } from "react-router"
-import landingHOC from './LandingHOC'
 
 Object.assign(ReactTableDefaults, {
     minRows: 5,
@@ -93,4 +92,4 @@ class Landing extends Component {
         )
     }
 }
-export const LandingPage = withRouter(landingHOC(Landing));
+export const LandingPage = withRouter(Landing);

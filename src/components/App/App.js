@@ -6,6 +6,7 @@ import { LandingPage, SignInPage, AccountPage, AdminPage,
 HomePage, LeaguePage, NotFoundPage, PasswordForgetPage, SignUpPage} from "../../pages";
 import Layout from '../../Layout/Layout'
 import { withAuthentication } from '../Session'
+import AppHOC from './AppHOC'
 
 class App extends Component {
     render() {
@@ -15,7 +16,7 @@ class App extends Component {
                     <Navigation />
 
                     <Switch>
-                        <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                        <Route exact path={ROUTES.LANDING} render={() => <LandingPage leagues={this.props.leagues} windowWidth={this.props.windowWidth} />} />
                         <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
                         <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
                         <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
@@ -33,4 +34,4 @@ class App extends Component {
     }
 }
 
-export default withAuthentication(App);
+export default withAuthentication(AppHOC(App));

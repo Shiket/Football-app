@@ -5,7 +5,11 @@ import bg from '../assets/bg1.jpg'
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-
+    html {
+        margin:0;
+        padding:0;
+        max-height:100vh;
+    }
     body {
         font-family: 'Montserrat','Helvetica Neue light';
         background: url(${bg}) no-repeat center center fixed;
@@ -13,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
         padding:0;
         color: ${({ theme }) => theme.colors.white}
         background-size: cover;
-        height: 100%;
+        max-height: 100vh;
     }
 
     body .ReactTable.-striped .rt-tr.-odd { background:rgba(0,0,0,0.25) };
@@ -22,9 +26,11 @@ const GlobalStyle = createGlobalStyle`
     background: rgba(0,0,0,0.5);
     transition:0.5s;
     }
+
     body .ReactTable .rt-tbody .rt-tr-group{
         border-bottom:none;
     }
+
     body .ReactTable .rt-tr .rt-td{ border:none }
   }
 

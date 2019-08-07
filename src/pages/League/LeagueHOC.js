@@ -16,7 +16,7 @@ export default (WrappedComponent) => {
 
             for (let i = 0; i < data.length; i++) { // na es6 przerobić
                 merged.push({
-                    ...data[i], 
+                    ...data[i],
                     ...logo.find(a => a[0].teamid === data[i].teamid)
                 });
             }
@@ -29,7 +29,7 @@ export default (WrappedComponent) => {
         }
 
         render() {
-            if (this.state.teams.length === 0) return <Loader><div></div></Loader>;
+            if (this.state.teams.length === 0) return <Loader header><div></div></Loader>;
             return (
                 <WrappedComponent {...this.props}
                                     teams={this.state.teams} />

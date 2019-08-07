@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 import bg from '../../assets/bg1.jpg'
+
 export const Loader = styled.div`
     div,div:before
         {display:block;position:absolute}
-    
-    div{width:100%;height:calc(100% - 150px); background: url(${bg})no-repeat center center fixed}
-    
+
+    div{width:100%;background: url(${bg})no-repeat center center fixed;
+    height:calc(100% - 150px);
+    height: ${props => (props.header ? 'calc(100% - 150px)' : '100%')};
+}
+
     div:before{
         background-color:rgba(0,0,0,0);
         background-image:
@@ -35,7 +39,7 @@ export const Loader = styled.div`
         border:1px solid rgba(0,0,0,0);
         animation:rotation 1s ease-in-out infinite
         }
-    
+
     @keyframes rotation{
         from{transform:translate(-50%,-50%) rotate(0deg)}
         to{transform:translate(-50%,-50%) rotate(360deg)}

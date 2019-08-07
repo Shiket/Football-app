@@ -7,7 +7,7 @@ import Larrow from '../../assets/leftArrow.png'
 
 class League extends Component {
     render() {
-
+console.log(this.props)
         const columns = [
             {
                 Header: '#',
@@ -100,8 +100,7 @@ class League extends Component {
                     }}
                     getProps={() => {
                         return {
-                            style: { marginTop: '3vh', width: '75%', height: '80vh',
-                            className: 'table', }
+                            style: { marginTop: '3vh', width: '75%', height: '80vh' }
                         }
                     }}
                     getTheadProps={() => {
