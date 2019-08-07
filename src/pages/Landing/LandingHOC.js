@@ -22,7 +22,7 @@ export default (WrappedComponent) => {
             let tables = [];
 
             for (const item of DATA.LEAGUE_ID) {
-                tables.push(await axios.get(DATA.TABLE_URL + item + '&s=1819'));
+                tables.push(await axios.get(DATA.TABLE_URL + item + '&s=1920'));
             }
 
             for (const item of DATA.LEAGUE_ID) {
@@ -35,6 +35,7 @@ export default (WrappedComponent) => {
 
             const leaguesData = data.map((res, i) => ({
                 name: res.data.leagues[0].strLeague.split(' ').splice(1).join(' '),
+                orgName: res.data.leagues[0].strLeague.split(' ').join('%20'),
                 country: res.data.leagues[0].strCountry,
                 logo: res.data.leagues[0].strBadge,
                 medal: <img src={medal} width="35" height="35" alt='medal'/>,

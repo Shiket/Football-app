@@ -7,23 +7,19 @@ import { withRouter } from "react-router"
 import landingHOC from './LandingHOC'
 
 Object.assign(ReactTableDefaults, {
-    minRows: 2,
+    minRows: 5,
     showPagination: false,
     resizable: false,
     sortable: true,
     style: {
-        width: '85%',
-        backgroundColor: "rgba(105, 105, 105, 0.78)",
         color: "#fff",
-        fontSize: 17,
         border: 'none',
-        marginTop: '8vh'
     }
 });
 
 class Landing extends Component {
-
     render() {
+        console.log(this.props)
         const columns = [
             {
                 accessor: 'logo',
@@ -41,10 +37,10 @@ class Landing extends Component {
                         height: '100%',
                         marginLeft: '10%'
                     }}>{props.value}</span>,
-                minWidth: 140,
+                minWidth: 180,
             }, {
                 accessor: 'country',
-                minWidth: 100,
+                minWidth: 120,
                 show: (this.props.windowWidth > 500),
                 Cell: props => <span style={{
                     display: 'flex',
@@ -83,30 +79,36 @@ class Landing extends Component {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     height: '100%',
+                    width: '100%'
                 }}>{props.value}</span>
             }
         ];
         return (
             <Wrapper>
-                <ReactTable
-                    data={this.props.leagues}
-                    columns={columns}
-                    className="-striped"
-                    getTrProps={(state, rowInfo) => {
-                        return {
-                            style: { height: '105px' },
-                            onClick: () => {
-                                 this.props.history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`,
-                                     {state: this.props.leagues[rowInfo.index].table})
+                    <ReactTable
+                        data={this.props.leagues}
+                        columns={columns}
+                        className="-striped"
+                        getTrProps={(state, rowInfo) => {
+                            return {
+                                style: { height: '105px' },
+                                onClick: () => {
+                                    this.props.history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`,
+                                        { state: [this.props.leagues[rowInfo.index].table, this.props.leagues[rowInfo.index].orgName, this.props.leagues[rowInfo.index].logo]})
+                                }
                             }
-                        }
-                    }}
-                    getTheadProps={() => {
-                        return {
-                            style: { display: 'none' }
-                        }
-                    }}
-                />
+                        }}
+                        getProps={() => {
+                            return {
+                                style: { marginTop: '8vh', width:'85%',backgroundColor: "rgba(105, 105, 105, 0.78)" }
+                            }
+                        }}
+                        getTheadProps={() => {
+                            return {
+                                style: { display: 'none' }
+                            }
+                        }}
+                    />
             </Wrapper>
         )
     }
