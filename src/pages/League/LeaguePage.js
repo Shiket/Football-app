@@ -12,105 +12,61 @@ class League extends Component {
             {
                 Header: '#',
                 minWidth: 2,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '100%'
-                }}>{props.index + 1}</span>
+                Cell: props => <span>{props.index + 1}</span>,
+                style: {display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%'}
             }, {
                 accessor: 'logo',
                 minWidth: 4,
-                Cell: props => <img src={props.value} width="34" height="34" alt="logo" />,
+                Cell: props => <img src={props.value} width="30" height="30" alt="logo" />,
                 style: { display: 'flex', justifyContent: "center", alignItems: 'center', }
             }, {
                 Header: 'Team',
                 accessor: 'name',
                 minWidth: 13,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    height: '100%'
-                }}>{props.value}</span>
+                Cell: props => <span>{props.value}</span>,
+                style: {display: 'flex', alignItems: 'center', height: '100%'}
             }, {
                 Header: 'PLD',
                 accessor: 'played',
                 minWidth: 7,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height:  '100%',
-                }}>{props.value}</span>
+                Cell: props => <span>{props.value}</span>,
+                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'W',
                 accessor: 'win',
                 minWidth: 4,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '100%',
-                }}>{props.value}</span>
+                Cell: props => <span>{props.value}</span>,
+                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'D',
                 accessor: 'draw',
                 minWidth: 4,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '100%',
-                }}>{props.value}</span>
+                Cell: props => <span>{props.value}</span>,
+                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'L',
                 accessor: 'loss',
                 minWidth: 4,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '100%',
-                }}>{props.value}</span>
+                Cell: props => <span>{props.value}</span>,
+                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'G+',
                 accessor: 'goalsfor',
                 minWidth: 4,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '100%',
-                }}>{props.value}</span>
+                Cell: props => <span>{props.value}</span>,
+                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'G-',
                 accessor: 'goalsagainst',
                 minWidth: 4,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '100%',
-                }}>{props.value}</span>
+                Cell: props => <span>{props.value}</span>,
+                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'P',
                 accessor: 'total',
                 minWidth: 3,
-                Cell: props => <span style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '100%',
-                }}>{props.value}</span>
+                Cell: props => <span>{props.value}</span>,
+                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }
         ];
         return (
@@ -134,7 +90,7 @@ class League extends Component {
                     className="-striped"
                     getTrProps={() => {
                         return {
-                            style: { height: '50px' }
+                            style: { height: '46px' }
                         }
                     }}
                     getTbodyProps={() => {
