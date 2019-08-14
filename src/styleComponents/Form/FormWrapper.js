@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const FormWrapper = styled.div`
+export const FormWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.contentBg};
   max-width:650px;
   width:85%;
@@ -12,6 +12,4 @@ const FormWrapper = styled.div`
   align-self: center;
   align-items: center;
   border-radius: 9px;
-`
-
-export default FormWrapper
+`;

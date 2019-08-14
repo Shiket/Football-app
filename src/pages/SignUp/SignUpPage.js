@@ -2,23 +2,17 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
-import { withFirebase } from '../Firebase';
+import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
-import { SignInLink } from '../SignIn/SignIn';
-
-import ball from '../../img/ball.png'
-import Button from '../../styleComponents/Button/Button'
+import { SignInLink } from '../index';
+import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
-import FormWrapper from '../../styleComponents/Form/FormWrapper'
-import Input from '../../styleComponents/Form/Input'
-import Form from '../../styleComponents/Form/Form';
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
-import BottomLinks from '../../styleComponents/Form/BottomLinks';
-import FormLogo from '../../styleComponents/Form/FormLogo'
-import FormTitle from '../../styleComponents/Form/FormTitle';
+
+import { Button, Input, FormWrapper, Form, Wrapper, FormTitle,
+    FormLogo, BottomLinks} from '../../styleComponents/index';
 
 const SignUpPage = () => (
-    <Layout bg>
+    <Layout>
         <Wrapper>
             <FormWrapper>
                 <Wrapper row>
@@ -72,7 +66,7 @@ class SignUpFormBase extends Component {
             });
 
         event.preventDefault();
-    }
+    };
 
     onChange = event => {
         this.setState({ [event.target.name]: event.target.value });
@@ -141,6 +135,5 @@ const SignUpForm = compose(
     withRouter,
     withFirebase,
 )(SignUpFormBase);
-export default SignUpPage;
 
-export { SignUpForm, SignUpLink };
+export { SignUpForm, SignUpLink, SignUpPage };

@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { SignUpLink } from '../SignUp/SignUp'
-import { withFirebase } from '../Firebase';
+import { SignUpLink } from '../index'
+import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
 
-import ball from '../../img/ball.png'
+import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
 
-import Button from '../../styleComponents/Button/Button';
-import FormWrapper from '../../styleComponents/Form/FormWrapper';
-import Input from '../../styleComponents/Form/Input'
-import Form from '../../styleComponents/Form/Form';
-import Wrapper from '../../styleComponents/Wrapper/Wrapper'
-import BottomLinks from '../../styleComponents/Form/BottomLinks';
-import FormLogo from '../../styleComponents/Form/FormLogo';
-import FormTitle from '../../styleComponents/Form/FormTitle'
-
+import { Button, FormWrapper, Input, Form, Wrapper,
+    BottomLinks, FormLogo, FormTitle } from '../../styleComponents/index';
 
 const PasswordForgetPage = () => (
     <Layout>
@@ -26,7 +19,7 @@ const PasswordForgetPage = () => (
                     <img src={ball} width="48" height="48" alt="ball" />
                     <FormLogo>Football app</FormLogo>
                 </Wrapper>
-                <FormTitle>Sign Up</FormTitle>
+                <FormTitle>Password Forget</FormTitle>
                 <PasswordForgetForm />
                 <SignUpLink />
             </FormWrapper>
@@ -95,8 +88,7 @@ const PasswordForgetLink = () => (
     </BottomLinks>
 );
 
-export default PasswordForgetPage;
 
 const PasswordForgetForm = withFirebase(PasswordForgetFormBase);
 
-export { PasswordForgetForm, PasswordForgetLink };
+export { PasswordForgetForm, PasswordForgetLink, PasswordForgetPage };

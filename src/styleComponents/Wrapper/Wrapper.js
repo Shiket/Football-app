@@ -1,9 +1,14 @@
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction:  ${props => (props.row ? 'row' : 'column')};
-`
+`;
 
-export default Wrapper
+export const WrapperNotCenter = styled.div`
+  display: flex;
+  justify-content: center;  
+  flex-direction:  ${props => (props.row ? 'row' : 'column')};
+`;
