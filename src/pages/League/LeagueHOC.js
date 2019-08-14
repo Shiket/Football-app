@@ -9,19 +9,11 @@ export default (WrappedComponent) => {
 
         async componentDidMount(){
             let teams = await axios.get(DATA.TEAMS_URL + this.props.location.state.state[1] );
-            let logo = teams.data.teams.map(a => [{teamid:a.idTeam, logo:a.strTeamBadge}]) // logo + id
 
-            let data = [...this.props.location.state.state[0]]
-            let merged = [];
-
-            for (let i = 0; i < data.length; i++) { // na es6 przerobić
-                merged.push({
-                    ...data[i],
-                    ...logo.find(a => a[0].teamid === data[i].teamid)
-                });
-            }
-
-            merged.map(a=> a.logo = (a[0].logo));
+            const merged = this.props.location.state.state[0].map(item => ({
+                ...item,
+                ...teams.data.teams.find(({ idTeam }) => idTeam === item.teamid),
+            }));
 
             this.setState({
                 teams: [...merged]
@@ -31,8 +23,7 @@ export default (WrappedComponent) => {
         render() {
             if (this.state.teams.length === 0) return <Loader header><div></div></Loader>;
             return (
-                <WrappedComponent {...this.props}
-                                    teams={this.state.teams} />
+                <WrappedComponent {...this.props} teams={this.state.teams} />
             )
         }
     }

@@ -15,7 +15,6 @@ Object.assign(ReactTableDefaults, {
 
 class Landing extends Component {
     render() {
-        console.log(this.props)
         const columns = [
             {
                 accessor: 'logo',

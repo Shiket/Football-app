@@ -7,7 +7,7 @@ import Larrow from '../../assets/leftArrow.png'
 
 class League extends Component {
     render() {
-console.log(this.props)
+        console.log(this.props)
         const columns = [
             {
                 Header: '#',
@@ -15,7 +15,7 @@ console.log(this.props)
                 Cell: props => <span>{props.index + 1}</span>,
                 style: {display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%'}
             }, {
-                accessor: 'logo',
+                accessor: 'strTeamBadge',
                 minWidth: 4,
                 Cell: props => <img src={props.value} width="30" height="30" alt="logo" />,
                 style: { display: 'flex', justifyContent: "center", alignItems: 'center', }
@@ -26,9 +26,15 @@ console.log(this.props)
                 Cell: props => <span>{props.value}</span>,
                 style: {display: 'flex', alignItems: 'center', height: '100%'}
             }, {
+                Header: 'P',
+                accessor: 'total',
+                minWidth: 3,
+                Cell: props => <span>{props.value}</span>,
+                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
+            }, {
                 Header: 'PLD',
                 accessor: 'played',
-                minWidth: 7,
+                minWidth: 3,
                 Cell: props => <span>{props.value}</span>,
                 style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
@@ -61,12 +67,6 @@ console.log(this.props)
                 minWidth: 4,
                 Cell: props => <span>{props.value}</span>,
                 style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
-            }, {
-                Header: 'P',
-                accessor: 'total',
-                minWidth: 3,
-                Cell: props => <span>{props.value}</span>,
-                style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }
         ];
         return (
@@ -75,7 +75,7 @@ console.log(this.props)
                 <LeagueInfo>
                     <LeagueHeader onClick={this.props.history.goBack}>
                         <Wrapper row>
-                            <BackArrow src={Larrow}></BackArrow>
+                            <BackArrow src={Larrow} alt='back arrow'></BackArrow>
                             {this.props.location.state.state[1].split('%20').splice(1).join(' ')}
                         </Wrapper>
                     </LeagueHeader>
@@ -88,9 +88,13 @@ console.log(this.props)
                     data={this.props.teams}
                     columns={columns}
                     className="-striped"
-                    getTrProps={() => {
+                    getTrProps={(state, rowInfo) => {
                         return {
-                            style: { height: '46px' }
+                            style: { height: '46px', cursor:'pointer' },
+                            onClick: () => {
+                                this.props.history.push(`/teams/${rowInfo.original.name}`,
+                                    { state: [this.props.teams[rowInfo.index], this.props.location.state.state[2]]})
+                            }
                         }
                     }}
                     getTbodyProps={() => {

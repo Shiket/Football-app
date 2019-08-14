@@ -7,6 +7,7 @@ export const LeagueHeader = styled.div`
     display:flex;
     flex-direction:row;
     cursor: pointer;
+
     :hover{
         background-color: rgba(105, 105, 105, 0.18);
     }
