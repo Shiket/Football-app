@@ -14,3 +14,10 @@ export { LeagueInfo } from './LeagueInfo/LeagueInfo';
 export { BackArrow } from './LeagueInfo/BackArrow';
 export { LeagueHeader } from './LeagueInfo/Header';
 export { LeagueLogo } from './LeagueInfo/LeagueLogo';
+export { TeamWrapper, TeamHeader } from './Wrapper/TeamWrapper';
+export { LeagueDetails } from './Team/DetailsSection';
+export { TeamLogo } from './Team/Logo'
+export { SectionName } from './Team/SectionName'
+export { Icon } from './Team/Icon'
+export { Text } from './Team/Text'
+export { DescriptionRow } from './Team/DescriptionRow'

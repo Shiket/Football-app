@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const FormWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.contentBg};
+  background-color: #353430c7;
   max-width:650px;
   width:85%;
   min-height:300px;
