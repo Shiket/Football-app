@@ -7,4 +7,5 @@ export const TEAMS_URL = 'https://www.thesportsdb.com/api/v1/json/1/search_all_t
 export const TEAMS_NAME = ['English%20Premier%20League', 'Italian%20Serie%20A', 'French%20Ligue%201',
                             'Spanish%20La%20Liga', 'German%20bundesliga', 'Dutch%20eredivisie'];
 
-export const  TEAM_URL = ''
+export const NEXT_MATCHES = 'https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id='
+export const LAST_MATCHES = 'https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id='
