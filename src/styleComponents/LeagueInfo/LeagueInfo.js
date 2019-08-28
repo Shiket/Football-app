@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const LeagueInfo = styled.div`
-    width:18%;
+    min-width: 420px;
     margin-top:3vh;
     height:100%;
     display:flex;

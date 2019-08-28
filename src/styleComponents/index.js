@@ -17,9 +17,14 @@ export { LeagueLogo } from './LeagueInfo/LeagueLogo';
 export { TeamWrapper, TeamHeader } from './Wrapper/TeamWrapper';
 export { Details } from './Team/DetailsSection';
 export { TeamLogo } from './Team/Logo'
-export { SectionName } from './Team/SectionName'
-export { Icon } from './Team/Icon'
+export { SectionName, MainSection } from './Team/SectionName'
+export { Icon, SocialIcon } from './Team/Icon'
 export { Text } from './Team/Text'
-export { DescriptionRow } from './Team/DescriptionRow'
+export { DescriptionRow, MatchesRow } from './Team/DescriptionRow'
 export { ContentSection } from './Team/ContentSection'
-export { Date, Time, Score } from './Team/Date'
+export { TeamDetails } from './Team/TeamDetails'
+export { Teams, Date } from './Team/Teams'
+export { LeagueMatches, Matches } from './LeagueInfo/LeagueMatches'
+export { SectionHeader } from './LeagueInfo/SectionHeader'
+export { SocialMediaWrapper } from './LeagueInfo/SocialMediaWrapper'
+export { Favourite } from './Team/FavouriteIco'

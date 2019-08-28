@@ -5,4 +5,5 @@ export const TeamLogo = styled.img`
     width: 225px;
     margin-left:auto;
     margin-right: auto;
+    margin-bottom: 30px;
 `;

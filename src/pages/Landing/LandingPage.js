@@ -15,6 +15,8 @@ Object.assign(ReactTableDefaults, {
 
 class Landing extends Component {
     render() {
+
+        console.log(this.props)
         const columns = [
             {
                 accessor: 'logo',
@@ -72,7 +74,10 @@ class Landing extends Component {
                             style: { height: '105px' },
                             onClick: () => {
                                 this.props.history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`,
-                                    { state: [this.props.leagues[rowInfo.index].table, this.props.leagues[rowInfo.index].orgName, this.props.leagues[rowInfo.index].logo] })
+                                    { state: [this.props.leagues[rowInfo.index].table,
+                                              this.props.leagues[rowInfo.index].orgName,
+                                              this.props.leagues[rowInfo.index].logo,
+                                              this.props.leagues[rowInfo.index].id] })
                             }
                         }
                     }}

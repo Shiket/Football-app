@@ -5,4 +5,13 @@ export const DescriptionRow = styled.div`
   align-items: center;
   height:100%;
   margin-top:13px;
+  padding-left:4vh;
+`;
+
+export const MatchesRow = styled.div`
+  display: flex;
+  margin-top:16px;
+  flex-direction:row;
+  align-items: center;
+  padding-left: 1vh;
 `;

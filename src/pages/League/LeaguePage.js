@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router"
-import { Wrapper, LeagueInfo, WrapperNotCenter, BackArrow, LeagueHeader, LeagueLogo } from "../../styleComponents";
+import { Wrapper, LeagueInfo, WrapperNotCenter, BackArrow, LeagueHeader, LeagueLogo, LeagueMatches, SectionHeader, Matches } from "../../styleComponents";
 import ReactTable from "react-table";
 import LeagueHOC from './LeagueHOC';
 import Larrow from '../../assets/leftArrow.png'
 
 class League extends Component {
     render() {
+        const next = this.props.nextMatches.map(a =>
+             <LeagueMatches>
+                <div>{a.strEvent.split('vs')[0]} - {a.strEvent.split('vs')[1]}</div>
+                <div>{a.dateEvent.slice(5, a.lenght)} - {a.strTime.slice(0, 5)}</div>
+            </LeagueMatches>
+        );
         console.log(this.props)
         const columns = [
             {
@@ -32,7 +38,7 @@ class League extends Component {
                 Cell: props => <span>{props.value}</span>,
                 style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
-                Header: 'PLD',
+                Header: 'M',
                 accessor: 'played',
                 minWidth: 3,
                 Cell: props => <span>{props.value}</span>,
@@ -40,31 +46,31 @@ class League extends Component {
             }, {
                 Header: 'W',
                 accessor: 'win',
-                minWidth: 4,
+                minWidth: 3,
                 Cell: props => <span>{props.value}</span>,
                 style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'D',
                 accessor: 'draw',
-                minWidth: 4,
+                minWidth: 3,
                 Cell: props => <span>{props.value}</span>,
                 style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'L',
                 accessor: 'loss',
-                minWidth: 4,
+                minWidth: 3,
                 Cell: props => <span>{props.value}</span>,
                 style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'G+',
                 accessor: 'goalsfor',
-                minWidth: 4,
+                minWidth: 3,
                 Cell: props => <span>{props.value}</span>,
                 style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }, {
                 Header: 'G-',
                 accessor: 'goalsagainst',
-                minWidth: 4,
+                minWidth: 3,
                 Cell: props => <span>{props.value}</span>,
                 style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
             }
@@ -79,9 +85,13 @@ class League extends Component {
                             {this.props.location.state.state[1].split('%20').splice(1).join(' ')}
                         </Wrapper>
                     </LeagueHeader>
-                    <Wrapper row>
+                    <Wrapper row border>
                         <LeagueLogo src={this.props.location.state.state[2]} />
                     </Wrapper>
+                    <Matches>
+                        <SectionHeader>Next {this.props.location.state.state[1].split('%20').splice(1).join(' ')} matches</SectionHeader>
+                        {next}
+                    </Matches>
                 </LeagueInfo>
 
                 <ReactTable
@@ -104,7 +114,7 @@ class League extends Component {
                     }}
                     getProps={() => {
                         return {
-                            style: { marginTop: '3vh', width: '75%', height: '80vh' }
+                            style: { marginTop: '3vh', width: '69%', height: '83vh' }
                         }
                     }}
                     getTheadProps={() => {

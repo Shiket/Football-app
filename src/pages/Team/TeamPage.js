@@ -1,34 +1,36 @@
 import React, { Component } from 'react';
 import { Wrapper, TeamWrapper, TeamHeader, BackArrow, Details,
         TeamLogo, SectionName, Icon, Text, DescriptionRow,
-        ContentSection, Date, Time, Score } from "../../styleComponents";
+        ContentSection, TeamDetails, MainSection, WrapperNotCenter,
+         Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper, Favourite} from "../../styleComponents"
 import Larrow from '../../assets/leftArrow.png'
-import TeamPageHOC from './TeamPageHOC';
+import TeamPageHOC from './TeamPageHOC'
 import stadium from '../../assets/stadium.png'
 import calendar from '../../assets/calendar.png'
 import calendar2 from '../../assets/calendar2.png'
-import twitterIco from '../../assets/Twitter.png'
+import twitterIco from '../../assets/twitter.png'
 import facebookIco from '../../assets/fb.png'
 import website from '../../assets/website.png'
 import location from '../../assets/marker.png'
+import youtubeIco from '../../assets/yt.png'
+import instagramIco from '../../assets/ig.png'
+import fav from '../../assets/star.png'
 
 class Team extends Component {
     render() {
         const next = this.props.nextMatches.map(a =>
-        <DescriptionRow>
-            <Icon src={calendar2} alt="calendar icon"></Icon>
-                <Date>{a.dateEvent}</Date>
-                <Time>{a.strTime.slice(0, 5)}</Time>
-            <Text>{a.strEvent}</Text>
-        </DescriptionRow>
+            <MatchesRow>
+                <Icon src={calendar2} alt="calendar icon"></Icon>
+                <Date>{a.dateEvent} <br /> &emsp; {a.strTime.slice(0, 5)}</Date>
+                {a.strEvent.split('vs')[0]} <br />{a.strEvent.split('vs')[1]}
+            </MatchesRow>
         );
 
         const last = this.props.lastMatches.map(a =>
-            <DescriptionRow>
+            <MatchesRow>
                 <Icon src={calendar2} alt="calendar icon"></Icon>
-                <Date>{a.dateEvent}</Date>
-                <Score>{a.intHomeScore} : {a.intAwayScore}</Score> {a.strHomeTeam} vs {a.strAwayTeam}
-            </DescriptionRow>
+                <Teams>{a.strHomeTeam} <br /> {a.strAwayTeam} </Teams> {a.intHomeScore}-{a.intAwayScore}
+            </MatchesRow>
         );
 
         console.log(this.props)
@@ -36,9 +38,13 @@ class Team extends Component {
             <Wrapper>
                 <TeamWrapper>
                     <TeamHeader onClick={this.props.history.goBack}>
-                        <BackArrow src={Larrow} alt='back arrow'></BackArrow>
-                        {this.props.match.params.team}
+                        <Wrapper row><BackArrow src={Larrow} alt='back arrow' />{this.props.match.params.team}
+                        <Text>&emsp;&emsp; {this.props.location.state.state[0].win}W &emsp; {this.props.location.state.state[0].draw}
+                            D &emsp;{this.props.location.state.state[0].loss}L</Text>
+                        </Wrapper>
+                        <Favourite src={fav} alt='favourite icon'/>
                     </TeamHeader>
+
                     <Wrapper row flex top>
                         <Details>
                             <TeamLogo src={this.props.location.state.state[0].strTeamBadge} />
@@ -67,22 +73,36 @@ class Team extends Component {
                             </DescriptionRow>
 
                             <SectionName>Social media:</SectionName>
-                            <DescriptionRow>
-                                <Icon src={twitterIco} alt="twitter icon"></Icon>
-                            </DescriptionRow>
-                            <DescriptionRow>
-                                <Icon src={facebookIco} alt="facebook icon"></Icon>
-                            </DescriptionRow>
+
+                            <SocialMediaWrapper>
+                                <SocialIcon src={twitterIco} alt="twitter icon"></SocialIcon>
+                                <SocialIcon src={facebookIco} alt="facebook icon"></SocialIcon>
+                                <SocialIcon src={youtubeIco} alt="youtube icon"></SocialIcon>
+                                <SocialIcon src={instagramIco} alt="instagram icon"></SocialIcon>
+                            </SocialMediaWrapper>
+
                         </Details>
 
-                    <ContentSection>
-                        <SectionName>Upcomming matches:</SectionName>
-                        {next}
-                    </ContentSection>
-                    <ContentSection>
-                        <SectionName>Last matches:</SectionName>
-                        {last}
-                    </ContentSection>
+                        <ContentSection>
+                            <WrapperNotCenter row start>
+
+                                <WrapperNotCenter margin>
+                                    <MainSection>Last matches:</MainSection>
+                                    {last}
+                                </WrapperNotCenter>
+
+                                <WrapperNotCenter margin>
+                                    <MainSection>Upcomming matches:</MainSection>
+                                    {next}
+                                </WrapperNotCenter>
+
+                            </WrapperNotCenter>
+                            <MainSection>Team details:</MainSection>
+
+                            <TeamDetails>
+                                <div>{this.props.location.state.state[0].strDescriptionEN}</div>
+                            </TeamDetails>
+                        </ContentSection>
                     </Wrapper>
                 </TeamWrapper>
             </Wrapper>

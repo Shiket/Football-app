@@ -41,7 +41,8 @@ export default (WrappedComponent) => {
                 secondMedal: <img src={secondMedal} width="35" height="35" alt='medal' />,
                 firstTeam: tablesData[i].table[0].name,
                 secondTeam: tablesData[i].table[1].name,
-                table: tablesData[i].table
+                table: tablesData[i].table,
+                id: res.data.leagues[0].idLeague
             }));
 
             this.setState({
