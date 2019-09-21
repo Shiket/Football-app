@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const SocialMediaWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  margin-left:10px;
+  justify-content: flex-start;
+  margin-left:60px;
   margin-top: 20px;
 `;

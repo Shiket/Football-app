@@ -33,7 +33,7 @@ class Team extends Component {
             </MatchesRow>
         );
 
-        console.log(this.props)
+        console.log(this.props.location.state.state[0])
         return (
             <Wrapper>
                 <TeamWrapper>
@@ -75,10 +75,10 @@ class Team extends Component {
                             <SectionName>Social media:</SectionName>
 
                             <SocialMediaWrapper>
-                                <SocialIcon src={twitterIco} alt="twitter icon"></SocialIcon>
-                                <SocialIcon src={facebookIco} alt="facebook icon"></SocialIcon>
-                                <SocialIcon src={youtubeIco} alt="youtube icon"></SocialIcon>
-                                <SocialIcon src={instagramIco} alt="instagram icon"></SocialIcon>
+                                {this.props.location.state.state[0].strTwitter < 1 ? <div></div> : <SocialIcon src={twitterIco} alt="twitter icon"></SocialIcon>}
+                                {this.props.location.state.state[0].strFacebook.length < 1 ? <div></div> : <SocialIcon src={facebookIco} alt="twitter icon"></SocialIcon>}
+                                {this.props.location.state.state[0].strYoutube.length < 1 ? <div></div> : <SocialIcon src={youtubeIco} alt="twitter icon"></SocialIcon>}
+                                {this.props.location.state.state[0].strInstagram.length < 1 ? <div></div> : <SocialIcon src={instagramIco} alt="twitter icon"></SocialIcon>}
                             </SocialMediaWrapper>
 
                         </Details>
