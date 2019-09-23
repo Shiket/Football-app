@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import { Wrapper } from '../../styleComponents/index'
@@ -13,51 +13,50 @@ Object.assign(ReactTableDefaults, {
     style: { color: "#fff", border: 'none'}
 });
 
-class Landing extends Component {
-    render() {
-        console.log(this.props)
+const Landing = ({ windowWidth, leagues, history}) => {
+
         const columns = [
             {
                 accessor: 'logo',
                 minWidth: 100,
-                Cell: props => <img src={props.value} alt='logo' width="80" height="80" />,
+                Cell: ({value}) => <img src={value} alt='logo' width="80" height="80" />,
                 style: { display: 'flex', justifyContent: "center", minHeight: '100px', alignItems: 'center' },
                 height: '100%',
             }, {
                 accessor: 'name',
                 minWidth: 180,
-                Cell: props => <span >{props.value}</span>,
+                Cell: ({value}) => <span >{value}</span>,
                 style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%' }
 
             }, {
                 accessor: 'country',
                 minWidth: 120,
-                show: (this.props.windowWidth > 500),
-                Cell: props => <span>{props.value}</span>,
+                show: (windowWidth > 500),
+                Cell: ({value}) => <span>{value}</span>,
                 style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%' }
             }, {
                 accessor: 'medal',
                 minWidth: 35,
-                show: (this.props.windowWidth > 750),
+                show: (windowWidth > 750),
                 style: { display: 'flex', alignItems: 'center', justifyContent: "center" }
 
             }, {
                 accessor: 'firstTeam',
                 minWidth: 120,
-                show: (this.props.windowWidth > 750),
-                Cell: props =><span>{props.value}</span>,
+                show: (windowWidth > 750),
+                Cell: ({value}) =><span>{value}</span>,
                 style: {display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%'}
             }, {
                 accessor: 'secondMedal',
                 minWidth: 35,
-                show: (this.props.windowWidth > 1000),
+                show: (windowWidth > 1000),
                 style: { display: 'flex', alignItems: 'center', justifyContent: "center" }
 
             }, {
                 accessor: 'secondTeam',
                 minWidth: 120,
-                show: (this.props.windowWidth > 1000),
-                Cell: props => <span>{props.value}</span>,
+                show: (windowWidth > 1000),
+                Cell: ({value}) => <span>{value}</span>,
                 style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%' }
             }
         ];
@@ -65,18 +64,18 @@ class Landing extends Component {
         return (
             <Wrapper>
                 <ReactTable
-                    data={this.props.leagues}
+                    data={leagues}
                     columns={columns}
                     className="-striped"
                     getTrProps={(state, rowInfo) => {
                         return {
                             style: { height: '105px' },
                             onClick: () => {
-                                this.props.history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`,
-                                    { state: [this.props.leagues[rowInfo.index].table,
-                                              this.props.leagues[rowInfo.index].orgName,
-                                              this.props.leagues[rowInfo.index].logo,
-                                              this.props.leagues[rowInfo.index].id] })
+                                history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`,
+                                    { state: [leagues[rowInfo.index].table,
+                                              leagues[rowInfo.index].orgName,
+                                              leagues[rowInfo.index].logo,
+                                              leagues[rowInfo.index].id] })
                             }
                         }
                     }}
@@ -94,5 +93,4 @@ class Landing extends Component {
             </Wrapper>
         )
     }
-}
 export const LandingPage = withRouter(Landing);

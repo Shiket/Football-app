@@ -11,11 +11,12 @@ export default (WrappedComponent) => {
         };
 
         async componentDidMount(){
-            let teams = await axios.get(DATA.TEAMS_URL + this.props.location.state.state[1] );
-            let nextLeagueMatches = await axios.get(DATA.NEXT_LEAGUE_MATCHES + this.props.location.state.state[3])
-            console.log(nextLeagueMatches);
+            const { location } = this.props;
 
-            const merged = this.props.location.state.state[0].map(item => ({
+            let teams = await axios.get(DATA.TEAMS_URL + location.state.state[1] );
+            let nextLeagueMatches = await axios.get(DATA.NEXT_LEAGUE_MATCHES + location.state.state[3])
+
+            const merged = location.state.state[0].map(item => ({
                 ...item,
                 ...teams.data.teams.find(({ idTeam }) => idTeam === item.teamid),
             }));
