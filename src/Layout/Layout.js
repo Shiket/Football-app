@@ -4,14 +4,14 @@ import { theme } from '../utils/theme';
 import bg from '../assets/bg1.jpg'
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
     html {
         margin:0;
         padding:0;
         max-height:100vh;
     }
     body {
-        font-family: 'Montserrat','Helvetica Neue light';
+        font-family: 'Quicksand' ,'Helvetica Neue light';
         background: url(${bg}) no-repeat center center fixed;
         margin:0;
         padding:0;

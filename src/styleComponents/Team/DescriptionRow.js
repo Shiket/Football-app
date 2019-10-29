@@ -13,5 +13,4 @@ export const MatchesRow = styled.div`
   margin-top:16px;
   flex-direction:row;
   align-items: center;
-  padding-left: 1vh;
 `;
