@@ -10,3 +10,5 @@ export const TEAMS_NAME = ['English%20Premier%20League', 'Italian%20Serie%20A', 
 
 export const NEXT_MATCHES = 'https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id='
 export const LAST_MATCHES = 'https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id='
+
+export const PLAYERS = 'https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id='

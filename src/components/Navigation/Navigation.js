@@ -5,15 +5,15 @@ import { SignOutButton } from '../../pages/index';
 import { AuthUserContext } from '../Session';
 import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
-import { Header, Logo, Wrapper } from '../../styleComponents/index';
+import { Header, Logo, WrapperCenter } from '../../styleComponents/index';
 
 const Navigation = () => (
     <Layout>
         <Header>
-            <Wrapper row as={Link} to={ROUTES.LANDING}>
+            <WrapperCenter row as={Link} to={ROUTES.LANDING}>
                 <img src={ball} width="37" height="37" alt="logo-img" />
                 <Logo>Football app</Logo>
-            </Wrapper>
+            </WrapperCenter>
 
                 <AuthUserContext.Consumer>
                     {authUser =>

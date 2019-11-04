@@ -17,6 +17,7 @@ class App extends Component {
 
                     <Switch>
                         <Route exact path={ROUTES.LANDING} render={() => <LandingPage leagues={this.props.leagues} windowWidth={this.props.windowWidth} />} />
+                        <Route exact path={ROUTES.LEAGUE} render={() =>  <LeaguePage windowWidth={this.props.windowWidth} />}/>
                         <Route exact path={ROUTES.TEAM} component={TeamPage} />
                         <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
                         <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
@@ -24,7 +25,7 @@ class App extends Component {
                         <Route exact path={ROUTES.HOME} component={HomePage} />
                         <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
                         <Route exact path={ROUTES.ADMIN} component={AdminPage} />
-                        <Route exact path={ROUTES.LEAGUE} component={LeaguePage} />
+
 
                         <Route component={NotFoundPage} />
                     </Switch>

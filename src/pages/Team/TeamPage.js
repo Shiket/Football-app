@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-    Wrapper, TeamWrapper, TeamHeader, BackArrow, Details,
+    WrapperCenter, TeamWrapper, TeamHeader, BackArrow, Details,
     TeamLogo, SectionName, Icon, Text, DescriptionRow,
-    ContentSection, TeamDetails, Scroll, MainSection, WrapperNotCenter,
-    Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper, Favourite, DescriptionSection, Description
+    ContentSection, Scroll, MainSection, Wrapper,
+    Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper, Favourite, DescriptionSection, Description, PlayersList, SinglePlayer
 } from "../../styleComponents"
 import Larrow from '../../assets/leftArrow.png'
 import TeamPageHOC from './TeamPageHOC'
@@ -18,7 +18,13 @@ import youtubeIco from '../../assets/yt.png'
 import instagramIco from '../../assets/ig.png'
 import fav from '../../assets/star.png'
 
-const Team = ({ history, lastMatches, location, match, nextMatches }) => {
+const Team = ({ history, lastMatches, location, match, nextMatches, players }) => {
+
+    const wholeTeam = players.map(a=>
+        <SinglePlayer>
+             {a.strPlayer}
+        </SinglePlayer>
+        );
 
     const next = nextMatches.map(a =>
         <MatchesRow>
@@ -42,17 +48,17 @@ const Team = ({ history, lastMatches, location, match, nextMatches }) => {
     );
 
     return (
-        <Wrapper>
+        <WrapperCenter>
             <TeamWrapper>
                 <TeamHeader onClick={history.goBack}>
-                    <Wrapper row><BackArrow src={Larrow} alt='back arrow' />{match.params.team}
+                    <WrapperCenter row><BackArrow src={Larrow} alt='back arrow' />{match.params.team}
                         <Text>&emsp;&emsp; {location.state.state[0].win}W &emsp; {location.state.state[0].draw}
                             D &emsp;{location.state.state[0].loss}L</Text>
-                    </Wrapper>
+                    </WrapperCenter>
                     <Favourite src={fav} alt='favourite icon' />
                 </TeamHeader>
 
-                <Wrapper row flex top>
+                <WrapperCenter row flex top>
                     <Details>
                         <TeamLogo src={location.state.state[0].strTeamBadge} />
 
@@ -91,7 +97,7 @@ const Team = ({ history, lastMatches, location, match, nextMatches }) => {
                     </Details>
 
                     <ContentSection>
-                        <WrapperNotCenter row start>
+                        <Wrapper row start>
 
                             <DescriptionSection>
                                 <MainSection>Description:</MainSection>
@@ -100,33 +106,33 @@ const Team = ({ history, lastMatches, location, match, nextMatches }) => {
                                 </Scroll>
                             </DescriptionSection>
 
-                            <WrapperNotCenter start>
+                            <Wrapper start>
                                 <MainSection>Last matches:</MainSection>
                                 {last}
-                            </WrapperNotCenter>
+                            </Wrapper>
 
-                        </WrapperNotCenter>
+                        </Wrapper>
 
-                        <WrapperNotCenter row start>
+                        <Wrapper row start>
                             <DescriptionSection>
                                 <MainSection>Team:</MainSection>
-
-                                <Scroll>
-                                    <Description>TEAM HERE</Description>
+                                 <Scroll>
+                                    <PlayersList>
+                                            {wholeTeam}
+                                    </PlayersList>
                                 </Scroll>
-
                             </DescriptionSection>
-                            <WrapperNotCenter start margin>
+                            <Wrapper start marginR>
                                 <MainSection>Upcomming matches:</MainSection>
                                 {next}
-                            </WrapperNotCenter>
-                        </WrapperNotCenter>
+                            </Wrapper>
+                        </Wrapper>
 
                     </ContentSection>
 
-                </Wrapper>
+                </WrapperCenter>
             </TeamWrapper>
-        </Wrapper>
+        </WrapperCenter>
     )
 }
 

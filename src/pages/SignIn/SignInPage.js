@@ -7,23 +7,23 @@ import { SignUpLink, PasswordForgetLink } from '../index';
 import { Link } from 'react-router-dom'
 import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
-import { Button, Input, FormWrapper, Form, Wrapper, FormTitle,
+import { Button, Input, FormWrapper, Form, WrapperCenter, FormTitle,
     FormLogo, BottomLinks} from '../../styleComponents/index';
 
 const SignInPage = () => (
     <Layout>
-        <Wrapper>
+        <WrapperCenter>
             <FormWrapper>
-                <Wrapper row>
+                <WrapperCenter row>
                     <img src={ball} width="48" height="48" alt="ball" />
                     <FormLogo>Football app</FormLogo>
-                </Wrapper>
+                </WrapperCenter>
                 <FormTitle>Sign In</FormTitle>
                 <SignInForm />
                 <PasswordForgetLink />
                 <SignUpLink />
             </FormWrapper>
-        </Wrapper>
+        </WrapperCenter>
     </Layout>
 );
 

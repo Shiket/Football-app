@@ -9,7 +9,7 @@ export { Header } from './Header/Header';
 export { Logo } from './Header/Logo';
 export { Loader } from './Loader/Loader';
 export { Message } from './Message/Messege404';
-export { Wrapper, WrapperNotCenter } from './Wrapper/Wrapper';
+export { WrapperCenter, Wrapper } from './Wrapper/Wrapper';
 export { LeagueInfo } from './LeagueInfo/LeagueInfo';
 export { BackArrow } from './LeagueInfo/BackArrow';
 export { LeagueHeader } from './LeagueInfo/Header';
@@ -23,7 +23,7 @@ export { Text, Scroll } from './Team/Text'
 export { DescriptionRow, MatchesRow } from './Team/DescriptionRow'
 export { ContentSection, DescriptionSection } from './Team/ContentSection'
 export { Description } from './Team/TeamDetails'
-export { Teams, Date } from './Team/Teams'
+export { Teams, Date, PlayersList, SinglePlayer } from './Team/Teams'
 export { LeagueMatches, Matches } from './LeagueInfo/LeagueMatches'
 export { SectionHeader } from './LeagueInfo/SectionHeader'
 export { SocialMediaWrapper } from './LeagueInfo/SocialMediaWrapper'

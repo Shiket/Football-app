@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from "react-router"
-import { Wrapper, LeagueInfo, WrapperNotCenter, BackArrow, LeagueHeader, LeagueLogo, LeagueMatches, SectionHeader, Matches } from "../../styleComponents";
+import { WrapperCenter, LeagueInfo, Wrapper, BackArrow, LeagueHeader, LeagueLogo, LeagueMatches, SectionHeader, Matches } from "../../styleComponents";
 import ReactTable from "react-table";
 import LeagueHOC from './LeagueHOC';
 import Larrow from '../../assets/leftArrow.png'
 
-const League = ({ history, location, nextMatches, teams }) => {
+const League = ({ history, location, nextMatches, teams, windowWidth }) => {
     const next = nextMatches.map(a =>
         <LeagueMatches>
             <div>{a.strEvent.split('vs')[0]} - {a.strEvent.split('vs')[1]}</div>
@@ -52,41 +52,45 @@ const League = ({ history, location, nextMatches, teams }) => {
             Header: 'D',
             accessor: 'draw',
             minWidth: 3,
+            show: windowWidth > 470,
             Cell: ({ value }) => <span>{value}</span>,
             style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
         }, {
             Header: 'L',
             accessor: 'loss',
             minWidth: 3,
+            show: windowWidth > 470,
             Cell: ({ value }) => <span>{value}</span>,
             style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
         }, {
             Header: 'G+',
             accessor: 'goalsfor',
             minWidth: 3,
+            show: windowWidth > 730,
             Cell: ({ value }) => <span>{value}</span>,
             style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
         }, {
             Header: 'G-',
             accessor: 'goalsagainst',
             minWidth: 3,
+            show: windowWidth > 730 ,
             Cell: ({ value }) => <span>{value}</span>,
             style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }
         }
     ];
     return (
-        <WrapperNotCenter row>
+        <Wrapper marginR marginL row>
 
             <LeagueInfo>
                 <LeagueHeader onClick={history.goBack}>
-                    <Wrapper row>
+                    <WrapperCenter row>
                         <BackArrow src={Larrow} alt='back arrow'></BackArrow>
                         {location.state.state[1].split('%20').splice(1).join(' ')}
-                    </Wrapper>
+                    </WrapperCenter>
                 </LeagueHeader>
-                <Wrapper row border>
+                <WrapperCenter row border>
                     <LeagueLogo src={location.state.state[2]} />
-                </Wrapper>
+                </WrapperCenter>
                 <Matches>
                     <SectionHeader>Next {location.state.state[1].split('%20').splice(1).join(' ')} matches</SectionHeader>
                     {next}
@@ -113,7 +117,7 @@ const League = ({ history, location, nextMatches, teams }) => {
                 }}
                 getProps={() => {
                     return {
-                        style: { marginTop: '3vh', width: '69%', height: '83vh' }
+                        style: { marginTop: '3vh', width: '90%', height: '83vh' },
                     }
                 }}
                 getTheadProps={() => {
@@ -127,7 +131,7 @@ const League = ({ history, location, nextMatches, teams }) => {
                 }}
 
             />
-        </WrapperNotCenter>
+        </Wrapper>
     )
 }
 export const LeaguePage = withRouter(LeagueHOC(League));

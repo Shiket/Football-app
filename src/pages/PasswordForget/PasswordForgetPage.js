@@ -8,22 +8,22 @@ import * as ROUTES from '../../constants/routes';
 import ball from '../../assets/ball.png'
 import Layout from '../../Layout/Layout';
 
-import { Button, FormWrapper, Input, Form, Wrapper,
+import { Button, FormWrapper, Input, Form, WrapperCenter,
     BottomLinks, FormLogo, FormTitle } from '../../styleComponents/index';
 
 const PasswordForgetPage = () => (
     <Layout>
-        <Wrapper>
+        <WrapperCenter>
             <FormWrapper>
-                <Wrapper row>
+                <WrapperCenter row>
                     <img src={ball} width="48" height="48" alt="ball" />
                     <FormLogo>Football app</FormLogo>
-                </Wrapper>
+                </WrapperCenter>
                 <FormTitle>Password Forget</FormTitle>
                 <PasswordForgetForm />
                 <SignUpLink />
             </FormWrapper>
-        </Wrapper>
+        </WrapperCenter>
     </Layout>
 );
 

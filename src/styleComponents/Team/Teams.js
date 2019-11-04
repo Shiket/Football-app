@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import player from '../../assets/playerIcon.png'
 
 export const Teams = styled.div`
-    width:220px;
+    width:200px;
     border-right: 2px solid #fff;
     margin-right:15px;
     display:flex;
@@ -27,3 +28,29 @@ export const Date = styled.span`
     margin-right:10px;
     display:flex;
 `;
+
+export const PlayersList = styled.div`
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    max-height:300px;
+    width: 100%;
+`
+
+export const SinglePlayer = styled.div`
+    min-width:200px;
+    height:30px;
+    display:flex;
+    flex-direction: row;
+    align-items:center
+    margin-right:5px;
+
+    ::before{
+        content: '';
+        display:inline-block;
+        width:22px;
+        height:23px;
+        margin-right:5px;
+        background: url(${player});
+    }
+`

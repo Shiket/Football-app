@@ -1,8 +1,8 @@
 import React from 'react'
-import {Wrapper, Message} from '../../styleComponents/index.js'
+import {WrapperCenter, Message} from '../../styleComponents/index.js'
 
 export const NotFoundPage = () => (
-    <Wrapper>
+    <WrapperCenter>
         <Message>404 - Page not found</Message>
-    </Wrapper>
+    </WrapperCenter>
 );

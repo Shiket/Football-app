@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
-import { Wrapper } from '../../styleComponents/index'
+import { WrapperCenter } from '../../styleComponents/index'
 import { ReactTableDefaults } from 'react-table'
 import { withRouter } from "react-router"
 
@@ -62,7 +62,7 @@ const Landing = ({ windowWidth, leagues, history}) => {
         ];
 
         return (
-            <Wrapper>
+            <WrapperCenter>
                 <ReactTable
                     data={leagues}
                     columns={columns}
@@ -90,7 +90,7 @@ const Landing = ({ windowWidth, leagues, history}) => {
                         }
                     }}
                 />
-            </Wrapper>
+            </WrapperCenter>
         )
     }
 export const LandingPage = withRouter(Landing);
