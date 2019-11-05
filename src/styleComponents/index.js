@@ -19,7 +19,7 @@ export { Details } from './Team/DetailsSection';
 export { TeamLogo } from './Team/Logo'
 export { SectionName, MainSection } from './Team/SectionName'
 export { Icon, SocialIcon } from './Team/Icon'
-export { Text, Scroll } from './Team/Text'
+export { Text, Scroll, Link } from './Team/Text'
 export { DescriptionRow, MatchesRow } from './Team/DescriptionRow'
 export { ContentSection, DescriptionSection } from './Team/ContentSection'
 export { Description } from './Team/TeamDetails'

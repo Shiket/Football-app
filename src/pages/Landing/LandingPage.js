@@ -69,7 +69,7 @@ const Landing = ({ windowWidth, leagues, history}) => {
                     className="-striped"
                     getTrProps={(state, rowInfo) => {
                         return {
-                            style: { height: '105px' },
+                            style: { height: '105px', cursor: 'pointer' },
                             onClick: () => {
                                 history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`,
                                     { state: [leagues[rowInfo.index].table,

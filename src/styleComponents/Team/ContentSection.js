@@ -12,6 +12,6 @@ export const DescriptionSection = styled.div`
     display:flex;
     flex-direction: column;
     width:65%;
-    max-height:380px;
+    max-height:350px;
     margin-right:3%;
 `

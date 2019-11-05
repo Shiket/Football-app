@@ -5,4 +5,5 @@ export const SocialMediaWrapper = styled.div`
   justify-content: flex-start;
   margin-left:60px;
   margin-top: 20px;
+  margin-bottom: 42px;
 `;

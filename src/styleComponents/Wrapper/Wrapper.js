@@ -15,4 +15,5 @@ export const Wrapper = styled.div`
   flex-direction:  ${props => (props.row ? 'row' : 'column')};
   margin-right: ${props => (props.marginR ? '3%' : '0px')};
   margin-left: ${props => (props.marginL ? '3%' : '0px')};
+  margin-bottom: ${props => (props.marginB ? '10px' : '0px')};
 `;

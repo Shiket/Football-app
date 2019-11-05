@@ -2,10 +2,12 @@ import styled from 'styled-components'
 
 export const Details = styled.div`
     padding-top:4vh;
-    min-height:calc(99vh - 200px);
-    display:flex;
-    flex-direction: column;
+    max-height:calc(99vh - 200px);
     max-width:450px;
     min-width:350px;
+    min-height:200px;
+    overflow:auto;
+    display:flex;
+    flex-direction: column;
     background-color: #00000052;
 `;

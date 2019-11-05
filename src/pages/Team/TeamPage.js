@@ -3,7 +3,7 @@ import {
     WrapperCenter, TeamWrapper, TeamHeader, BackArrow, Details,
     TeamLogo, SectionName, Icon, Text, DescriptionRow,
     ContentSection, Scroll, MainSection, Wrapper,
-    Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper, Favourite, DescriptionSection, Description, PlayersList, SinglePlayer
+    Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper, Favourite, DescriptionSection, Description, PlayersList, SinglePlayer,Link
 } from "../../styleComponents"
 import Larrow from '../../assets/leftArrow.png'
 import TeamPageHOC from './TeamPageHOC'
@@ -81,17 +81,17 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
                             <Text>{location.state.state[0].intFormedYear}</Text>
                         </DescriptionRow>
                         <DescriptionRow as="a" href={location.state.state[0].strWebsite}>
-                            <Icon src={websiteIco} alt="website icon"></Icon>
-                            <Text>{location.state.state[0].strWebsite.slice(4)}</Text>
+                            <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}><Icon src={websiteIco} alt="website icon"></Icon></Link>
+                            <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
                         </DescriptionRow>
 
                         <SectionName>Social media:</SectionName>
 
                         <SocialMediaWrapper>
-                            {location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={twitterIco} alt="twitter icon" />}
-                            {location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={facebookIco} alt="twitter icon" />}
-                            {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={youtubeIco} alt="twitter icon" />}
-                            {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={instagramIco} alt="twitter icon" />}
+                            <Link target="_blank" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={twitterIco} alt="twitter icon" />}</Link>
+                            <Link target="_blank" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={facebookIco} alt="twitter icon" />}</Link>
+                            <Link target="_blank" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={youtubeIco} alt="twitter icon" />}</Link>
+                            <Link target="_blank" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={instagramIco} alt="twitter icon" />}</Link>
                         </SocialMediaWrapper>
 
                     </Details>
@@ -122,7 +122,7 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
                                     </PlayersList>
                                 </Scroll>
                             </DescriptionSection>
-                            <Wrapper start marginR>
+                            <Wrapper start marginR marginB>
                                 <MainSection>Upcomming matches:</MainSection>
                                 {next}
                             </Wrapper>

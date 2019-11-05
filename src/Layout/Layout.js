@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
         padding:0;
         max-height:100vh;
     }
+
     body {
         font-family: 'Quicksand' ,'Helvetica Neue light';
         background: url(${bg}) no-repeat center center fixed;
@@ -18,6 +19,25 @@ const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.white}
         background-size: cover;
         max-height: 100vh;
+    }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #fff;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #353535;
+    }
+
+    /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+    background: #555;
     }
 
     body .ReactTable.-striped .rt-tr.-odd { background:rgba(0,0,0,0.25) };

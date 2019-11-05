@@ -9,3 +9,6 @@ export const Scroll = styled.div`
     text-align: justify;
     text-justify: inter-word;
 `
+export const Link = styled.a`
+    color: #fff;
+`
