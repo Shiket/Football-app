@@ -71,7 +71,7 @@ const Landing = ({ windowWidth, leagues, history}) => {
                         return {
                             style: { height: '105px', cursor: 'pointer' },
                             onClick: () => {
-                                history.push(`/standings/${rowInfo.original.name.split(' ').join('')}`,
+                                history.push(`/Football-app/standings/${rowInfo.original.name.split(' ').join('')}`,
                                     { state: [leagues[rowInfo.index].table,
                                               leagues[rowInfo.index].orgName,
                                               leagues[rowInfo.index].logo,

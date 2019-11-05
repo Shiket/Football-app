@@ -105,7 +105,7 @@ const League = ({ history, location, nextMatches, teams, windowWidth }) => {
                     return {
                         style: { height: '46px', cursor: 'pointer' },
                         onClick: () => {
-                            history.push(`/teams/${rowInfo.original.name}`,
+                            history.push(`/Football-app/teams/${rowInfo.original.name}`,
                                 { state: [teams[rowInfo.index], location.state.state[2]] })
                         }
                     }

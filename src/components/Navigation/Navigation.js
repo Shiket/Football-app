@@ -12,7 +12,7 @@ const Navigation = () => (
         <Header>
             <WrapperCenter row as={Link} to={ROUTES.LANDING}>
                 <img src={ball} width="37" height="37" alt="logo-img" />
-                <Logo>Football app</Logo>
+                <Logo>Footballs app</Logo>
             </WrapperCenter>
 
                 <AuthUserContext.Consumer>
