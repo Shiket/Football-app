@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "32c7c5689702e5afa3f7bb63e3e713f8",
+    "revision": "fb3be6e93fae0cf94078ce3d1df45283",
     "url": "/Football-app/index.html"
   },
   {
@@ -12,12 +12,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Football-app/static/js/2.d829479d.chunk.js"
   },
   {
-    "revision": "44e8e64da69706755f5a",
-    "url": "/Football-app/static/js/main.13ec9af5.chunk.js"
+    "revision": "2c734700e36b2d3c39f8",
+    "url": "/Football-app/static/js/main.be6aa641.chunk.js"
   },
   {
     "revision": "978f1778318314a13007",
     "url": "/Football-app/static/js/runtime-main.415055f1.js"
+  },
+  {
+    "revision": "b54e7511d9748bcda60a53871760637b",
+    "url": "/Football-app/static/media/Twitter.b54e7511.png"
   },
   {
     "revision": "5961a9b26e449d5a3250beb99982f716",
@@ -42,10 +46,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "62ddbbd091730900d67a731eebb4778f",
     "url": "/Football-app/static/media/playerIcon.62ddbbd0.png"
-  },
-  {
-    "revision": "b54e7511d9748bcda60a53871760637b",
-    "url": "/Football-app/static/media/twitter.b54e7511.png"
   },
   {
     "revision": "a338def485c78aadc66645d7727580be",
