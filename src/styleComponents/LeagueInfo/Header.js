@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const LeagueHeader = styled.div`
-    height:60px;
+    height:55px ;
     border-bottom: 3px solid #fff;
-    font-size: 22px;
+    font-size: 20px;
     display:flex;
     flex-direction:row;
     cursor: pointer;

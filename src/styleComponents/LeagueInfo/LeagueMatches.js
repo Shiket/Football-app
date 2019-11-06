@@ -14,5 +14,18 @@ export const Matches = styled.div`
     border-bottom: 3px solid #272727a9;
     border-left: 3px solid #272727a9;
     border-top: 3px solid #fff;
-    padding-bottom:20px;
+    padding-bottom:10px;
+
+@media (max-height: 764px) {
+    height:200px
+    overflow:auto;
+    border-right: 0px;
+}
+
+@media (max-height: 530px) {
+    border-top: none;
+    height:300px;
+        overflow:auto;
+    border-right: 0px;
+    }
 `;

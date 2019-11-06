@@ -117,15 +117,15 @@ const League = ({ history, location, nextMatches, teams, windowWidth }) => {
                 }}
                 getProps={() => {
                     return {
-                        style: { marginTop: '3vh', width: '90%', height: '83vh' },
+                        style: { width: '90%', height:'84vh', paddingTop: '5vh',paddingBottom:'1vh' },
                     }
                 }}
                 getTheadProps={() => {
                     return {
                         style: {
-                            height: '60px', borderBottom: '3px solid #fff', display: 'flex',
+                            height: '55px', borderBottom: '3px solid #fff', display: 'flex',
                             justifyContent: "center", alignItems: 'center', flexDirection: 'row',
-                            backgroundColor: "#272727a9", paddingRight: '16px'
+                            backgroundColor: "#272727a9"
                         }
                     }
                 }}
