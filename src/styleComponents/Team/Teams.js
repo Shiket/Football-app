@@ -2,13 +2,14 @@ import styled from 'styled-components'
 import player from '../../assets/playerIcon.png'
 
 export const Teams = styled.div`
-    width:200px;
+    min-width:200px;
+    width:250px;
     border-right: 2px solid #fff;
     margin-right:15px;
     display:flex;
     flex-direction:row;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 4%;
 
 
     &:before{
@@ -23,7 +24,7 @@ export const Teams = styled.div`
 `;
 
 export const Date = styled.span`
-    width:105px;
+    min-width:90px;
     border-right: 2px solid #fff;
     margin-right:10px;
     display:flex;
@@ -33,16 +34,16 @@ export const PlayersList = styled.div`
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
-    max-height:300px;
+    padding-left: 15px;
     width: 100%;
 `
 
 export const SinglePlayer = styled.div`
-    min-width:200px;
-    height:30px;
+    min-width:220px;
+    height:32px;
     display:flex;
     flex-direction: row;
-    align-items:center
+    align-items:center;
     margin-right:5px;
 
     ::before{
@@ -50,7 +51,11 @@ export const SinglePlayer = styled.div`
         display:inline-block;
         width:22px;
         height:23px;
-        margin-right:5px;
+        margin-right:3px;
         background: url(${player});
     }
+`
+
+export const Score = styled.div`
+    min-width:35px;
 `

@@ -1,10 +1,11 @@
 import React from 'react';
 import {
     WrapperCenter, TeamWrapper, TeamHeader, BackArrow, Details,
-    TeamLogo, SectionName, Icon, Text, DescriptionRow,
+    TeamLogo, Icon, Text, DescriptionRow,
     ContentSection, Scroll, MainSection, Wrapper,
-    Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper, Favourite, DescriptionSection, Description, PlayersList, SinglePlayer,Link
-} from "../../styleComponents"
+    Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper,
+    Favourite, DescriptionSection, Description, PlayersList, SinglePlayer,
+    Link, LastMatches, Score } from "../../styleComponents"
 import Larrow from '../../assets/leftArrow.png'
 import TeamPageHOC from './TeamPageHOC'
 import stadium from '../../assets/stadium.png'
@@ -20,11 +21,11 @@ import fav from '../../assets/star.png'
 
 const Team = ({ history, lastMatches, location, match, nextMatches, players }) => {
 
-    const wholeTeam = players.map(a=>
+    const wholeTeam = players.map(a =>
         <SinglePlayer>
-             {a.strPlayer}
+            {a.strPlayer}
         </SinglePlayer>
-        );
+    );
 
     const next = nextMatches.map(a =>
         <MatchesRow>
@@ -35,14 +36,14 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
     );
 
     const last = lastMatches.map(a =>
-            <MatchesRow>
+        <MatchesRow>
             {a.intHomeScore !== a.intAwayScore ?
                 (a.intHomeScore > a.intAwayScore && a.strHomeTeam === match.params.team ?
                     <Teams win><div>{a.strHomeTeam} <br /> {a.strAwayTeam} </div></Teams> : (a.intAwayScore > a.intHomeScore && a.strAwayTeam === match.params.team ?
-                    <Teams win>{a.strHomeTeam} <br /> {a.strAwayTeam} </Teams> : <Teams lose>{a.strHomeTeam} <br /> {a.strAwayTeam} </Teams>))
-            : <Teams> {a.strHomeTeam} <br /> {a.strAwayTeam}</Teams>}
+                        <Teams win>{a.strHomeTeam} <br /> {a.strAwayTeam} </Teams> : <Teams lose>{a.strHomeTeam} <br /> {a.strAwayTeam} </Teams>))
+                : <Teams> {a.strHomeTeam} <br /> {a.strAwayTeam}</Teams>}
 
-            {a.intHomeScore}-{a.intAwayScore}
+            <Score>{a.intHomeScore}-{a.intAwayScore}</Score>
         </MatchesRow>
 
     );
@@ -62,7 +63,7 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
                     <Details>
                         <TeamLogo src={location.state.state[0].strTeamBadge} />
 
-                        <SectionName>Details:</SectionName>
+                        <MainSection marginL>Details:</MainSection>
 
                         <DescriptionRow>
                             <Icon src={stadium} alt="stadium icon"></Icon>
@@ -80,12 +81,12 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
                             <Icon src={calendar} alt="calendar icon"></Icon>
                             <Text>{location.state.state[0].intFormedYear}</Text>
                         </DescriptionRow>
-                        <DescriptionRow as="a" href={location.state.state[0].strWebsite}>
+                        <DescriptionRow>
                             <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}><Icon src={websiteIco} alt="website icon"></Icon></Link>
                             <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
                         </DescriptionRow>
 
-                        <SectionName>Social media:</SectionName>
+                        <MainSection marginL>Social media:</MainSection>
 
                         <SocialMediaWrapper>
                             <Link target="_blank" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={twitterIco} alt="twitter icon" />}</Link>
@@ -98,34 +99,31 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
 
                     <ContentSection>
                         <Wrapper row start>
-
                             <DescriptionSection>
                                 <MainSection>Description:</MainSection>
                                 <Scroll>
                                     <Description>{location.state.state[0].strDescriptionEN}</Description>
                                 </Scroll>
                             </DescriptionSection>
-
-                            <Wrapper start>
+                            <LastMatches>
                                 <MainSection>Last matches:</MainSection>
                                 {last}
-                            </Wrapper>
-
+                            </LastMatches>
                         </Wrapper>
 
                         <Wrapper row start>
                             <DescriptionSection>
                                 <MainSection>Team:</MainSection>
-                                 <Scroll>
+                                <Scroll>
                                     <PlayersList>
-                                            {wholeTeam}
+                                        {wholeTeam}
                                     </PlayersList>
                                 </Scroll>
                             </DescriptionSection>
-                            <Wrapper start marginR marginB>
+                            <LastMatches start marginR marginB>
                                 <MainSection>Upcomming matches:</MainSection>
                                 {next}
-                            </Wrapper>
+                            </LastMatches>
                         </Wrapper>
 
                     </ContentSection>

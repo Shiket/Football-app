@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const Details = styled.div`
     padding-top:4vh;
     max-height:calc(99vh - 200px);
-    max-width:450px;
-    min-width:350px;
+    width:20%;
+    min-width:300px;
     min-height:200px;
     overflow:auto;
     display:flex;

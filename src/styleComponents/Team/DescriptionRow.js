@@ -5,7 +5,7 @@ export const DescriptionRow = styled.div`
   align-items: center;
   height:100%;
   margin-top:13px;
-  padding-left:4vh;
+  padding-left:10%;
 `;
 
 export const MatchesRow = styled.div`
@@ -13,4 +13,5 @@ export const MatchesRow = styled.div`
   margin-top:16px;
   flex-direction:row;
   align-items: center;
+  width:100%;
 `;
