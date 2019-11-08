@@ -10,4 +10,22 @@ export const Details = styled.div`
     display:flex;
     flex-direction: column;
     background-color: #00000052;
+
+  @media (max-width: 1160px) {
+    width:100%;
+    min-height:100px;
+    overflow:auto;
+    display:flex;
+    flex-direction: row;
+    background-color: #00000052;
+  }
+
+    @media (max-width: 600px) {
+    width:100%;
+    min-height:200px;
+    overflow:auto;
+    display:flex;
+    flex-direction: column;
+    background-color: #00000052;
+    }
 `;

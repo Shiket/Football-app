@@ -7,6 +7,19 @@ export const ContentSection = styled.div`
     margin-left:2%;
     max-height:calc(99vh - 200px);
     overflow:auto;
+
+    @media (max-width: 1400px) {
+        display:flex;
+        flex-direction: column;
+        width:57%;
+        margin-right:3%;
+    }
+    @media (max-width: 1160px) {
+      display: ${props => (props.lg ? 'none' : 'visible')};
+    }
+    @media (max-width: 600px) {
+      display: ${props => (props.lg ? 'none' : 'visible')};
+    }
 `;
 
 export const DescriptionSection = styled.div`
@@ -15,16 +28,28 @@ export const DescriptionSection = styled.div`
     width:70%;
     max-height:350px;
     margin-right:3%;
+    display: ${props => (props.sm ? 'none' : 'visible')};
 
     @media (max-width: 1400px) {
         display:flex;
         flex-direction: column;
         width:57%;
         margin-right:3%;
+        display: ${props => (props.sm ? 'none' : 'visible')};
     }
 
      @media (max-width: 1160px) {
-        width:100%;
-        max-height:100%;
+         width:90%;
+     }
+
+      @media (max-width: 600px) {
+         width:100%;
+         max-height:100%;
+         padding-left:15px;
+         padding-right:10px;
+         display:flex;
+         jusitfy-content:center;
+         padding-bottom:15px;
+         display: ${props => (props.sm ? 'visible' : 'none')};
      }
 `

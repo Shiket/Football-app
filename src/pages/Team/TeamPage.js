@@ -5,7 +5,7 @@ import {
     ContentSection, Scroll, MainSection, Wrapper,
     Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper,
     Favourite, DescriptionSection, Description, PlayersList, SinglePlayer,
-    Link, LastMatches, Score } from "../../styleComponents"
+    Link, LastMatches, Score, ResponsiveWrapper, DetailsWrapper, MediumScreenWrapper } from "../../styleComponents"
 import Larrow from '../../assets/leftArrow.png'
 import TeamPageHOC from './TeamPageHOC'
 import stadium from '../../assets/stadium.png'
@@ -53,42 +53,63 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
             <TeamWrapper>
                 <TeamHeader onClick={history.goBack}>
                     <WrapperCenter row><BackArrow src={Larrow} alt='back arrow' />{match.params.team}
-                        <Text>&emsp;&emsp; {location.state.state[0].win}W &emsp; {location.state.state[0].draw}
+                        <Text dnone>&emsp;&emsp; {location.state.state[0].win}W &emsp; {location.state.state[0].draw}
                             D &emsp;{location.state.state[0].loss}L</Text>
                     </WrapperCenter>
                     <Favourite src={fav} alt='favourite icon' />
                 </TeamHeader>
 
-                <WrapperCenter row flex top>
+                <DetailsWrapper>
                     <Details>
                         <TeamLogo src={location.state.state[0].strTeamBadge} />
+                        <DetailsWrapper col>
+                            <MainSection marginL dnone>Details:</MainSection>
 
-                        <MainSection marginL>Details:</MainSection>
+                            <DescriptionRow>
+                                <Icon src={stadium} alt="stadium icon"></Icon>
+                                <Text>{location.state.state[0].strStadium}</Text>
+                            </DescriptionRow>
+                            <DescriptionRow>
+                                <Icon src={locationIco} alt="location icon"></Icon>
+                                <Text>{location.state.state[0].strStadiumLocation}</Text>
+                            </DescriptionRow>
+                            <DescriptionRow dnone>
+                                <Icon src={location.state.state[1]} alt="league icon"></Icon>
+                                <Text>{location.state.state[0].strLeague}</Text>
+                            </DescriptionRow>
+                            <DescriptionRow>
+                                <Icon src={calendar} alt="calendar icon"></Icon>
+                                <Text>{location.state.state[0].intFormedYear}</Text>
+                            </DescriptionRow>
 
-                        <DescriptionRow>
-                            <Icon src={stadium} alt="stadium icon"></Icon>
-                            <Text>{location.state.state[0].strStadium}</Text>
-                        </DescriptionRow>
-                        <DescriptionRow>
-                            <Icon src={locationIco} alt="location icon"></Icon>
-                            <Text>{location.state.state[0].strStadiumLocation}</Text>
-                        </DescriptionRow>
-                        <DescriptionRow>
-                            <Icon src={location.state.state[1]} alt="league icon"></Icon>
-                            <Text>{location.state.state[0].strLeague}</Text>
-                        </DescriptionRow>
-                        <DescriptionRow>
-                            <Icon src={calendar} alt="calendar icon"></Icon>
-                            <Text>{location.state.state[0].intFormedYear}</Text>
-                        </DescriptionRow>
-                        <DescriptionRow>
-                            <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}><Icon src={websiteIco} alt="website icon"></Icon></Link>
-                            <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
-                        </DescriptionRow>
+                            <DescriptionRow>
+                                <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}><Icon src={websiteIco} alt="website icon"></Icon></Link>
+                                <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
+                            </DescriptionRow>
 
-                        <MainSection marginL>Social media:</MainSection>
+                            <MediumScreenWrapper>
+                                <LastMatches dnone>
+                                    <MainSection>Last matches:</MainSection>
+                                    {last}
+                                </LastMatches>
 
-                        <SocialMediaWrapper>
+                                <LastMatches dnone>
+                                    <MainSection>Upcomming matches:</MainSection>
+                                    {next}
+                                </LastMatches>
+                            </MediumScreenWrapper>
+
+                            <DescriptionSection sm>
+                                <MainSection>Description:</MainSection>
+                                <Scroll>
+                                    <Description>{location.state.state[0].strDescriptionEN}</Description>
+                                </Scroll>
+                            </DescriptionSection>
+                        </DetailsWrapper>
+
+                        <MainSection marginL dnone>Social media:</MainSection>
+
+                        <SocialMediaWrapper dnone>
                             <Link target="_blank" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={twitterIco} alt="twitter icon" />}</Link>
                             <Link target="_blank" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={facebookIco} alt="twitter icon" />}</Link>
                             <Link target="_blank" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={youtubeIco} alt="twitter icon" />}</Link>
@@ -97,8 +118,8 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
 
                     </Details>
 
-                    <ContentSection>
-                        <Wrapper row start>
+                    <ContentSection lg>
+                        <ResponsiveWrapper>
                             <DescriptionSection>
                                 <MainSection>Description:</MainSection>
                                 <Scroll>
@@ -109,7 +130,7 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
                                 <MainSection>Last matches:</MainSection>
                                 {last}
                             </LastMatches>
-                        </Wrapper>
+                        </ResponsiveWrapper>
 
                         <Wrapper row start>
                             <DescriptionSection>
@@ -128,7 +149,7 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
 
                     </ContentSection>
 
-                </WrapperCenter>
+                </DetailsWrapper>
             </TeamWrapper>
         </WrapperCenter>
     )
