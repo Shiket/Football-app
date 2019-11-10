@@ -5,7 +5,9 @@ import {
     ContentSection, Scroll, MainSection, Wrapper,
     Teams, Date, MatchesRow, SocialIcon, SocialMediaWrapper,
     Favourite, DescriptionSection, Description, PlayersList, SinglePlayer,
-    Link, LastMatches, Score, ResponsiveWrapper, DetailsWrapper, MediumScreenWrapper } from "../../styleComponents"
+    Link, LastMatches, Score, ResponsiveWrapper, DetailsWrapper, MediumScreenWrapper,
+    DetailsMediumScreenWrapper
+} from "../../styleComponents"
 import Larrow from '../../assets/leftArrow.png'
 import TeamPageHOC from './TeamPageHOC'
 import stadium from '../../assets/stadium.png'
@@ -61,31 +63,46 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
 
                 <DetailsWrapper>
                     <Details>
-                        <TeamLogo src={location.state.state[0].strTeamBadge} />
+
+                        <TeamLogo dnone src={location.state.state[0].strTeamBadge} />
                         <DetailsWrapper col>
                             <MainSection marginL dnone>Details:</MainSection>
 
-                            <DescriptionRow>
-                                <Icon src={stadium} alt="stadium icon"></Icon>
-                                <Text>{location.state.state[0].strStadium}</Text>
-                            </DescriptionRow>
-                            <DescriptionRow>
-                                <Icon src={locationIco} alt="location icon"></Icon>
-                                <Text>{location.state.state[0].strStadiumLocation}</Text>
-                            </DescriptionRow>
-                            <DescriptionRow dnone>
-                                <Icon src={location.state.state[1]} alt="league icon"></Icon>
-                                <Text>{location.state.state[0].strLeague}</Text>
-                            </DescriptionRow>
-                            <DescriptionRow>
-                                <Icon src={calendar} alt="calendar icon"></Icon>
-                                <Text>{location.state.state[0].intFormedYear}</Text>
-                            </DescriptionRow>
+                            <DetailsMediumScreenWrapper>
+                                <TeamLogo src={location.state.state[0].strTeamBadge} />
+                                <DetailsMediumScreenWrapper col>
+                                    <DescriptionRow>
+                                        <Icon src={stadium} alt="stadium icon"></Icon>
+                                        <Text>{location.state.state[0].strStadium}</Text>
+                                    </DescriptionRow>
+                                    <DescriptionRow>
+                                        <Icon src={locationIco} alt="location icon"></Icon>
+                                        <Text>{location.state.state[0].strStadiumLocation}</Text>
+                                    </DescriptionRow>
+                                    <DescriptionRow dnone>
+                                        <Icon src={location.state.state[1]} alt="league icon"></Icon>
+                                        <Text>{location.state.state[0].strLeague}</Text>
+                                    </DescriptionRow>
+                                    <DescriptionRow>
+                                        <Icon src={calendar} alt="calendar icon"></Icon>
+                                        <Text>{location.state.state[0].intFormedYear}</Text>
+                                    </DescriptionRow>
 
-                            <DescriptionRow>
-                                <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}><Icon src={websiteIco} alt="website icon"></Icon></Link>
-                                <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
-                            </DescriptionRow>
+                                    <DescriptionRow>
+                                        <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}><Icon src={websiteIco} alt="website icon"></Icon></Link>
+                                        <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
+                                    </DescriptionRow>
+
+                                </DetailsMediumScreenWrapper>
+                                <SocialMediaWrapper dnone>
+                                    <Link target="_blank" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={twitterIco} alt="twitter icon" />}</Link>
+                                    <Link target="_blank" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={facebookIco} alt="twitter icon" />}</Link>
+                                    <Link target="_blank" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={youtubeIco} alt="twitter icon" />}</Link>
+                                    <Link target="_blank" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={instagramIco} alt="twitter icon" />}</Link>
+                                </SocialMediaWrapper>
+
+
+                            </DetailsMediumScreenWrapper>
 
                             <MediumScreenWrapper>
                                 <LastMatches dnone>
@@ -98,7 +115,12 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
                                     {next}
                                 </LastMatches>
                             </MediumScreenWrapper>
-
+                            <DescriptionSection md>
+                                <MainSection>Description:</MainSection>
+                                <Scroll>
+                                    <Description>{location.state.state[0].strDescriptionEN}</Description>
+                                </Scroll>
+                            </DescriptionSection>
                             <DescriptionSection sm>
                                 <MainSection>Description:</MainSection>
                                 <Scroll>
@@ -109,7 +131,7 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
 
                         <MainSection marginL dnone>Social media:</MainSection>
 
-                        <SocialMediaWrapper dnone>
+                        <SocialMediaWrapper>
                             <Link target="_blank" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={twitterIco} alt="twitter icon" />}</Link>
                             <Link target="_blank" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={facebookIco} alt="twitter icon" />}</Link>
                             <Link target="_blank" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={youtubeIco} alt="twitter icon" />}</Link>

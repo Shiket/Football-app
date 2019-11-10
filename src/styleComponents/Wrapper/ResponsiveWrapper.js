@@ -31,6 +31,20 @@ export const MediumScreenWrapper = styled.div`
     display:flex;
     flex-direction:row;
     justify-content:space-around;
+    width:100%;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction:column;
+    width:100%;
+  }
+`;
+export const DetailsMediumScreenWrapper = styled.div`
+
+  @media (max-width: 1160px) {
+    display:flex;
+    flex-direction:  ${props => (props.col ? 'column' : 'row')};
+    width:100%;
   }
 
   @media (max-width: 600px) {
