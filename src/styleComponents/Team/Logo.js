@@ -14,6 +14,7 @@ export const TeamLogo = styled.img`
         width: 180px;
         margin-top:30px;
         margin-left: 5%;
+    }
 
     @media (max-width: 600px) {
         height: 200px;
@@ -23,4 +24,14 @@ export const TeamLogo = styled.img`
         margin-right:auto;
         margin-bottom: 0;
         margin-top:0px;
+    }
+
+    @media (max-height: 900px) and (min-width: 1160px) {
+        height: 200px;
+        width: 200px;
+        margin-left:auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+    }
 `;
+

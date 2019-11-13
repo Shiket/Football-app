@@ -101,7 +101,6 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
                                     <Link target="_blank" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={instagramIco} alt="twitter icon" />}</Link>
                                 </SocialMediaWrapper>
 
-
                             </DetailsMediumScreenWrapper>
 
                             <MediumScreenWrapper>
@@ -115,14 +114,8 @@ const Team = ({ history, lastMatches, location, match, nextMatches, players }) =
                                     {next}
                                 </LastMatches>
                             </MediumScreenWrapper>
-                            <DescriptionSection md>
-                                <MainSection>Description:</MainSection>
-                                <Scroll>
-                                    <Description>{location.state.state[0].strDescriptionEN}</Description>
-                                </Scroll>
-                            </DescriptionSection>
                             <DescriptionSection sm>
-                                <MainSection>Description:</MainSection>
+                                <MainSection mb>Description:</MainSection>
                                 <Scroll>
                                     <Description>{location.state.state[0].strDescriptionEN}</Description>
                                 </Scroll>

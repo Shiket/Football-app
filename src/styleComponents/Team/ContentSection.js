@@ -28,7 +28,6 @@ export const DescriptionSection = styled.div`
     max-height:350px;
     margin-right:3%;
     display: ${props => (props.sm ? 'none' : 'visible')};
-    display: ${props => (props.md ? 'none' : 'visible')};
 
     @media (max-width: 1400px) {
         display:flex;
@@ -43,8 +42,8 @@ export const DescriptionSection = styled.div`
          max-height:100%;
          padding-left:25px;
          padding-right:25px;
-         margin-bottom:30px;
-         display: ${props => (props.md ? 'visible' : 'none')};
+         padding-bottom:30px;
+         display: ${props => (props.sm ? 'block' : 'none')};
      }
 
       @media (max-width: 600px) {
@@ -54,8 +53,7 @@ export const DescriptionSection = styled.div`
          padding-right:10px;
          display:flex;
          jusitfy-content:center;
-         padding-bottom:15px;
+         padding-bottom:0px;
          display: ${props => (props.sm ? 'visible' : 'none')};
-        display: ${props => (props.md ? 'none' : 'visible')};
      }
 `
