@@ -3,7 +3,7 @@ import { withRouter } from "react-router"
 import { WrapperCenter, LeagueInfo, Wrapper, BackArrow, LeagueHeader, LeagueLogo, LeagueMatches, SectionHeader, Matches } from "../../styleComponents";
 import ReactTable from "react-table";
 import LeagueHOC from './LeagueHOC';
-import Larrow from '../../assets/leftArrow.png'
+import { IMAGES } from '../../assets/index'
 
 const League = ({ history, location, nextMatches, teams, windowWidth }) => {
     const next = nextMatches.map(a =>
@@ -84,7 +84,7 @@ const League = ({ history, location, nextMatches, teams, windowWidth }) => {
             <LeagueInfo>
                 <LeagueHeader onClick={history.goBack}>
                     <WrapperCenter row>
-                        <BackArrow src={Larrow} alt='back arrow'></BackArrow>
+                        <BackArrow src={IMAGES.leftArrow} alt='back arrow'></BackArrow>
                         {location.state.state[1].split('%20').splice(1).join(' ')}
                     </WrapperCenter>
                 </LeagueHeader>

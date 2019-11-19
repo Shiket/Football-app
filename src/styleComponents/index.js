@@ -14,7 +14,7 @@ export { LeagueInfo } from './LeagueInfo/LeagueInfo';
 export { BackArrow } from './LeagueInfo/BackArrow';
 export { LeagueHeader } from './LeagueInfo/Header';
 export { LeagueLogo } from './LeagueInfo/LeagueLogo';
-export { TeamWrapper, TeamHeader } from './Wrapper/TeamWrapper';
+export { TeamWrapper, TeamHeader, PrevPage } from './Wrapper/TeamWrapper';
 export { Details } from './Team/DetailsSection';
 export { TeamLogo } from './Team/Logo'
 export { MainSection } from './Team/SectionName'

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import { withFirebase } from '../../components/Firebase';
 
@@ -50,15 +50,18 @@ const UserList = ({ users }) => (
     <ul>
         {users.map(user => (
             <li key={user.uid}>
-                <span>
+                <div>
                     <strong>ID:</strong> {user.uid}
-                </span>
-                <span>
-                    <strong>E-Mail:</strong> {user.email}
-                </span>
-                <span>
+                </div>
+                <div>
+                    <strong>Email:</strong> {user.email}
+                </div>
+                <div>
                     <strong>Username:</strong> {user.username}
-                </span>
+                </div>
+                <div>
+                    <strong>Favourites:</strong> {user.favourites}
+                </div>
             </li>
         ))}
     </ul>

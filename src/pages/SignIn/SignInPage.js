@@ -5,7 +5,7 @@ import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
 import { SignUpLink, PasswordForgetLink } from '../index';
 import { Link } from 'react-router-dom'
-import ball from '../../assets/ball.png'
+import { IMAGES } from '../../assets/index'
 import Layout from '../../Layout/Layout';
 import { Button, Input, FormWrapper, Form, WrapperCenter, FormTitle,
     FormLogo, BottomLinks} from '../../styleComponents/index';
@@ -15,7 +15,7 @@ const SignInPage = () => (
         <WrapperCenter>
             <FormWrapper>
                 <WrapperCenter row>
-                    <img src={ball} width="48" height="48" alt="ball" />
+                    <img src={IMAGES.ball} width="48" height="48" alt="ball" />
                     <FormLogo>Football app</FormLogo>
                 </WrapperCenter>
                 <FormTitle>Sign In</FormTitle>

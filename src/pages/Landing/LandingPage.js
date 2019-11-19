@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
-import { WrapperCenter, Headers, Switch, LandingSection, FavTeamsSection, FormTitle, FormLogo } from '../../styleComponents/index'
+import { WrapperCenter, Headers, Switch, LandingSection } from '../../styleComponents/index'
+import { FavouriteTeamsPage } from '../index'
 import { ReactTableDefaults } from 'react-table'
-import * as ROUTES from '../../constants/routes'
-import { Link } from 'react-router-dom'
-import ball from '../../assets/ball.png'
 import { withRouter } from "react-router"
 
 Object.assign(ReactTableDefaults, {
@@ -15,9 +13,9 @@ Object.assign(ReactTableDefaults, {
     sortable: true,
     style: { color: "#fff", border: 'none' }
 });
+
 const Landing = ({ windowWidth, leagues, history }) => {
     let [LeagueView, setYourTeams] = useState(true);
-
 
     const columns = [
         {
@@ -71,6 +69,7 @@ const Landing = ({ windowWidth, leagues, history }) => {
                 <Switch onClick={() => setYourTeams(LeagueView = true)} color>Add new team</Switch>
                 <Switch onClick={() => setYourTeams(LeagueView = false)}>Your teams</Switch>
             </Headers>
+
             {LeagueView === true ?
                 <LandingSection>
                     <ReactTable
@@ -102,18 +101,8 @@ const Landing = ({ windowWidth, leagues, history }) => {
                             }
                         }}
                     />
-                </LandingSection> :
-                <FavTeamsSection>
-                    <WrapperCenter>
-                        <WrapperCenter marginB row>
-                            <img src={ball} width="48" height="48" alt="ball" />
-                            <FormLogo>Football app</FormLogo>
-                            <br /><br /><br /><br />
-                        </WrapperCenter>
-                        <FormTitle>You have to <Link to={ROUTES.SIGN_IN}>Sign in!</Link> to see this section </FormTitle>
-                        <FormTitle>Don't have account yet? <Link to={ROUTES.SIGN_UP}>Create new account!</Link></FormTitle>
-                    </WrapperCenter>
-                </FavTeamsSection>}
+                </LandingSection> : <FavouriteTeamsPage />
+            }
 
 
         </WrapperCenter>

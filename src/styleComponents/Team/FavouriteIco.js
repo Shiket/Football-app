@@ -6,5 +6,6 @@ export const Favourite = styled.img`
     display:flex;
     align-items: center;
     margin-right:20px;
+    cursor:pointer;
 `;
 
