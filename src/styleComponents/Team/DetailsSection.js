@@ -5,7 +5,7 @@ export const Details = styled.div`
     max-height:calc(99vh - 200px);
     width:20%;
     min-width:300px;
-    min-height:200px;
+    min-height:100px;
     overflow:auto;
     display:flex;
     flex-direction: column;

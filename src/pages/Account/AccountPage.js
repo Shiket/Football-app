@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { AuthUserContext } from '../../components/Session';
 import { PasswordForgetForm, PasswordChange} from '../index';
 import { withAuthorization } from '../../components/Session';

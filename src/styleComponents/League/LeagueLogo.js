@@ -9,7 +9,7 @@ export const LeagueLogo = styled.img`
     justify-content: center;
     align-items:center;
 
-    @media (max-height: 530px) {
+    @media (max-height: 560px) {
     display:none;
     }
     `;

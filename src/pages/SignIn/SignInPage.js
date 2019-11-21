@@ -40,11 +40,6 @@ class SignInFormBase extends Component {
         this.state = { ...INITIAL_STATE };
     }
 
-    componentDidMount() {
-        document.body.classList.add("bgForm");
-        console.log(this.props)
-    }
-
     onSubmit = event => {
         const { email, password } = this.state;
 
@@ -107,4 +102,4 @@ const SignInForm = compose(
     withFirebase,
 )(SignInFormBase);
 
-export { SignInForm, SignInLink, SignInPage};
+export { SignInForm, SignInLink, SignInPage };

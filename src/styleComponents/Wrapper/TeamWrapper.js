@@ -3,12 +3,11 @@ import styled from 'styled-components'
 export const TeamWrapper = styled.div`
   margin-top:3vh;
   background-color: #272727a9;
-  max-height:calc(99vh - 146px);
+  max-height:calc(99vh - 142px);
   width:92%;
 `;
 
 export const TeamHeader = styled.div`
-
     border-bottom: 3px solid #fff;
     background-color: #00000052;
     display:flex;

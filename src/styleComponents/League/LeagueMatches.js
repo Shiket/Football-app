@@ -22,10 +22,14 @@ export const Matches = styled.div`
     border-right: 0px;
 }
 
-@media (max-height: 530px) {
+@media (max-height: 560px){
     border-top: none;
     height:300px;
-        overflow:auto;
+    overflow:auto;
     border-right: 0px;
     }
+
+@media (max-height: 457px){
+    display:none;
+}
 `;

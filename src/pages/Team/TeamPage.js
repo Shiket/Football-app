@@ -12,7 +12,7 @@ import { AuthUserContext } from '../../components/Session';
 import { withFirebase } from '../../components/Firebase/index';
 import TeamPageHOC from './TeamPageHOC'
 
-const Team = ({ history, lastMatches, location, match, nextMatches, players}) => {
+const Team = ({ history, lastMatches, location, match, nextMatches, players, firebase}) => {
 
     const wholeTeam = players.map(a =>
         <SinglePlayer>

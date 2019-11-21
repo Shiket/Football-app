@@ -9,7 +9,11 @@ export const LeagueInfo = styled.div`
     flex-direction:column;
     background-color:#272727a9;
 
-@media (max-width: 1050px) {
+@media (max-width: 1050px){
     display: none;
+}
+
+@media (max-height: 457px){
+    display:none;
 }
 `;

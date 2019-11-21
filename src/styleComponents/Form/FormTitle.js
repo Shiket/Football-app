@@ -5,4 +5,11 @@ export const FormTitle = styled.p`
   margin-top:10px;
   margin-bottom:38px;
   text-align: center;
+
+  @media (max-height: 490px) {
+  font-size: 1.2em;
+  margin-top:5px;
+  margin-bottom:5px;
+  text-align: center;
+  }
 `;
