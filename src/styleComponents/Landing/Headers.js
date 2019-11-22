@@ -19,11 +19,13 @@ export const Switch = styled.button`
     color: #fff;
     cursor: pointer;
     display:flex;
-    border-bottom: 3px solid #fff;
+    border-bottom: 3px solid #fff !important;
     justify-content:center;
+    border-radius: 0px;
 
         :focus{
-            background-color: #06313fcc;
+            border:none;
+            outline:0px;
         }
     }
 `
