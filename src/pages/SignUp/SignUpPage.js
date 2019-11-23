@@ -1,30 +1,20 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
 import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
 import { SignInLink } from '../index';
-import ball from '../../assets/ball.png'
-import Layout from '../../Layout/Layout';
-
 import { Button, Input, FormWrapper, Form, WrapperCenter, FormTitle,
-    FormLogo, BottomLinks} from '../../styleComponents/index';
+         BottomLinks} from '../../styleComponents/index';
 
 const SignUpPage = () => (
-    <Layout>
         <WrapperCenter>
             <FormWrapper>
-                <WrapperCenter row>
-                    <img src={ball} width="48" height="48" alt="ball" />
-                    <FormLogo>Football app</FormLogo>
-                </WrapperCenter>
                 <FormTitle>Sign Up</FormTitle>
                 <SignUpForm />
                 <SignInLink />
             </FormWrapper>
         </WrapperCenter>
-    </Layout>
 );
 
 const INITIAL_STATE = {

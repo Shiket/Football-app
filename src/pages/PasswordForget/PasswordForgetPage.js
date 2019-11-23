@@ -4,27 +4,17 @@ import { Link } from 'react-router-dom';
 import { SignUpLink } from '../index'
 import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
-
-import ball from '../../assets/ball.png'
-import Layout from '../../Layout/Layout';
-
 import { Button, FormWrapper, Input, Form, WrapperCenter,
-    BottomLinks, FormLogo, FormTitle } from '../../styleComponents/index';
+    BottomLinks, FormTitle } from '../../styleComponents/index';
 
 const PasswordForgetPage = () => (
-    <Layout>
         <WrapperCenter>
             <FormWrapper>
-                <WrapperCenter row>
-                    <img src={ball} width="48" height="48" alt="ball" />
-                    <FormLogo>Football app</FormLogo>
-                </WrapperCenter>
                 <FormTitle>Password Forget</FormTitle>
                 <PasswordForgetForm />
                 <SignUpLink />
             </FormWrapper>
         </WrapperCenter>
-    </Layout>
 );
 
 const INITIAL_STATE = {

@@ -1,15 +1,13 @@
 import styled from 'styled-components'
 
 export const FormWrapper = styled.div`
-  background-color: #353430c7;
+  background-color: #1A1A1Acd ;
   max-width:650px;
   width:85%;
   min-height:300px;
   margin-top:5vh;
-  padding: 10px 0;
+  padding: 1% 0;
   display:flex;
   flex-direction: column;
-  align-self: center;
-  align-items: center;
-  border-radius: 9px;
+  border: 3px solid #fff;
 `;

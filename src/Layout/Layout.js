@@ -20,22 +20,19 @@ const GlobalStyle = createGlobalStyle`
         background-size: cover;
         max-height: 100vh;
     }
-    /* width */
+
     ::-webkit-scrollbar {
         width: 5px;
     }
 
-    /* Track */
     ::-webkit-scrollbar-track {
         background: #fff;
     }
 
-    /* Handle */
     ::-webkit-scrollbar-thumb {
         background: #353535;
     }
 
-    /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
     background: #555;
     }
@@ -61,6 +58,17 @@ const GlobalStyle = createGlobalStyle`
     a {
         color: ${({ theme }) => theme.colors.white};
         text-decoration: none;
+    }
+    @-webkit-keyframes autofill {
+        to {
+            color: #fff;
+            background: transparent;
+        }
+    }
+
+    input:-webkit-autofill {
+        -webkit-animation-name: autofill;
+        -webkit-animation-fill-mode: both;
     }
 `;
 
