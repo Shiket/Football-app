@@ -1,0 +1,6 @@
+export { Header } from './Team/Header'
+export { Content } from './Team/Content'
+export { Table } from './League/Table'
+export { NextLeagueMatches } from './League/NextLeagueMatches'
+export { LandingTable } from './Landing/LandingTable'
+export { FavouriteTeams } from './Landing/FavouriteTeams'

@@ -20,18 +20,23 @@ class Firebase {
         this.db = app.database();
     }
 
-    doCreateUserWithEmailAndPassword = (email, password) =>
-        this.auth.createUserWithEmailAndPassword(email, password);
+    doCreateUserWithEmailAndPassword = async (email, password) =>
+        await this.auth.createUserWithEmailAndPassword(email, password);
 
-    doSignInWithEmailAndPassword = (email, password) =>
-        this.auth.signInWithEmailAndPassword(email, password);
+    doSignInWithEmailAndPassword = async (email, password) =>
+        await this.auth.signInWithEmailAndPassword(email, password);
 
-    doSignOut = () => this.auth.signOut();
-    doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
-    doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+    doSignOut = async () => await this.auth.signOut();
+    doPasswordReset = async email => await this.auth.sendPasswordResetEmail(email);
+    doPasswordUpdate = async password => await this.auth.currentUser.updatePassword(password);
 
-    user = uid => this.db.ref(`users/${uid}`);
-    users = () => this.db.ref('users');
+    getUserById = async uid => await this.db.ref(`users/${uid}`);
+    getAllUsers = async () => await this.db.ref('users');
+
+    addTeamToFavorite = async (userId, teamId) => {
+        const user = await this.db.ref(`users/${userId}`).update({ favourites: [teamId] })
+        console.log(user);
+    }
 }
 
 export default Firebase;

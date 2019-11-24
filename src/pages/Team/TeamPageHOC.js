@@ -29,8 +29,7 @@ export default (WrappedComponent) => {
                 <WrappedComponent {...this.props}
                     nextMatches={this.state.nextMatches}
                     lastMatches={this.state.lastMatches}
-                    players={this.state.players}
-                     />
+                    players={this.state.players} />
             )
         }
     }
