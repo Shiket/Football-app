@@ -19,6 +19,8 @@ const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.white}
         background-size: cover;
         max-height: 100vh;
+        overflow-x:hidden;
+}
     }
 
     ::-webkit-scrollbar {

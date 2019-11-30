@@ -1,4 +1,7 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components';
+import { zoomIn } from 'react-animations';
+
+const Zoom = keyframes`${zoomIn}`;
 
 export const ResponsiveWrapper = styled.div`
   display: flex;
@@ -11,6 +14,7 @@ export const DetailsWrapper = styled.div`
   display: flex;
   justify-content: ${props => (props.center ? 'center' : 'start')};
   flex-direction:  ${props => (props.col ? 'column' : 'row')};
+  animation: 0.2s ${Zoom};
 
   @media (max-width: 1160px) {
     display:flex;

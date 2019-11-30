@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 import { Button, Input, FormWrapper, Form, WrapperCenter, FormTitle, BottomLinks}
         from '../../styleComponents/index';
 
-//tak wlasnie powinien wygladac page, bez duzej logiki, sam JSX, wiem co sie dzieje +
 const SignInPage = () => (
         <WrapperCenter>
             <FormWrapper>
@@ -26,9 +25,6 @@ const INITIAL_STATE = {
     error: null,
 };
 
-//odrazu sobie sciagnij i zacnzij uzywac REact final form - ta biblioteka
-//staje sie standardem teraz i jak bedziesz umial chociaz podstawy to bedzie plus na rozmowie
-// (nie ma w niej nic skomplikowanego)
 class SignInFormBase extends Component {
     constructor(props) {
         super(props);
@@ -43,7 +39,7 @@ class SignInFormBase extends Component {
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push(ROUTES.HOME);
+                this.props.history.push(ROUTES.LANDING);
             })
             .catch(error => {
                 this.setState({ error });
@@ -79,7 +75,7 @@ class SignInFormBase extends Component {
                 />
                 <Button disabled={isInvalid} type="submit">
                     Sign In
-                    </Button>
+                </Button>
 
                 {error && <p>{error.message}</p>}
             </Form>

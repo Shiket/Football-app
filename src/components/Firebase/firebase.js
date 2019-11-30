@@ -19,6 +19,8 @@ class Firebase {
         this.auth = app.auth();
         this.db = app.database();
     }
+    user = uid => this.db.ref(`users/${uid}`);
+    users = () => this.db.ref('users');
 
     doCreateUserWithEmailAndPassword = async (email, password) =>
         await this.auth.createUserWithEmailAndPassword(email, password);
@@ -33,9 +35,20 @@ class Firebase {
     getUserById = async uid => await this.db.ref(`users/${uid}`);
     getAllUsers = async () => await this.db.ref('users');
 
+    getRefToFav = async uid => {
+        await this.db.ref(`users/${uid}/favourites`)
+    }
+
+    getAllFavouriteTeams = async uid => {
+        const fav = await this.db.ref(`users/${uid}/favourites`).on("value", snapshot => {
+            const favourite = snapshot.val();
+            // console.log(fav)
+            // console.log(favourite)
+        })
+    }
     addTeamToFavorite = async (userId, teamId) => {
-        const user = await this.db.ref(`users/${userId}`).update({ favourites: [teamId] })
-        console.log(user);
+        const user = await this.db.ref(`users/${userId}`).push({ favourites: teamId })
+        //console.log(user);
     }
 }
 

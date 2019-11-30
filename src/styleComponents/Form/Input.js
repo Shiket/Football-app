@@ -16,7 +16,7 @@ export const Input = styled.input`
       height:41px;
    :focus{
       outline:none;
-      border-bottom: 3px solid #6b50ff;
+      border-bottom: 3px solid #3498db;
       background-color: #00000000;
    }
    ::placeholder {

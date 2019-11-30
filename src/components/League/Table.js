@@ -2,10 +2,18 @@ import React from 'react'
 import { TableWrapper } from "../../styleComponents";
 import ReactTable from "react-table";
 import { useHistory, useLocation } from 'react-router-dom'
-
+import { ReactTableDefaults } from 'react-table'
 export const Table = ({windowWidth, teams}) => {
     const history = useHistory();
     const location = useLocation();
+
+    Object.assign(ReactTableDefaults, {
+        minRows: 5,
+        showPagination: false,
+        resizable: false,
+        sortable: true,
+        style: { color: "#fff", border: 'none' }
+    });
 
     const columns = [
         {

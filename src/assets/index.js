@@ -14,6 +14,8 @@ import star from './star.png'
 import twitter from './Twitter.png'
 import website from './website.png'
 import yt from './yt.png'
+import x from './x.png'
+import burger from './burger.png'
 
 export const IMAGES = {
     ball: ball,
@@ -31,5 +33,7 @@ export const IMAGES = {
     star:star,
     twitter:twitter,
     website:website,
-    yt:yt
+    yt:yt,
+    close: x,
+    burger: burger
 };

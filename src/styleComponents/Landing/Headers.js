@@ -1,8 +1,12 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components';
+import { zoomIn } from 'react-animations';
+
+const Zoom = keyframes`${zoomIn}`;
 
 export const Headers = styled.div`
     display:flex;
     flex-direction:row;
+    animation: 0.2s ${Zoom};
     width:82%;
     margin-top:6vh;
 `;

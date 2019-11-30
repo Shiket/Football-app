@@ -1,4 +1,7 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components';
+import { slideInLeft } from 'react-animations';
+
+const SlideLeft = keyframes`${slideInLeft}`;
 
 export const LeagueInfo = styled.div`
     min-width: 380px;
@@ -8,6 +11,7 @@ export const LeagueInfo = styled.div`
     display:flex;
     flex-direction:column;
     background-color:#272727a9;
+    animation: 0.2s ${SlideLeft};
 
 @media (max-width: 1050px){
     display: none;

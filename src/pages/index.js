@@ -1,4 +1,3 @@
-export { HomePage } from './Home/HomePage';
 export { AccountPage } from './Account/AccountPage';
 export { AdminPage } from './Admin/AdminPage';
 export { LandingPage } from './Landing/LandingPage';

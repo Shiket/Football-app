@@ -1,7 +1,6 @@
 export const LANDING = '/Football-app/';
 export const SIGN_UP = '/Football-app/signup';
 export const SIGN_IN = '/Football-app/signin';
-export const HOME = '/Football-app/home';
 export const ACCOUNT = '/Football-app/account';
 export const ADMIN = '/Football-app/admin';
 export const PASSWORD_FORGET = '/Football-app/pw-forget';

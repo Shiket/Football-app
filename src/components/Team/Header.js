@@ -21,10 +21,18 @@ export const Header = ({firebase}) => {
                 {authUser => authUser ?
                     <Favourite onClick={async () => {
                         const teamId = location.state.state[0].idTeam;
-                        await firebase.addTeamToFavorite(authUser.uid, teamId);
+                        console.log(teamId)
+                        // await firebase.addTeamToFavorite(authUser.uid, teamId);
+                        // await firebase.getAllFavouriteTeams(authUser.uid)
+
+                        console.log(await firebase.getRefToFav(authUser.uid))
                     }} src={IMAGES.star} alt='favourite icon' />
+
                     : <Favourite onClick={() => alert('You have to sign in!')} src={IMAGES.star} alt='favourite icon' />
                 }
+
+
+
             </AuthUserContext.Consumer>
 
         </TeamHeader>

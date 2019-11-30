@@ -67,17 +67,16 @@ export const Content = ({ players, nextMatches, lastMatches}) => {
                         </DescriptionRow>
 
                         <DescriptionRow>
-                            <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}><Icon src={IMAGES.website} alt="website icon"></Icon></Link>
-                            <Link target="_blank" href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
+                            <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strWebsite}><Icon src={IMAGES.website} alt="website icon"></Icon></Link>
+                            <Link target="_blank" rel="noopener noreferrer"href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
                         </DescriptionRow>
 
                     </DetailsMediumScreenWrapper>
                     <SocialMediaWrapper dnone>
-                        {/* zazwyczaj daje sie tez no-rel opener do elementow a (wygoogluj se) */}
-                        <Link target="_blank" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={IMAGES.twitter} alt="twitter icon" />}</Link>
-                        <Link target="_blank" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={IMAGES.fb} alt="fb icon" />}</Link>
-                        <Link target="_blank" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={IMAGES.yt} alt="yt icon" />}</Link>
-                        <Link target="_blank" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={IMAGES.ig} alt="ig icon" />}</Link>
+                        <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={IMAGES.twitter} alt="twitter icon" />}</Link>
+                        <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={IMAGES.fb} alt="fb icon" />}</Link>
+                        <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={IMAGES.yt} alt="yt icon" />}</Link>
+                        <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={IMAGES.ig} alt="ig icon" />}</Link>
                     </SocialMediaWrapper>
 
                 </DetailsMediumScreenWrapper>
@@ -89,13 +88,11 @@ export const Content = ({ players, nextMatches, lastMatches}) => {
                     </LastMatches>
 
                     <LastMatches dnone>
-                        {/* dnone nic nie mowi jako prop dla styli, nazwij to jakos po ludzku */}
                         <MainSection>Upcomming matches:</MainSection>
                         {next}
                     </LastMatches>
                 </MediumScreenWrapper>
                 <DescriptionSection sm>
-                    {/* sm i mb tez malo mowi, kod ma byc deklaratywny (a przynajmniej jsx) */}
                     <MainSection mb>Description:</MainSection>
                     <Scroll>
                         <Description>{location.state.state[0].strDescriptionEN}</Description>
@@ -104,12 +101,11 @@ export const Content = ({ players, nextMatches, lastMatches}) => {
             </DetailsWrapper>
 
             <MainSection marginL dnone>Social media:</MainSection>
-            {/*// fakt ze masz location.state.state[0] to juz jest srednio, splyc sobie ta strukture*/}
             <SocialMediaWrapper>
-                <Link target="_blank" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={IMAGES.twitter} alt="twitter icon" />}</Link>
-                <Link target="_blank" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={IMAGES.fb} alt="fb icon" />}</Link>
-                <Link target="_blank" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={IMAGES.yt} alt="yt icon" />}</Link>
-                <Link target="_blank" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={IMAGES.ig} alt="ig icon" />}</Link>
+                <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={IMAGES.twitter} alt="twitter icon" />}</Link>
+                <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={IMAGES.fb} alt="fb icon" />}</Link>
+                <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={IMAGES.yt} alt="yt icon" />}</Link>
+                <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={IMAGES.ig} alt="ig icon" />}</Link>
             </SocialMediaWrapper>
 
         </Details>
