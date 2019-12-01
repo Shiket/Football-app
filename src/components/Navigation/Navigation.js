@@ -9,7 +9,7 @@ import {NoAuthNavigation, AuthNavigation} from '../index'
 const Navigation = () => (
         <Header>
             <WrapperCenter row as={Link} to={ROUTES.LANDING}>
-                <NavBall animate src={ball} alt="logo-img" />
+                <NavBall animate src={ball} alt="ball img"/>
                 <Logo>Football app</Logo>
             </WrapperCenter>
                 <AuthUserContext.Consumer>

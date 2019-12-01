@@ -13,8 +13,5 @@ export const FormTitle = styled.p`
   margin-top:20px;
   font-size: 1.4em;
   margin-bottom:25px;
-  width:80px;
-  align-self:center;
-  display:flex;
   }
 `;

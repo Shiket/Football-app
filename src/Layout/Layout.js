@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.white}
         background-size: cover;
         max-height: 100vh;
+        min-height: 100vh;
         overflow-x:hidden;
 }
     }
@@ -61,6 +62,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.white};
         text-decoration: none;
     }
+
     @-webkit-keyframes autofill {
         to {
             color: #fff;

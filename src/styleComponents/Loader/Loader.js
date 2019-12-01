@@ -5,9 +5,10 @@ export const Loader = styled.div`
     div,div:before
         {display:block;position:absolute}
 
-    div{width:100%;background: url(${bg})no-repeat center center fixed;
-    height:calc(100% - 150px);
-    height: ${props => (props.header ? 'calc(100% - 150px)' : '100%')};
+    div{
+        width:100%;
+        ${props => props.header ? 'background:none;' : 'background: url(' + bg + ') no-repeat center center fixed;'}
+        height: ${props => (props.header ? 'calc(100% - 150px)' : '100vh')};
 }
 
     div:before{
