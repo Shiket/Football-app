@@ -5,9 +5,11 @@ import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
 import { SignInLink } from '../index';
 import { Button, Input, FormWrapper, Form, WrapperCenter, FormTitle,
-         BottomLinks} from '../../styleComponents/index';
+         BottomLinks,
+         FullPageWrapper} from '../../styleComponents/index';
 
 const SignUpPage = () => (
+    <FullPageWrapper>
         <WrapperCenter>
             <FormWrapper>
                 <FormTitle>Sign Up</FormTitle>
@@ -15,6 +17,7 @@ const SignUpPage = () => (
                 <SignInLink />
             </FormWrapper>
         </WrapperCenter>
+    </FullPageWrapper>
 );
 
 const INITIAL_STATE = {

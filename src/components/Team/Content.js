@@ -9,16 +9,16 @@ import {
 import { IMAGES } from '../../assets/index'
 import { useLocation, useRouteMatch } from 'react-router-dom'
 
-export const Content = ({ players, nextMatches, lastMatches}) => {
+export const Content = ({  nextMatches, lastMatches}) => {
 
     let location = useLocation()
     let match = useRouteMatch()
 
-    const wholeTeam = players.map(({ strPlayer }) =>
-        <SinglePlayer>
-            {strPlayer}
-        </SinglePlayer>
-    );
+    // const wholeTeam = players.map(({ strPlayer }) =>
+    //     <SinglePlayer>
+    //         {strPlayer}
+    //     </SinglePlayer>
+    // );
 
     const next = nextMatches.map(({ dateEvent, strEvent, strTime }) =>
         <MatchesRow>
@@ -127,9 +127,9 @@ export const Content = ({ players, nextMatches, lastMatches}) => {
                 <DescriptionSection>
                     <MainSection>Team:</MainSection>
                     <Scroll>
-                        <PlayersList>
+                        {/* <PlayersList>
                             {wholeTeam}
-                        </PlayersList>
+                        </PlayersList> */}
                     </Scroll>
                 </DescriptionSection>
                 <LastMatches start marginR marginB>

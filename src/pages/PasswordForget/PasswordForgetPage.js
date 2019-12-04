@@ -5,9 +5,10 @@ import { SignUpLink } from '../index'
 import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
 import { Button, FormWrapper, Input, Form, WrapperCenter,
-    BottomLinks, FormTitle } from '../../styleComponents/index';
+    BottomLinks, FormTitle, FullPageWrapper } from '../../styleComponents/index';
 
 const PasswordForgetPage = () => (
+    <FullPageWrapper>
         <WrapperCenter>
             <FormWrapper>
                 <FormTitle>Password Forget</FormTitle>
@@ -15,6 +16,7 @@ const PasswordForgetPage = () => (
                 <SignUpLink />
             </FormWrapper>
         </WrapperCenter>
+    </FullPageWrapper>
 );
 
 const INITIAL_STATE = {

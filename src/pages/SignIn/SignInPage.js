@@ -5,10 +5,11 @@ import { withFirebase } from '../../components/Firebase';
 import * as ROUTES from '../../constants/routes';
 import { SignUpLink, PasswordForgetLink } from '../index';
 import { Link } from 'react-router-dom'
-import { Button, Input, FormWrapper, Form, WrapperCenter, FormTitle, BottomLinks}
+import { Button, Input, FormWrapper, Form, WrapperCenter, FormTitle, BottomLinks, FullPageWrapper}
         from '../../styleComponents/index';
 
 const SignInPage = () => (
+    <FullPageWrapper>
         <WrapperCenter>
             <FormWrapper>
                 <FormTitle>Sign In</FormTitle>
@@ -17,6 +18,7 @@ const SignInPage = () => (
                 <SignUpLink />
             </FormWrapper>
         </WrapperCenter>
+    </FullPageWrapper>
 );
 
 const INITIAL_STATE = {
