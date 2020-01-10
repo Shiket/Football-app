@@ -13,7 +13,7 @@ const Navigation = () => (
                 <Logo>Football app</Logo>
             </WrapperCenter>
                 <AuthUserContext.Consumer>
-                    {authUser => authUser ? <AuthNavigation /> : <NoAuthNavigation />}
+                    {authUser => authUser ? <AuthNavigation authUserId={authUser.uid}/> : <NoAuthNavigation />}
                 </AuthUserContext.Consumer>
         </Header>
 );

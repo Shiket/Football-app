@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const Favourite = styled.img`
-    width:33px;
-    height:33px;
+    width:36px;
+    height:36px;
     display:flex;
     align-items: center;
-    margin-right:20px;
+    margin-right:30px;
     cursor:pointer;
 `;
 

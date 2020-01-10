@@ -15,6 +15,8 @@ import twitter from './Twitter.png'
 import website from './website.png'
 import yt from './yt.png'
 import x from './x.png'
+import heart from './heart.png'
+import fullHeart from './heart1.png'
 import burger from './burger.png'
 
 export const IMAGES = {
@@ -35,5 +37,7 @@ export const IMAGES = {
     website:website,
     yt:yt,
     close: x,
-    burger: burger
+    burger: burger,
+    heart: heart,
+    favourite: fullHeart
 };

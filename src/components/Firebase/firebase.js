@@ -21,6 +21,9 @@ class Firebase {
     }
     user = uid => this.db.ref(`users/${uid}`);
     users = () => this.db.ref('users');
+    username = uid => this.db.ref(`users/${uid}/username`);
+
+    getFavourites = uid => this.db.ref(`users/${uid}/favourites`)
 
     doCreateUserWithEmailAndPassword = async (email, password) =>
         await this.auth.createUserWithEmailAndPassword(email, password);
@@ -32,23 +35,14 @@ class Firebase {
     doPasswordReset = async email => await this.auth.sendPasswordResetEmail(email);
     doPasswordUpdate = async password => await this.auth.currentUser.updatePassword(password);
 
-    getUserById = async uid => await this.db.ref(`users/${uid}`);
-    getAllUsers = async () => await this.db.ref('users');
-
-    getRefToFav = async uid => {
-        await this.db.ref(`users/${uid}/favourites`)
-    }
-
-    getAllFavouriteTeams = async uid => {
-        const fav = await this.db.ref(`users/${uid}/favourites`).on("value", snapshot => {
-            const favourite = snapshot.val();
-            // console.log(fav)
-            // console.log(favourite)
+    addRemoveFromFavourites = async (uid, teamId) => {
+        const favRef = await this.db.ref(`users/${uid}/favourites`)
+            favRef.once("value", snapshot => {
+            const favList = snapshot.val();
+            const removedEl = favList.filter(a => a !== teamId)
+            favList === '' ? favRef.set([teamId]) :
+                favList.includes(teamId) ? favRef.set(removedEl) : favRef.set([...favList, teamId]);
         })
-    }
-    addTeamToFavorite = async (userId, teamId) => {
-        const user = await this.db.ref(`users/${userId}`).push({ favourites: teamId })
-        //console.log(user);
     }
 }
 

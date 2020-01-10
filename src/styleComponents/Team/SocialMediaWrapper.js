@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const SocialMediaWrapper = styled.div`
   margin-left:15%;
   margin-top: 20px;
-  margin-bottom: 2%;
+  margin-bottom: 8%;
   display: ${props => (props.dnone ? 'none' : 'visible')};
 
   @media (max-width: 1160px) {

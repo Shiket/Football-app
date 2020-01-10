@@ -7,7 +7,6 @@ import { LandingTable } from '../../components/index'
 
 const Landing = ({ windowWidth, leagues, history }) => {
     let [LeagueView, setYourTeams] = useState(true);
-
     return (
         <WrapperCenter>
             <Headers>

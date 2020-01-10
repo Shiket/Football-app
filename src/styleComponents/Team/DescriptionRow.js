@@ -4,7 +4,7 @@ export const DescriptionRow = styled.div`
   display: flex;
   align-items: center;
   height:100%;
-  margin-top:13px;
+  margin-top:15px;
   padding-left:10%;
 
    @media (max-width: 1160px) {

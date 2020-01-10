@@ -23,7 +23,7 @@ export const Details = styled.div`
 
     @media (max-width: 600px) {
     width:100%;
-    min-height:200px;
+    min-height:100px;
     padding-top:4vh;
     overflow:auto;
     display:flex;
