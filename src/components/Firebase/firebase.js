@@ -19,6 +19,7 @@ class Firebase {
         this.auth = app.auth();
         this.db = app.database();
     }
+
     user = uid => this.db.ref(`users/${uid}`);
     users = () => this.db.ref('users');
     username = uid => this.db.ref(`users/${uid}/username`);
@@ -36,16 +37,13 @@ class Firebase {
     doPasswordUpdate = async password => await this.auth.currentUser.updatePassword(password);
 
     addRemoveFromFavourites = async (uid, teamId) => {
-        const favRef = await this.db.ref(`users/${uid}/favourites`)
-            favRef.once("value", snapshot => {
+        const favRef = this.db.ref(`users/${uid}/favourites`)
+        favRef.once("value", snapshot => {
             const favList = snapshot.val();
-            const removedEl = favList.filter(a => a !== teamId)
-            favList === '' ? favRef.set([teamId]) :
-                favList.includes(teamId) ? favRef.set(removedEl) : favRef.set([...favList, teamId]);
+            favList === null ? favRef.set([teamId]) :
+                (favList.includes(teamId) ? favRef.set(favList.filter(a => a !== teamId)) : favRef.set([...favList, teamId]));
         })
     }
 }
-
 export default Firebase;
-
 export { FirebaseContext, withFirebase };

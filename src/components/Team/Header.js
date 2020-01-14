@@ -21,7 +21,7 @@ export const Header = ({ firebase }) => {
             <AuthUserContext.Consumer>
                 {authUser => authUser ?
                     <AddToFavourites firebase={firebase} authUserId={authUser.uid} teamId={location.state.state[0].idTeam} />
-                    : <Favourite onClick={() => alert('You have to sign in!')} src={IMAGES.star} alt='favourite icon' />
+                    : <Favourite onClick={() => alert('You have to sign in!')} src={IMAGES.heart} alt='favourite icon' />
                 }
             </AuthUserContext.Consumer>
 

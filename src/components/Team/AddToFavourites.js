@@ -6,16 +6,16 @@ export const AddToFavourites = ({ firebase, authUserId, teamId }) => {
     const [favourites, setFavourites] = useState([])
     const [onFavouriteList, addTeamToList] = useState(false)
 
-    const teamOnFavouriteList = useCallback(async() => {
+    const teamOnFavouriteList = useCallback(async () => {
         await firebase.getFavourites(authUserId).once("value", async snapshot => {
             setFavourites(snapshot.val())
         })
         await firebase.getFavourites().off()
     }, [firebase, setFavourites, authUserId])
 
-    const addTeam = useCallback(async()=>{
-        favourites.includes(teamId) ? addTeamToList(true) : addTeamToList(false)
-    },[favourites, teamId])
+    const addTeam = useCallback(async () => {
+        favourites == null ? addTeamToList(false) : (favourites.includes(teamId) ? addTeamToList(true) : addTeamToList(false))
+    }, [favourites, teamId])
 
     useEffect(() => {
         teamOnFavouriteList()
@@ -29,13 +29,12 @@ export const AddToFavourites = ({ firebase, authUserId, teamId }) => {
         <>
             {onFavouriteList ? <Favourite onClick={async () => {
                 await firebase.addRemoveFromFavourites(authUserId, teamId)
-                await addTeamToList(!onFavouriteList)
+                addTeamToList(!onFavouriteList)
             }} src={IMAGES.favourite} alt='favourite icon' /> :
 
                 <Favourite onClick={async () => {
                     await firebase.addRemoveFromFavourites(authUserId, teamId)
-
-                    await addTeamToList(!onFavouriteList)
+                    addTeamToList(!onFavouriteList)
                 }} src={IMAGES.heart} alt='heart icon' />}
         </>
     )
