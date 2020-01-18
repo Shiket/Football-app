@@ -44,6 +44,14 @@ class Firebase {
                 (favList.includes(teamId) ? favRef.set(favList.filter(a => a !== teamId)) : favRef.set([...favList, teamId]));
         })
     }
+
+    removeTeamFromFavourites = async (teamId, uid) => {
+        const ref = this.db.ref(`users/${uid}/favourites`)
+        ref.once("value", snapshot => {
+            const favList = snapshot.val();
+            favList.length > 1 ? ref.set(favList.filter(a => a !== teamId)) : ref.set("")
+        })
+    }
 }
 export default Firebase;
 export { FirebaseContext, withFirebase };

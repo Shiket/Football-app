@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../../components/Firebase';
+import { Form, Input, Button } from '../../styleComponents';
 
 const INITIAL_STATE = {
     passwordOne: '',
@@ -40,27 +41,27 @@ class PasswordChangePage extends Component {
             passwordOne !== passwordTwo || passwordOne === '';
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
+            <Form onSubmit={this.onSubmit}>
+                <Input
                     name="passwordOne"
                     value={passwordOne}
                     onChange={this.onChange}
                     type="password"
                     placeholder="New Password"
                 />
-                <input
+                <Input
                     name="passwordTwo"
                     value={passwordTwo}
                     onChange={this.onChange}
                     type="password"
                     placeholder="Confirm New Password"
                 />
-                <button disabled={isInvalid} type="submit">
-                    Reset My Password
-                </button>
+                <Button disabled={isInvalid} type="submit">
+                    Set new password
+                </Button>
 
                 {error && <p>{error.message}</p>}
-            </form>
+            </Form>
         );
     }
 }
