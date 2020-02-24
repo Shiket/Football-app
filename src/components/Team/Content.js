@@ -38,107 +38,210 @@ export const Content = ({  nextMatches, lastMatches}) => {
         </MatchesRow>
     );
 
-    return(
-        <DetailsWrapper>
+    return (
+      <DetailsWrapper>
         <Details>
+          <TeamLogo dnone src={location.state.state[0].strTeamBadge} />
+          <DetailsWrapper col>
+            <MainSection marginL dnone>
+              Details:
+            </MainSection>
 
-            <TeamLogo dnone src={location.state.state[0].strTeamBadge} />
-            <DetailsWrapper col>
-                <MainSection marginL dnone>Details:</MainSection>
+            <DetailsMediumScreenWrapper>
+              <TeamLogo src={location.state.state[0].strTeamBadge} />
+              <DetailsMediumScreenWrapper col>
+                <DescriptionRow>
+                  <Icon src={IMAGES.stadium} alt="stadium icon"></Icon>
+                  <Text>{location.state.state[0].strStadium}</Text>
+                </DescriptionRow>
+                <DescriptionRow>
+                  <Icon src={IMAGES.marker} alt="location icon"></Icon>
+                  <Text>{location.state.state[0].strStadiumLocation}</Text>
+                </DescriptionRow>
+                <DescriptionRow dnone>
+                  <Icon src={location.state.state[1]} alt="league icon"></Icon>
+                  <Text>{location.state.state[0].strLeague}</Text>
+                </DescriptionRow>
+                <DescriptionRow>
+                  <Icon src={IMAGES.calendar} alt="calendar icon"></Icon>
+                  <Text>{location.state.state[0].intFormedYear}</Text>
+                </DescriptionRow>
 
-                <DetailsMediumScreenWrapper>
-                    <TeamLogo src={location.state.state[0].strTeamBadge} />
-                    <DetailsMediumScreenWrapper col>
-                        <DescriptionRow>
-                            <Icon src={IMAGES.stadium} alt="stadium icon"></Icon>
-                            <Text>{location.state.state[0].strStadium}</Text>
-                        </DescriptionRow>
-                        <DescriptionRow>
-                            <Icon src={IMAGES.marker} alt="location icon"></Icon>
-                            <Text>{location.state.state[0].strStadiumLocation}</Text>
-                        </DescriptionRow>
-                        <DescriptionRow dnone>
-                            <Icon src={location.state.state[1]} alt="league icon"></Icon>
-                            <Text>{location.state.state[0].strLeague}</Text>
-                        </DescriptionRow>
-                        <DescriptionRow>
-                            <Icon src={IMAGES.calendar} alt="calendar icon"></Icon>
-                            <Text>{location.state.state[0].intFormedYear}</Text>
-                        </DescriptionRow>
+                <DescriptionRow>
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={"http://" + location.state.state[0].strWebsite}
+                  >
+                    <Icon src={IMAGES.website} alt="website icon"></Icon>
+                  </Link>
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={"http://" + location.state.state[0].strWebsite}
+                  >
+                    {location.state.state[0].strWebsite.slice(4)}
+                  </Link>
+                </DescriptionRow>
+              </DetailsMediumScreenWrapper>
+              <SocialMediaWrapper dnone>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"http://" + location.state.state[0].strTwitter}
+                >
+                  {location.state.state[0].strTwitter === "" ? (
+                    <div></div>
+                  ) : (
+                    <SocialIcon src={IMAGES.twitter} alt="twitter icon" />
+                  )}
+                </Link>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"http://" + location.state.state[0].strFacebook}
+                >
+                  {location.state.state[0].strFacebook === "" ? (
+                    <div></div>
+                  ) : (
+                    <SocialIcon src={IMAGES.fb} alt="fb icon" />
+                  )}
+                </Link>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"http://" + location.state.state[0].strYoutube}
+                >
+                  {" "}
+                  {location.state.state[0].strYoutube === "" ? (
+                    <div></div>
+                  ) : (
+                    <SocialIcon src={IMAGES.yt} alt="yt icon" />
+                  )}
+                </Link>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"http://" + location.state.state[0].strInstagram}
+                >
+                  {" "}
+                  {location.state.state[0].strInstagram === "" ? (
+                    <div></div>
+                  ) : (
+                    <SocialIcon src={IMAGES.ig} alt="ig icon" />
+                  )}
+                </Link>
+              </SocialMediaWrapper>
+            </DetailsMediumScreenWrapper>
 
-                        <DescriptionRow>
-                            <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strWebsite}><Icon src={IMAGES.website} alt="website icon"></Icon></Link>
-                            <Link target="_blank" rel="noopener noreferrer"href={'http://' + location.state.state[0].strWebsite}>{location.state.state[0].strWebsite.slice(4)}</Link>
-                        </DescriptionRow>
+            <MediumScreenWrapper>
+              <LastMatches dnone>
+                <MainSection>Last matches:</MainSection>
+                {last}
+              </LastMatches>
 
-                    </DetailsMediumScreenWrapper>
-                    <SocialMediaWrapper dnone>
-                        <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={IMAGES.twitter} alt="twitter icon" />}</Link>
-                        <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={IMAGES.fb} alt="fb icon" />}</Link>
-                        <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={IMAGES.yt} alt="yt icon" />}</Link>
-                        <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={IMAGES.ig} alt="ig icon" />}</Link>
-                    </SocialMediaWrapper>
+              <LastMatches dnone>
+                <MainSection>Upcomming matches:</MainSection>
+                {next}
+              </LastMatches>
+            </MediumScreenWrapper>
+            <DescriptionSection sm>
+              <MainSection mb>Description:</MainSection>
+              <Scroll>
+                <Description>
+                  {location.state.state[0].strDescriptionEN}
+                </Description>
+              </Scroll>
+            </DescriptionSection>
+          </DetailsWrapper>
 
-                </DetailsMediumScreenWrapper>
-
-                <MediumScreenWrapper>
-                    <LastMatches dnone>
-                        <MainSection>Last matches:</MainSection>
-                        {last}
-                    </LastMatches>
-
-                    <LastMatches dnone>
-                        <MainSection>Upcomming matches:</MainSection>
-                        {next}
-                    </LastMatches>
-                </MediumScreenWrapper>
-                <DescriptionSection sm>
-                    <MainSection mb>Description:</MainSection>
-                    <Scroll>
-                        <Description>{location.state.state[0].strDescriptionEN}</Description>
-                    </Scroll>
-                </DescriptionSection>
-            </DetailsWrapper>
-
-            <MainSection marginL dnone>Social media:</MainSection>
-            <SocialMediaWrapper>
-                <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strTwitter}>{location.state.state[0].strTwitter === "" ? <div></div> : <SocialIcon src={IMAGES.twitter} alt="twitter icon" />}</Link>
-                <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strFacebook}>{location.state.state[0].strFacebook === "" ? <div></div> : <SocialIcon src={IMAGES.fb} alt="fb icon" />}</Link>
-                <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strYoutube}> {location.state.state[0].strYoutube === "" ? <div></div> : <SocialIcon src={IMAGES.yt} alt="yt icon" />}</Link>
-                <Link target="_blank" rel="noopener noreferrer" href={'http://' + location.state.state[0].strInstagram}> {location.state.state[0].strInstagram === "" ? <div></div> : <SocialIcon src={IMAGES.ig} alt="ig icon" />}</Link>
-            </SocialMediaWrapper>
-
+          <MainSection marginL dnone>
+            Social media:
+          </MainSection>
+          <SocialMediaWrapper>
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={"http://" + location.state.state[0].strTwitter}
+            >
+              {location.state.state[0].strTwitter === "" ? (
+                <div></div>
+              ) : (
+                <SocialIcon src={IMAGES.twitter} alt="twitter icon" />
+              )}
+            </Link>
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={"http://" + location.state.state[0].strFacebook}
+            >
+              {location.state.state[0].strFacebook === "" ? (
+                <div></div>
+              ) : (
+                <SocialIcon src={IMAGES.fb} alt="fb icon" />
+              )}
+            </Link>
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={"http://" + location.state.state[0].strYoutube}
+            >
+              {" "}
+              {location.state.state[0].strYoutube === "" ? (
+                <div></div>
+              ) : (
+                <SocialIcon src={IMAGES.yt} alt="yt icon" />
+              )}
+            </Link>
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={"http://" + location.state.state[0].strInstagram}
+            >
+              {" "}
+              {location.state.state[0].strInstagram === "" ? (
+                <div></div>
+              ) : (
+                <SocialIcon src={IMAGES.ig} alt="ig icon" />
+              )}
+            </Link>
+          </SocialMediaWrapper>
         </Details>
         <ContentSection lg>
-            <ResponsiveWrapper>
-                <DescriptionSection>
-                    <MainSection>Description:</MainSection>
-                    <Scroll>
-                        <Description>{location.state.state[0].strDescriptionEN}</Description>
-                    </Scroll>
-                </DescriptionSection>
-                <LastMatches>
-                    <MainSection>Last matches:</MainSection>
-                    {last}
-                </LastMatches>
-            </ResponsiveWrapper>
+          <ResponsiveWrapper>
+            <DescriptionSection>
+              <MainSection>Description:</MainSection>
+              <Scroll>
+                <Description>
+                  {location.state.state[0].strDescriptionEN}
+                </Description>
+              </Scroll>
+            </DescriptionSection>
+            <LastMatches>
+              <MainSection>Last matches:</MainSection>
+              {last}
+            </LastMatches>
+          </ResponsiveWrapper>
 
-            <Wrapper row start>
-                <DescriptionSection>
-                    <MainSection>Team:</MainSection>
-                    <Scroll>
-                        {/* <PlayersList>
+          <Wrapper row start>
+            <DescriptionSection>
+              <MainSection>Team:</MainSection>
+              <Scroll>
+                <span>
+                  Temporarily unavailable (APIs provider has changed their free plan
+                  and requires additional payment)
+                </span>
+                {/* <PlayersList>
                             {wholeTeam}
                         </PlayersList> */}
-                    </Scroll>
-                </DescriptionSection>
-                <LastMatches start marginR marginB>
-                    <MainSection>Upcomming matches:</MainSection>
-                    {next}
-                </LastMatches>
-            </Wrapper>
-
+              </Scroll>
+            </DescriptionSection>
+            <LastMatches start marginR marginB>
+              <MainSection>Upcomming matches:</MainSection>
+              {next}
+            </LastMatches>
+          </Wrapper>
         </ContentSection>
-        </DetailsWrapper>
+      </DetailsWrapper>
     );
 }

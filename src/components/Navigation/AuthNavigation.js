@@ -37,8 +37,8 @@ const AuthNav = ({ firebase, authUserId }) => {
                     </HeadSection>
                     <NavButton as={Link} to={ROUTES.ACCOUNT} onClick={() => showMenu(!menu)}>Reset/change password</NavButton>
                     <NavButton as={Link} to={ROUTES.PASSWORD_FORGET} onClick={() => showMenu(!menu)}>Forgot password?</NavButton>
-                    <NavLink target="_blank" href="https://shiket.github.io/portfolio" rel="noopener noreferrer" onClick={() => showMenu(!menu)}>Portfiolio</NavLink>
-                    <NavButton as={Link}>Contact with me: <br /><br />  <span>dwrona9@gmail.com</span></NavButton>
+                    <NavLink target="_blank" href="https://shiket.github.io/PortfolioDW" rel="noopener noreferrer" onClick={() => showMenu(!menu)}>Portfiolio</NavLink>
+                    <NavButton href="mailto:dwrona9@gmail.com">Contact with me: <br /><br />  <spaan>dwrona9@gmail.com</spaan></NavButton>
                     <LogoutButton as={Link} to={ROUTES.SIGN_IN} onClick={() => SignOut()}>Sign out</LogoutButton>
                 </MenuWrapper>
             }

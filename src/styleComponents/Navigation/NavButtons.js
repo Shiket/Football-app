@@ -4,7 +4,7 @@ import { zoomIn } from 'react-animations';
 
 const zoom = keyframes`${zoomIn}`;
 
-export const NavButton = styled.div`
+export const NavButton = styled.a`
     display:flex;
     justify-content:center;
     align-items:center;

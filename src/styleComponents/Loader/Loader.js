@@ -7,8 +7,12 @@ export const Loader = styled.div`
 
     div{
         width:100%;
-        ${props => props.header ? 'background:none;' : 'background: url(' + bg + ') no-repeat center center fixed;'}
-        height: ${props => (props.header ? 'calc(100% - 150px)' : '100vh')};
+        ${props =>
+          props.header
+            ? "background:none;"
+            : "background: url(" + bg + ") no-repeat center center fixed;"}
+        height: ${props => (props.header ? "calc(100% - 150px)" : "100vh")};
+        background-size: cover;
 }
 
     div:before{
