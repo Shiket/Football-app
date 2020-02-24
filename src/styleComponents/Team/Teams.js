@@ -24,7 +24,7 @@ export const Teams = styled.div`
 `;
 
 export const Date = styled.span`
-    min-width:90px;
+    min-width:95px;
     border-right: 2px solid #fff;
     margin-right:10px;
     display:flex;

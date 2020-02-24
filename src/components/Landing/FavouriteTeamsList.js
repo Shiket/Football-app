@@ -39,14 +39,13 @@ export const FavouriteTeamsList = ({ firebase, authUserId }) => {
         }));
 
         setFavouriteTeamsData(stateData);
-    }, []);
+    }, [authUserId, firebase]);
 
-    const cancelFirebaseSubscription = () => firebase.getFavourites().off();
 
     useEffect(() => {
         setFavouriteTeam();
-        return () => cancelFirebaseSubscription();
-    }, []);
+        return () => firebase.getFavourites().off();;
+    }, [setFavouriteTeam, firebase]);
 
     const removeFromFav = async (teamId, userId) => {
         await firebase.removeTeamFromFavourites(teamId, userId)

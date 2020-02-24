@@ -4,7 +4,7 @@ export const ContentSection = styled.div`
     display:flex;
     flex-direction:column;
     width:80%;
-    margin-left:2%;
+    padding-left:2%;
     max-height:calc(99vh - 200px);
     overflow:auto;
 

@@ -23,5 +23,6 @@ export const MatchesRow = styled.div`
   margin-top:16px;
   flex-direction:row;
   align-items: center;
+  min-width: 255px;
   width:100%;
 `;

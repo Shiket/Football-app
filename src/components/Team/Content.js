@@ -1,9 +1,9 @@
 import React from 'react'
 import {
     ContentSection, Scroll, MainSection, Wrapper, DetailsWrapper,
-    DescriptionSection, Description, PlayersList, Link, Text,
+    DescriptionSection, Description, Link, Text,
     LastMatches, ResponsiveWrapper, Teams, Date, MatchesRow,
-    Icon, SinglePlayer, Score, Details, TeamLogo, MediumScreenWrapper,
+    Icon, Score, Details, TeamLogo, MediumScreenWrapper,
     DescriptionRow, DetailsMediumScreenWrapper, SocialIcon, SocialMediaWrapper
     } from "../../styleComponents"
 import { IMAGES } from '../../assets/index'
@@ -68,68 +68,36 @@ export const Content = ({  nextMatches, lastMatches}) => {
                 </DescriptionRow>
 
                 <DescriptionRow>
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={"http://" + location.state.state[0].strWebsite}
-                  >
+                  <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strWebsite}>
                     <Icon src={IMAGES.website} alt="website icon"></Icon>
                   </Link>
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={"http://" + location.state.state[0].strWebsite}
-                  >
+
+                  <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strWebsite}>
                     {location.state.state[0].strWebsite.slice(4)}
                   </Link>
                 </DescriptionRow>
+
               </DetailsMediumScreenWrapper>
+
               <SocialMediaWrapper dnone>
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={"http://" + location.state.state[0].strTwitter}
-                >
-                  {location.state.state[0].strTwitter === "" ? (
-                    <div></div>
-                  ) : (
-                    <SocialIcon src={IMAGES.twitter} alt="twitter icon" />
-                  )}
+                <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strTwitter} >
+                  {location.state.state[0].strTwitter === "" ? <div></div>  :
+                    <SocialIcon src={IMAGES.twitter} alt="twitter icon" /> }
                 </Link>
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={"http://" + location.state.state[0].strFacebook}
-                >
-                  {location.state.state[0].strFacebook === "" ? (
-                    <div></div>
-                  ) : (
-                    <SocialIcon src={IMAGES.fb} alt="fb icon" />
-                  )}
+
+                <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strFacebook} >
+                  {location.state.state[0].strFacebook === "" ? <div></div> :
+                    <SocialIcon src={IMAGES.fb} alt="fb icon" /> }
                 </Link>
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={"http://" + location.state.state[0].strYoutube}
-                >
-                  {" "}
-                  {location.state.state[0].strYoutube === "" ? (
-                    <div></div>
-                  ) : (
-                    <SocialIcon src={IMAGES.yt} alt="yt icon" />
-                  )}
+
+                <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strYoutube} >
+                  {location.state.state[0].strYoutube === "" ?  <div></div> :
+                    <SocialIcon src={IMAGES.yt} alt="yt icon" /> }
                 </Link>
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={"http://" + location.state.state[0].strInstagram}
-                >
-                  {" "}
-                  {location.state.state[0].strInstagram === "" ? (
-                    <div></div>
-                  ) : (
-                    <SocialIcon src={IMAGES.ig} alt="ig icon" />
-                  )}
+
+                <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strInstagram} >
+                  {location.state.state[0].strInstagram === "" ? <div></div> :
+                    <SocialIcon src={IMAGES.ig} alt="ig icon" /> }
                 </Link>
               </SocialMediaWrapper>
             </DetailsMediumScreenWrapper>
@@ -159,52 +127,26 @@ export const Content = ({  nextMatches, lastMatches}) => {
             Social media:
           </MainSection>
           <SocialMediaWrapper>
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href={"http://" + location.state.state[0].strTwitter}
-            >
-              {location.state.state[0].strTwitter === "" ? (
-                <div></div>
-              ) : (
-                <SocialIcon src={IMAGES.twitter} alt="twitter icon" />
-              )}
+            <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strTwitter}>
+              {location.state.state[0].strTwitter === "" ? <div></div>
+              : <SocialIcon src={IMAGES.twitter} alt="twitter icon" /> }
             </Link>
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href={"http://" + location.state.state[0].strFacebook}
-            >
-              {location.state.state[0].strFacebook === "" ? (
-                <div></div>
-              ) : (
-                <SocialIcon src={IMAGES.fb} alt="fb icon" />
-              )}
+
+            <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strFacebook}>
+              {location.state.state[0].strFacebook === "" ? <div></div>
+              : <SocialIcon src={IMAGES.fb} alt="fb icon" /> }
             </Link>
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href={"http://" + location.state.state[0].strYoutube}
-            >
-              {" "}
-              {location.state.state[0].strYoutube === "" ? (
-                <div></div>
-              ) : (
-                <SocialIcon src={IMAGES.yt} alt="yt icon" />
-              )}
+
+            <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strYoutube}>
+              {location.state.state[0].strYoutube === "" ? <div></div>
+              : <SocialIcon src={IMAGES.yt} alt="yt icon" /> }
             </Link>
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href={"http://" + location.state.state[0].strInstagram}
-            >
-              {" "}
-              {location.state.state[0].strInstagram === "" ? (
-                <div></div>
-              ) : (
-                <SocialIcon src={IMAGES.ig} alt="ig icon" />
-              )}
+
+            <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strInstagram}>
+              {location.state.state[0].strInstagram === "" ? <div></div>
+              : <SocialIcon src={IMAGES.ig} alt="ig icon" /> }
             </Link>
+
           </SocialMediaWrapper>
         </Details>
         <ContentSection lg>
@@ -228,8 +170,8 @@ export const Content = ({  nextMatches, lastMatches}) => {
               <MainSection>Team:</MainSection>
               <Scroll>
                 <span>
-                  Temporarily unavailable (APIs provider has changed their free plan
-                  and requires additional payment)
+                  Temporarily unavailable (API's provider has changed their free plan
+                  and this option requires additional payment)
                 </span>
                 {/* <PlayersList>
                             {wholeTeam}

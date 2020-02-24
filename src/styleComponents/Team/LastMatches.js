@@ -3,9 +3,8 @@ import styled from 'styled-components'
 export const LastMatches = styled.div`
     display:flex;
     flex-direction:column;
-    width:3%;
     padding-bottom:10px;
-    width:20%;
+    width:30%;
     display: ${props => (props.dnone ? 'none' : 'visible')};
 
 @media (max-width: 1400px) {
