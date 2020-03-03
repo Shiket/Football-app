@@ -10,7 +10,7 @@ export const MainSection = styled.span`
         font-size: 16px;
         margin-bottom: 10px;
         margin-left: ${props => (props.marginL ? '8%' : '0px')};
-        display: ${props => (props.dnone ? 'none' : 'visible')};
+        display: ${props => (props.dnone ? 'none' : 'flex')};
     }
      @media (max-width: 600px) {
         font-size: 16px;

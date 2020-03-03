@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const Details = styled.div`
     padding-top:4vh;
     max-height:calc(99vh - 200px);
+    height:100%;
     width:20%;
     min-width:300px;
-    min-height:100px;
-    overflow:auto;
+    overflow-y:auto;
     display:flex;
     flex-direction: column;
     background-color: #00000052;

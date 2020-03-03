@@ -3,9 +3,8 @@ import styled from 'styled-components'
 export const DescriptionRow = styled.div`
   display: flex;
   align-items: center;
-  height:100%;
   margin-top:15px;
-  padding-left:10%;
+  margin-left:10%;
 
    @media (max-width: 1160px) {
           display: ${props => (props.dnone ? 'none' : 'visible')};
@@ -19,8 +18,9 @@ export const DescriptionRow = styled.div`
 `;
 
 export const MatchesRow = styled.div`
-  display: flex;
+  display:flex;
   margin-top:16px;
+  min-height:40px;
   flex-direction:row;
   align-items: center;
   min-width: 255px;

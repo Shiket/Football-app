@@ -1,8 +1,8 @@
 import React from 'react'
 import {
-    ContentSection, Scroll, MainSection, Wrapper, DetailsWrapper,
+    ContentSection, Scroll, MainSection, Wrapper, ContentWrapper,
     DescriptionSection, Description, Link, Text,
-    LastMatches, ResponsiveWrapper, Teams, Date, MatchesRow,
+    Matches, ResponsiveWrapper, Teams, Date, MatchesRow,
     Icon, Score, Details, TeamLogo, MediumScreenWrapper,
     DescriptionRow, DetailsMediumScreenWrapper, SocialIcon, SocialMediaWrapper
     } from "../../styleComponents"
@@ -10,7 +10,6 @@ import { IMAGES } from '../../assets/index'
 import { useLocation, useRouteMatch } from 'react-router-dom'
 
 export const Content = ({  nextMatches, lastMatches}) => {
-
     let location = useLocation()
     let match = useRouteMatch()
 
@@ -19,6 +18,19 @@ export const Content = ({  nextMatches, lastMatches}) => {
     //         {strPlayer}
     //     </SinglePlayer>
     // );
+
+  const socialMediaData = [
+    { icon: IMAGES.twitter, link: location.state.state[0].strTwitter },
+    { icon: IMAGES.fb, link: location.state.state[0].strFacebook },
+    { icon: IMAGES.yt, link: location.state.state[0].strYoutube },
+    { icon: IMAGES.ig, link: location.state.state[0].strInstagram }];
+
+  const details = [
+    { icon: IMAGES.stadium, text: location.state.state[0].strStadium },
+    { icon: IMAGES.marker, text: location.state.state[0].strStadiumLocation },
+    { icon: location.state.state[1], text: location.state.state[0].strLeague },
+    { icon: IMAGES.calendar, text: location.state.state[0].intFormedYear },
+    { icon: IMAGES.website, text: location.state.state[0].strWebsite.slice(4) }];
 
     const next = nextMatches.map(({ dateEvent, strEvent, strTime }) =>
         <MatchesRow>
@@ -38,81 +50,58 @@ export const Content = ({  nextMatches, lastMatches}) => {
         </MatchesRow>
     );
 
+    const teamDetails = details.map(a =>
+      <DescriptionRow>
+        <Icon src={a.icon} alt='icon'></Icon>
+        <Text>{a.text}</Text>
+      </DescriptionRow>
+      )
+
+    const socialMedia = socialMediaData.map(a =>
+      <Link target="_blank" rel="noopener noreferrer" href={"http://" + a.link}>
+        {a.link === "" ? <div></div> : <SocialIcon src={a.icon} alt="icon" />}
+      </Link>)
+
     return (
-      <DetailsWrapper>
+      <ContentWrapper>
         <Details>
           <TeamLogo dnone src={location.state.state[0].strTeamBadge} />
-          <DetailsWrapper col>
+
+          <ContentWrapper col>
             <MainSection marginL dnone>
               Details:
             </MainSection>
 
             <DetailsMediumScreenWrapper>
               <TeamLogo src={location.state.state[0].strTeamBadge} />
+
               <DetailsMediumScreenWrapper col>
-                <DescriptionRow>
-                  <Icon src={IMAGES.stadium} alt="stadium icon"></Icon>
-                  <Text>{location.state.state[0].strStadium}</Text>
-                </DescriptionRow>
-                <DescriptionRow>
-                  <Icon src={IMAGES.marker} alt="location icon"></Icon>
-                  <Text>{location.state.state[0].strStadiumLocation}</Text>
-                </DescriptionRow>
-                <DescriptionRow dnone>
-                  <Icon src={location.state.state[1]} alt="league icon"></Icon>
-                  <Text>{location.state.state[0].strLeague}</Text>
-                </DescriptionRow>
-                <DescriptionRow>
-                  <Icon src={IMAGES.calendar} alt="calendar icon"></Icon>
-                  <Text>{location.state.state[0].intFormedYear}</Text>
-                </DescriptionRow>
+                {teamDetails}
 
-                <DescriptionRow>
-                  <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strWebsite}>
+                <DescriptionRow target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strWebsite}>
                     <Icon src={IMAGES.website} alt="website icon"></Icon>
-                  </Link>
-
-                  <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strWebsite}>
                     {location.state.state[0].strWebsite.slice(4)}
-                  </Link>
                 </DescriptionRow>
 
               </DetailsMediumScreenWrapper>
 
               <SocialMediaWrapper dnone>
-                <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strTwitter} >
-                  {location.state.state[0].strTwitter === "" ? <div></div>  :
-                    <SocialIcon src={IMAGES.twitter} alt="twitter icon" /> }
-                </Link>
-
-                <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strFacebook} >
-                  {location.state.state[0].strFacebook === "" ? <div></div> :
-                    <SocialIcon src={IMAGES.fb} alt="fb icon" /> }
-                </Link>
-
-                <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strYoutube} >
-                  {location.state.state[0].strYoutube === "" ?  <div></div> :
-                    <SocialIcon src={IMAGES.yt} alt="yt icon" /> }
-                </Link>
-
-                <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strInstagram} >
-                  {location.state.state[0].strInstagram === "" ? <div></div> :
-                    <SocialIcon src={IMAGES.ig} alt="ig icon" /> }
-                </Link>
+                {socialMedia}
               </SocialMediaWrapper>
             </DetailsMediumScreenWrapper>
 
             <MediumScreenWrapper>
-              <LastMatches dnone>
+              <Matches dnone>
                 <MainSection>Last matches:</MainSection>
                 {last}
-              </LastMatches>
+              </Matches>
 
-              <LastMatches dnone>
+              <Matches dnone>
                 <MainSection>Upcomming matches:</MainSection>
                 {next}
-              </LastMatches>
+              </Matches>
             </MediumScreenWrapper>
+
             <DescriptionSection sm>
               <MainSection mb>Description:</MainSection>
               <Scroll>
@@ -121,33 +110,12 @@ export const Content = ({  nextMatches, lastMatches}) => {
                 </Description>
               </Scroll>
             </DescriptionSection>
-          </DetailsWrapper>
 
-          <MainSection marginL dnone>
-            Social media:
-          </MainSection>
-          <SocialMediaWrapper>
-            <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strTwitter}>
-              {location.state.state[0].strTwitter === "" ? <div></div>
-              : <SocialIcon src={IMAGES.twitter} alt="twitter icon" /> }
-            </Link>
+          </ContentWrapper>
 
-            <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strFacebook}>
-              {location.state.state[0].strFacebook === "" ? <div></div>
-              : <SocialIcon src={IMAGES.fb} alt="fb icon" /> }
-            </Link>
+          <MainSection marginL dnone>Social media:</MainSection>
 
-            <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strYoutube}>
-              {location.state.state[0].strYoutube === "" ? <div></div>
-              : <SocialIcon src={IMAGES.yt} alt="yt icon" /> }
-            </Link>
-
-            <Link target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strInstagram}>
-              {location.state.state[0].strInstagram === "" ? <div></div>
-              : <SocialIcon src={IMAGES.ig} alt="ig icon" /> }
-            </Link>
-
-          </SocialMediaWrapper>
+          <SocialMediaWrapper> {socialMedia} </SocialMediaWrapper>
         </Details>
         <ContentSection lg>
           <ResponsiveWrapper>
@@ -159,10 +127,10 @@ export const Content = ({  nextMatches, lastMatches}) => {
                 </Description>
               </Scroll>
             </DescriptionSection>
-            <LastMatches>
+            <Matches>
               <MainSection>Last matches:</MainSection>
               {last}
-            </LastMatches>
+            </Matches>
           </ResponsiveWrapper>
 
           <Wrapper row start>
@@ -178,12 +146,12 @@ export const Content = ({  nextMatches, lastMatches}) => {
                         </PlayersList> */}
               </Scroll>
             </DescriptionSection>
-            <LastMatches start marginR marginB>
+            <Matches start marginR marginB>
               <MainSection>Upcomming matches:</MainSection>
               {next}
-            </LastMatches>
+            </Matches>
           </Wrapper>
         </ContentSection>
-      </DetailsWrapper>
+      </ContentWrapper>
     );
 }

@@ -10,7 +10,7 @@ export const ResponsiveWrapper = styled.div`
 }`
 
 
-export const DetailsWrapper = styled.div`
+export const ContentWrapper = styled.div`
   display: flex;
   justify-content: ${props => (props.center ? 'center' : 'start')};
   flex-direction:  ${props => (props.col ? 'column' : 'row')};
@@ -30,7 +30,6 @@ export const DetailsWrapper = styled.div`
 `;
 
 export const MediumScreenWrapper = styled.div`
-
   @media (max-width: 1160px) {
     display:flex;
     flex-direction:row;

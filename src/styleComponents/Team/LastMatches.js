@@ -1,18 +1,16 @@
 import styled from 'styled-components'
 
-export const LastMatches = styled.div`
-    display:flex;
+export const Matches = styled.div`
     flex-direction:column;
     padding-bottom:10px;
     width:30%;
-    display: ${props => (props.dnone ? 'none' : 'visible')};
+    display: ${props => (props.dnone ? 'none' : 'flex')};
 
 @media (max-width: 1400px) {
-    display:flex;
     flex-direction: column;
     width:43%;
     margin-right:3%;
-    display: ${props => (props.dnone ? 'none' : 'visible')};
+    display: ${props => (props.dnone ? 'none' : 'flex')};
 }
 
 @media (max-width: 1160px) {

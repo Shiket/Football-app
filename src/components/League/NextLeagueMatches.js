@@ -1,5 +1,5 @@
 import React from 'react';
-import { WrapperCenter, LeagueInfo, BackArrow, LeagueHeader, LeagueLogo, LeagueMatches, SectionHeader, Matches } from "../../styleComponents";
+import { WrapperCenter, LeagueInfo, BackArrow, LeagueHeader, LeagueLogo, LeagueMatches, SectionHeader, MatchList } from "../../styleComponents";
 import { useLocation, useHistory } from 'react-router-dom'
 import { IMAGES } from '../../assets/index'
 
@@ -25,10 +25,10 @@ export const NextLeagueMatches = ({nextMatches}) => {
                 <WrapperCenter row border>
                     <LeagueLogo src={location.state.state[2]} />
                 </WrapperCenter>
-                <Matches>
+                <MatchList>
                     <SectionHeader>Next {location.state.state[1].split('%20').splice(1).join(' ')} matches</SectionHeader>
                     {next}
-                </Matches>
+                </MatchList>
             </LeagueInfo>
     )
 }

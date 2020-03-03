@@ -9,7 +9,7 @@ export const LeagueMatches = styled.span`
     padding-left:5%;
 `;
 
-export const Matches = styled.div`
+export const MatchList = styled.div`
     border-right: 3px solid #272727a9;
     border-bottom: 3px solid #272727a9;
     border-left: 3px solid #272727a9;
