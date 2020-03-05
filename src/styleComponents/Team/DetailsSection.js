@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Details = styled.div`
     padding-top:4vh;
     height:calc(99vh - 200px);
+    max-height: 720px;
     width:20%;
     min-width:300px;
     overflow-y:auto;

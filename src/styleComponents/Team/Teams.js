@@ -10,7 +10,6 @@ export const Teams = styled.div`
     align-items: center;
     margin-left: 3%;
 
-
     &:before{
         content: '${props => (props.win ? 'W' : (props.lose ? 'L' : 'D'))}';
         background-color: ${props => (props.win ? '#51a90e' : (props.lose ? '#b91c1c' : '#e2b820'))};

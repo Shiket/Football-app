@@ -83,7 +83,7 @@ export const Content = ({ nextMatches, lastMatches }) => {
           Temporarily unavailable (API's provider has changed their free plan
           and this option requires additional payment)
         </span>
-        {/* <PlayersList> {wholeTeam} </PlayersList> */}
+        {/* <PlayersList> {wholeTeam} </PlayersList>s */}
       </ContentSection>
 
       <MatchesSection>
