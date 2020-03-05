@@ -3,8 +3,7 @@ import styled from 'styled-components'
 export const TeamWrapper = styled.div`
   margin-top:3vh;
   background-color: #272727a9;
-  max-height:calc(99vh - 142px);
-  padding-bottom:0px;
+  margin-bottom: 3vh;
   width:92%;
 `;
 

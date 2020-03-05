@@ -2,14 +2,13 @@ import styled from 'styled-components'
 import player from '../../assets/playerIcon.png'
 
 export const Teams = styled.div`
-    min-width:200px;
     width:250px;
     border-right: 2px solid #fff;
     margin-right:15px;
     display:flex;
     flex-direction:row;
     align-items: center;
-    margin-left: 4%;
+    margin-left: 3%;
 
 
     &:before{
@@ -17,16 +16,17 @@ export const Teams = styled.div`
         background-color: ${props => (props.win ? '#51a90e' : (props.lose ? '#b91c1c' : '#e2b820'))};
         width:25px;
         height: 25px;
-        margin-right:15px;
+        margin-right:5%;
         text-align:center;
         padding-top:2px;
     }
 `;
 
 export const Date = styled.span`
-    min-width:95px;
+    min-width:83px;
+    font-size:16px;
     border-right: 2px solid #fff;
-    margin-right:10px;
+    margin-right:8px;
     display:flex;
 `;
 

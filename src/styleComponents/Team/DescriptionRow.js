@@ -1,28 +1,23 @@
 import styled from 'styled-components'
 
-export const DescriptionRow = styled.div`
+export const DetailsRow = styled.a`
   display: flex;
   align-items: center;
+  min-height:30px;
   margin-top:15px;
-  margin-left:10%;
-
-   @media (max-width: 1160px) {
-          display: ${props => (props.dnone ? 'none' : 'visible')};
-          margin-top:0px;
-   }
-
-   @media (max-width: 600px) {
-        display:flex;
-        margin-top:13px;
-   }
+  margin-left:8%;
 `;
 
 export const MatchesRow = styled.div`
   display:flex;
-  margin-top:16px;
-  min-height:40px;
+  min-height:52px;
+  margin-top:5px;
   flex-direction:row;
+  padding: 0 2%;
   align-items: center;
-  min-width: 255px;
   width:100%;
+
+  @media (max-width: 1300px) {
+    width:380px;
+  }
 `;

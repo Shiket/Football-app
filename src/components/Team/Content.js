@@ -1,23 +1,18 @@
 import React from 'react'
 import {
-    ContentSection, Scroll, MainSection, Wrapper, ContentWrapper,
-    DescriptionSection, Description, Link, Text,
-    Matches, ResponsiveWrapper, Teams, Date, MatchesRow,
-    Icon, Score, Details, TeamLogo, MediumScreenWrapper,
-    DescriptionRow, DetailsMediumScreenWrapper, SocialIcon, SocialMediaWrapper
-    } from "../../styleComponents"
+  ContentSection, SectionTitle, MainWrapper, Description, Link, Text,
+  MatchIcon, Teams, Date, MatchesRow, Icon, Score, Details, TeamLogo,
+  DetailsRow, SocialIcon, SocialMediaWrapper, SectionNameDetails, MatchesSection
+} from "../../styleComponents"
 import { IMAGES } from '../../assets/index'
 import { useLocation, useRouteMatch } from 'react-router-dom'
 
-export const Content = ({  nextMatches, lastMatches}) => {
-    let location = useLocation()
-    let match = useRouteMatch()
+export const Content = ({ nextMatches, lastMatches }) => {
+  let location = useLocation()
+  let match = useRouteMatch()
 
-    // const wholeTeam = players.map(({ strPlayer }) =>
-    //     <SinglePlayer>
-    //         {strPlayer}
-    //     </SinglePlayer>
-    // );
+  // const wholeTeam = players.map(({ strPlayer }) =>
+  //     <SinglePlayer> {strPlayer} </SinglePlayer> );
 
   const socialMediaData = [
     { icon: IMAGES.twitter, link: location.state.state[0].strTwitter },
@@ -30,128 +25,73 @@ export const Content = ({  nextMatches, lastMatches}) => {
     { icon: IMAGES.marker, text: location.state.state[0].strStadiumLocation },
     { icon: location.state.state[1], text: location.state.state[0].strLeague },
     { icon: IMAGES.calendar, text: location.state.state[0].intFormedYear },
-    { icon: IMAGES.website, text: location.state.state[0].strWebsite.slice(4) }];
+    { icon: IMAGES.website, text: location.state.state[0].strWebsite }];
 
-    const next = nextMatches.map(({ dateEvent, strEvent, strTime }) =>
-        <MatchesRow>
-            <Icon src={IMAGES.calendar2} alt="calendar icon"></Icon>
-            <Date>{dateEvent} <br /> &emsp; {strTime.slice(0, 5)}</Date>
-            {strEvent.split('vs')[0]} <br />{strEvent.split('vs')[1]}
-        </MatchesRow>
-    );
+  const upcommingMatches = nextMatches.map(({ dateEvent, strEvent, strTime }) =>
+    <MatchesRow>
+      <MatchIcon src={IMAGES.calendar2} alt="calendar icon"></MatchIcon>
+      <Date>{dateEvent.slice(2)} <br /> {strTime.slice(0, 5)}</Date>
+      {strEvent.split('vs')[0]} <br />{strEvent.split('vs')[1]}
+    </MatchesRow>);
 
-    const last = lastMatches.map(({ strHomeTeam, strAwayTeam, intAwayScore, intHomeScore }) =>
-        <MatchesRow>
-            {intHomeScore !== intAwayScore ? (intHomeScore > intAwayScore && strHomeTeam === match.params.team ?
-            <Teams win><div>{strHomeTeam} <br /> {strAwayTeam} </div></Teams> : (intAwayScore > intHomeScore && strAwayTeam === match.params.team ?
-            <Teams win>{strHomeTeam} <br /> {strAwayTeam} </Teams> : <Teams lose>{strHomeTeam} <br /> {strAwayTeam} </Teams>)):
-            <Teams> {strHomeTeam} <br /> {strAwayTeam}</Teams>}
-            <Score>{intHomeScore}-{intAwayScore}</Score>
-        </MatchesRow>
-    );
+  const previousMatches = lastMatches.map(({ strHomeTeam, strAwayTeam, intAwayScore, intHomeScore }) =>
+    <MatchesRow>
+      {intHomeScore !== intAwayScore ? (intHomeScore > intAwayScore && strHomeTeam === match.params.team ?
+        <Teams win><div>{strHomeTeam} <br /> {strAwayTeam} </div></Teams> : (intAwayScore > intHomeScore && strAwayTeam === match.params.team ?
+          <Teams win>{strHomeTeam} <br /> {strAwayTeam} </Teams> : <Teams lose>{strHomeTeam} <br /> {strAwayTeam} </Teams>)) :
+        <Teams> {strHomeTeam} <br /> {strAwayTeam}</Teams>}
+      <Score>{intHomeScore}-{intAwayScore}</Score>
+    </MatchesRow>);
 
-    const teamDetails = details.map(a =>
-      <DescriptionRow>
+  const teamDetails = details.map((a, i) =>
+    i === details.length - 1 ?
+      <DetailsRow target="_blank" rel="noopener noreferrer" href={"http://" + a.text}>
+        <Icon src={a.icon} alt="icon"></Icon>
+        {a.text.slice(4)}
+      </DetailsRow> :
+      <DetailsRow>
         <Icon src={a.icon} alt='icon'></Icon>
         <Text>{a.text}</Text>
-      </DescriptionRow>
-      )
+      </DetailsRow>);
 
-    const socialMedia = socialMediaData.map(a =>
+  const socialMedia = socialMediaData.map(a =>
+    a.link === "" ? null :
       <Link target="_blank" rel="noopener noreferrer" href={"http://" + a.link}>
-        {a.link === "" ? <div></div> : <SocialIcon src={a.icon} alt="icon" />}
+        <SocialIcon src={a.icon} alt="icon" />
       </Link>)
 
-    return (
-      <ContentWrapper>
-        <Details>
-          <TeamLogo dnone src={location.state.state[0].strTeamBadge} />
+  return (
+    <MainWrapper>
+      <Details>
+        <TeamLogo src={location.state.state[0].strTeamBadge} />
+        <SectionNameDetails>Details:</SectionNameDetails>
+        {teamDetails}
+        <SectionNameDetails>Social media:</SectionNameDetails>
+        <SocialMediaWrapper>
+          {socialMedia}
+        </SocialMediaWrapper>
+      </Details>
 
-          <ContentWrapper col>
-            <MainSection marginL dnone>
-              Details:
-            </MainSection>
+      <ContentSection>
+        <SectionTitle>Description:</SectionTitle>
+        <Description>
+          {location.state.state[0].strDescriptionEN}
+        </Description>
 
-            <DetailsMediumScreenWrapper>
-              <TeamLogo src={location.state.state[0].strTeamBadge} />
+        <SectionTitle>Players:</SectionTitle>
+        <span>
+          Temporarily unavailable (API's provider has changed their free plan
+          and this option requires additional payment)
+        </span>
+        {/* <PlayersList> {wholeTeam} </PlayersList> */}
+      </ContentSection>
 
-              <DetailsMediumScreenWrapper col>
-                {teamDetails}
-
-                <DescriptionRow target="_blank" rel="noopener noreferrer" href={"http://" + location.state.state[0].strWebsite}>
-                    <Icon src={IMAGES.website} alt="website icon"></Icon>
-                    {location.state.state[0].strWebsite.slice(4)}
-                </DescriptionRow>
-
-              </DetailsMediumScreenWrapper>
-
-              <SocialMediaWrapper dnone>
-                {socialMedia}
-              </SocialMediaWrapper>
-            </DetailsMediumScreenWrapper>
-
-            <MediumScreenWrapper>
-              <Matches dnone>
-                <MainSection>Last matches:</MainSection>
-                {last}
-              </Matches>
-
-              <Matches dnone>
-                <MainSection>Upcomming matches:</MainSection>
-                {next}
-              </Matches>
-            </MediumScreenWrapper>
-
-            <DescriptionSection sm>
-              <MainSection mb>Description:</MainSection>
-              <Scroll>
-                <Description>
-                  {location.state.state[0].strDescriptionEN}
-                </Description>
-              </Scroll>
-            </DescriptionSection>
-
-          </ContentWrapper>
-
-          <MainSection marginL dnone>Social media:</MainSection>
-
-          <SocialMediaWrapper> {socialMedia} </SocialMediaWrapper>
-        </Details>
-        <ContentSection lg>
-          <ResponsiveWrapper>
-            <DescriptionSection>
-              <MainSection>Description:</MainSection>
-              <Scroll>
-                <Description>
-                  {location.state.state[0].strDescriptionEN}
-                </Description>
-              </Scroll>
-            </DescriptionSection>
-            <Matches>
-              <MainSection>Last matches:</MainSection>
-              {last}
-            </Matches>
-          </ResponsiveWrapper>
-
-          <Wrapper row start>
-            <DescriptionSection>
-              <MainSection>Team:</MainSection>
-              <Scroll>
-                <span>
-                  Temporarily unavailable (API's provider has changed their free plan
-                  and this option requires additional payment)
-                </span>
-                {/* <PlayersList>
-                            {wholeTeam}
-                        </PlayersList> */}
-              </Scroll>
-            </DescriptionSection>
-            <Matches start marginR marginB>
-              <MainSection>Upcomming matches:</MainSection>
-              {next}
-            </Matches>
-          </Wrapper>
-        </ContentSection>
-      </ContentWrapper>
-    );
+      <MatchesSection>
+        <SectionTitle>Last matches:</SectionTitle>
+        {previousMatches}
+        <SectionTitle>Upcomming matches</SectionTitle>
+        {upcommingMatches}
+      </MatchesSection>
+    </MainWrapper>
+  );
 }
