@@ -88,9 +88,7 @@ export const LandingTable = ({windowWidth, leagues}) => {
                     }
                 }}
                 getTheadProps={() => {
-                    return {
-                        style: { display: 'none' }
-                    }
+                    return {style: { display: 'none' }}
                 }}
             />
         </LandingSection>

@@ -8,7 +8,6 @@ import {
 import { IMAGES } from '../../assets/index'
 
 export const FavouriteTeamsList = ({ firebase, authUserId }) => {
-
     const [favouriteTeamsData, setFavouriteTeamsData] = useState([]);
 
     const setFavouriteTeam = useCallback(async () => {
@@ -19,9 +18,8 @@ export const FavouriteTeamsList = ({ firebase, authUserId }) => {
         });
 
         if (teamIds.length === 0) {
-            return
+          return
         }
-
         let promises = [];
 
         teamIds.forEach(id => promises.push(axios.get(DATA.TEAM_BY_ID + id)));
@@ -37,10 +35,8 @@ export const FavouriteTeamsList = ({ firebase, authUserId }) => {
             instagram: r.data.teams[0].strInstagram,
             youtube: r.data.teams[0].strYoutube
         }));
-
         setFavouriteTeamsData(stateData);
     }, [authUserId, firebase]);
-
 
     useEffect(() => {
         setFavouriteTeam();
@@ -51,7 +47,6 @@ export const FavouriteTeamsList = ({ firebase, authUserId }) => {
         await firebase.removeTeamFromFavourites(teamId, userId)
         setFavouriteTeamsData(favouriteTeamsData.filter(a => a.id !== teamId))
     }
-
 
     if (favouriteTeamsData.length === 0) return <Wrapper><SignInMessage>Add your favourite teams to list!</SignInMessage></Wrapper>
     return (

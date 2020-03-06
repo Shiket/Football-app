@@ -3,7 +3,7 @@ import { slideInLeft } from 'react-animations';
 
 const SlideLeft = keyframes`${slideInLeft}`;
 
-export const LeagueInfo = styled.div`
+export const LeagueDetails = styled.div`
     min-width: 380px;
     margin-top:5vh;
     height:100%;

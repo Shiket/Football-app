@@ -20,4 +20,8 @@ export const MatchesRow = styled.div`
   @media (max-width: 1300px) {
     width:380px;
   }
+
+  @media (max-width: 450px) {
+    width:100%;
+  }
 `;

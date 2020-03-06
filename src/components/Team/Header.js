@@ -6,7 +6,6 @@ import { AddToFavourites } from '../index'
 import { useLocation, useHistory, useRouteMatch } from 'react-router-dom'
 
 export const Header = ({ firebase }) => {
-
     let location = useLocation()
     let history = useHistory()
     let match = useRouteMatch()
@@ -24,7 +23,6 @@ export const Header = ({ firebase }) => {
                     : <Favourite onClick={() => alert('You have to sign in!')} src={IMAGES.heart} alt='favourite icon' />
                 }
             </AuthUserContext.Consumer>
-
         </TeamHeader>
     );
 }

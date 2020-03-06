@@ -1,5 +1,5 @@
 import React from 'react';
-import { WrapperCenter, LeagueInfo, BackArrow, LeagueHeader, LeagueLogo, LeagueMatches, SectionHeader, MatchList } from "../../styleComponents";
+import { WrapperCenter, LeagueDetails, BackArrow, LeagueHeader, LeagueLogo, LeagueMatches, SectionHeader, MatchList } from "../../styleComponents";
 import { useLocation, useHistory } from 'react-router-dom'
 import { IMAGES } from '../../assets/index'
 
@@ -15,7 +15,7 @@ export const NextLeagueMatches = ({nextMatches}) => {
     );
 
     return (
-            <LeagueInfo>
+            <LeagueDetails>
                 <LeagueHeader onClick={history.goBack}>
                     <WrapperCenter row>
                         <BackArrow src={IMAGES.leftArrow} alt='back arrow'></BackArrow>
@@ -29,6 +29,6 @@ export const NextLeagueMatches = ({nextMatches}) => {
                     <SectionHeader>Next {location.state.state[1].split('%20').splice(1).join(' ')} matches</SectionHeader>
                     {next}
                 </MatchList>
-            </LeagueInfo>
+            </LeagueDetails>
     )
 }

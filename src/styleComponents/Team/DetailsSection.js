@@ -14,7 +14,12 @@ export const Details = styled.div`
   @media (max-width: 1300px) {
     padding-top: 30px;
     width:100%;
-    min-height:670px;
+    min-height:640px;
     overflow-y: hidden;
+  }
+
+  @media(max-width:400px){
+
+    min-width:100%;
   }
 `;

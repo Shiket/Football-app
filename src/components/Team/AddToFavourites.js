@@ -28,7 +28,7 @@ export const AddToFavourites = ({ firebase, authUserId, teamId }) => {
     return (
         <>
             {onFavouriteList ? <Favourite onClick={async () => {
-                await firebase.addRemoveFromFavourites(authUserId, teamId)
+                await firebase.removeTeamFromFavourites(teamId, authUserId)
                 addTeamToList(!onFavouriteList)
             }} src={IMAGES.favourite} alt='favourite icon' /> :
 

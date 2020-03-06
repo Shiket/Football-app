@@ -12,8 +12,7 @@ const FavouriteTeamsContent = ({firebase}) => {
             {authUser => authUser ?
                 <FavouriteTeamsList firebase={firebase} authUserId={authUser.uid}/>
                 : <WrapperCenter>
-                    <SignInMessage as={Link} to={ROUTES.SIGN_IN}>You have to Sign in! to see this section </SignInMessage>
-                    <br />
+                    <SignInMessage as={Link} to={ROUTES.SIGN_IN}>You have to Sign in! to see this section </SignInMessage><br />
                     <SignInMessage as={Link} to={ROUTES.SIGN_UP}>Don't have an account yet? Create new account!</SignInMessage>
                 </WrapperCenter>
             }
