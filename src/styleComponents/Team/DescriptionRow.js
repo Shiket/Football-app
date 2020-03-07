@@ -24,4 +24,8 @@ export const MatchesRow = styled.div`
   @media (max-width: 450px) {
     width:100%;
   }
+
+  @media( max-height: 1000px){
+    min-height:44px;
+  }
 `;

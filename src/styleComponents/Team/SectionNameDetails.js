@@ -9,4 +9,9 @@ export const SectionNameDetails = styled.span`
     @media(max-width: 1300px){
         margin:15px 8%;
     }
+
+    @media(max-height: 920px) and (min-width:1300px){
+        margin-top:2vh;
+        margin-bottom: 1vh;
+    }
 `;

@@ -13,7 +13,5 @@ const Account = () => (
         </WrapperCenter>
     </FullPageWrapper>
 );
-
 const authCondition = authUser => !!authUser;
-
 export const AccountPage = withAuthorization(authCondition)(Account);

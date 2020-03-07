@@ -8,5 +8,9 @@ export const SectionTitle = styled.span`
     @media(max-width: 1300px){
         text-align:center;
         margin: 15px 0px;
+        display: ${props => (props.notVisibleMD ? 'none' : 'block')};
+    }
+    @media(max-width: 850px){
+        display: block;
     }
 `;

@@ -1,8 +1,8 @@
 import React from 'react'
 import {
-  ContentSection, SectionTitle, MainWrapper, Description, Link, Text,
+  ContentSection, SectionTitle, MainWrapper, Description, Link, Text, RowCenter,
   MatchIcon, Teams, Date, MatchesRow, Icon, Score, Details, TeamLogo,
-  DetailsRow, SocialIcon, SocialMediaWrapper, SectionNameDetails, MatchesSection
+  DetailsRow, SocialIcon, SocialMediaWrapper, SectionNameDetails, MatchesSection, WrapperCenter
 } from "../../styleComponents"
 import { IMAGES } from '../../assets/index'
 import { useLocation, useRouteMatch } from 'react-router-dom'
@@ -87,10 +87,16 @@ export const Content = ({ nextMatches, lastMatches }) => {
       </ContentSection>
 
       <MatchesSection>
-        <SectionTitle>Last matches:</SectionTitle>
-        {previousMatches}
-        <SectionTitle>Upcomming matches</SectionTitle>
-        {upcommingMatches}
+        <RowCenter>
+          <SectionTitle notVisibleMD>Last matches:</SectionTitle>
+          <WrapperCenter>
+            {previousMatches}
+          </WrapperCenter>
+          <SectionTitle notVisibleMD>Upcomming matches</SectionTitle>
+          <WrapperCenter>
+            {upcommingMatches}
+          </WrapperCenter>
+        </RowCenter>
       </MatchesSection>
     </MainWrapper>
   );
