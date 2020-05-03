@@ -13,19 +13,21 @@ export const Content = ({ nextMatches, lastMatches }) => {
 
   // const wholeTeam = players.map(({ strPlayer }) =>
   //     <SinglePlayer> {strPlayer} </SinglePlayer> );
+  const { strTwitter, strFacebook, strYoutube, strInstagram, strStadium, strStadiumLocation,
+        strLeague, intFormedYear, strWebsite, strTeamBadge, strDescriptionEN } = location.state.state[0];
 
   const socialMediaData = [
-    { icon: IMAGES.twitter, link: location.state.state[0].strTwitter },
-    { icon: IMAGES.fb, link: location.state.state[0].strFacebook },
-    { icon: IMAGES.yt, link: location.state.state[0].strYoutube },
-    { icon: IMAGES.ig, link: location.state.state[0].strInstagram }];
+    { icon: IMAGES.twitter, link:strTwitter },
+    { icon: IMAGES.fb, link:strFacebook },
+    { icon: IMAGES.yt, link:strYoutube },
+    { icon: IMAGES.ig, link:strInstagram }];
 
   const details = [
-    { icon: IMAGES.stadium, text: location.state.state[0].strStadium },
-    { icon: IMAGES.marker, text: location.state.state[0].strStadiumLocation },
-    { icon: location.state.state[1], text: location.state.state[0].strLeague },
-    { icon: IMAGES.calendar, text: location.state.state[0].intFormedYear },
-    { icon: IMAGES.website, text: location.state.state[0].strWebsite }];
+    { icon: IMAGES.stadium, text:strStadium },
+    { icon: IMAGES.marker, text:strStadiumLocation },
+    { icon: location.state.state[1], text:strLeague },
+    { icon: IMAGES.calendar, text:intFormedYear },
+    { icon: IMAGES.website, text:strWebsite }];
 
   const upcommingMatches = nextMatches.map(({ dateEvent, strEvent, strTime }) =>
     <MatchesRow>
@@ -63,19 +65,19 @@ export const Content = ({ nextMatches, lastMatches }) => {
   return (
     <MainWrapper>
       <Details>
-        <TeamLogo src={location.state.state[0].strTeamBadge} />
+        <TeamLogo src={strTeamBadge} />
         <SectionNameDetails>Details:</SectionNameDetails>
         {teamDetails}
         <SectionNameDetails>Social media:</SectionNameDetails>
         <SocialMediaWrapper>
-          {socialMedia}
+        {socialMedia}
         </SocialMediaWrapper>
       </Details>
 
       <ContentSection>
         <SectionTitle>Description:</SectionTitle>
         <Description>
-          {location.state.state[0].strDescriptionEN}
+          {strDescriptionEN}
         </Description>
 
         <SectionTitle>Players:</SectionTitle>
