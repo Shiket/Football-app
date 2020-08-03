@@ -22,9 +22,10 @@ export default (WrappedComponent) => {
             }));
 
             this.setState({
-                teams: [...merged],
-                nextMatches: [...nextLeagueMatches.data.events]
-            });
+                  teams: [...merged],
+                  nextMatches: nextLeagueMatches.data.events != null ?
+                    [...nextLeagueMatches.data.events] : 'No upcomming matches this season!'
+            })
         }
         render() {
         const { teams, nextMatches } = this.state;
@@ -32,7 +33,8 @@ export default (WrappedComponent) => {
             return (
                 <WrappedComponent {...this.props}
                     teams={teams}
-                    nextMatches={nextMatches} />
+                    nextMatches={nextMatches}
+             />
             )
         }
     }

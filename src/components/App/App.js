@@ -10,20 +10,21 @@ import AppHOC from './AppHOC'
 
 class App extends Component {
     render() {
+        const {leagues, windowWidth} = this.props
+        const {LANDING, LEAGUE, TEAM, SIGN_UP, SIGN_IN, PASSWORD_FORGET, ACCOUNT, ADMIN} = ROUTES
         return (
             <Router>
                 <Layout>
                     <Navigation />
-
                     <Switch>
-                        <Route exact path={ROUTES.LANDING} render={() => <LandingPage leagues={this.props.leagues} windowWidth={this.props.windowWidth} />} />
-                        <Route exact path={ROUTES.LEAGUE} render={() =>  <LeaguePage windowWidth={this.props.windowWidth} />}/>
-                        <Route exact path={ROUTES.TEAM} component={TeamPage} />
-                        <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-                        <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
-                        <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-                        <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-                        <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+                        <Route exact path={LANDING} render={() => <LandingPage leagues={leagues} windowWidth={windowWidth} />} />
+                        <Route exact path={LEAGUE} render={() =>  <LeaguePage windowWidth={windowWidth} />}/>
+                        <Route exact path={TEAM} component={TeamPage} />
+                        <Route exact path={SIGN_UP} component={SignUpPage} />
+                        <Route exact path={SIGN_IN} component={SignInPage} />
+                        <Route exact path={PASSWORD_FORGET} component={PasswordForgetPage} />
+                        <Route exact path={ACCOUNT} component={AccountPage} />
+                        <Route exact path={ADMIN} component={AdminPage} />
 
                         <Route component={NotFoundPage} />
                     </Switch>

@@ -13,19 +13,19 @@ export default (WrappedComponent) => {
         };
 
         async componentDidMount() {
-
             this.updateWindowDimensions();
             window.addEventListener("resize", this.updateWindowDimensions);
 
             let data = [];
             let tables = [];
+            const {LEAGUE_ID, TABLE_URL, LEAGUE_URL} = DATA
 
-            for (const item of DATA.LEAGUE_ID) {
-                tables.push(await axios.get(DATA.TABLE_URL + item + '&s=1920'));
+            for (const item of LEAGUE_ID) {
+                tables.push(await axios.get(TABLE_URL + item + '&s=2019-2020'));
             }
 
-            for (const item of DATA.LEAGUE_ID) {
-                data.push(await axios.get(DATA.LEAGUE_URL + item));
+            for (const item of LEAGUE_ID) {
+                data.push(await axios.get(LEAGUE_URL + item));
             }
 
             const tablesData = tables.map((res) => ({
@@ -59,11 +59,12 @@ export default (WrappedComponent) => {
         };
 
         render() {
-            if (this.state.leagues.length === 0 || this.state.width === 0) return <Loader><div></div></Loader>;
+            const { leagues, width } = this.state
+            if (leagues.length === 0 || width === 0) return <Loader><div></div></Loader>;
             return (
                 <WrappedComponent {...this.props}
-                    leagues={this.state.leagues}
-                    windowWidth={this.state.width} />
+                    leagues={leagues}
+                    windowWidth={width} />
             )
         }
     }

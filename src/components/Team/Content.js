@@ -10,7 +10,7 @@ import { useLocation, useRouteMatch } from 'react-router-dom'
 export const Content = ({ nextMatches, lastMatches }) => {
   let location = useLocation()
   let match = useRouteMatch()
-
+  let upcommingMatches;
   // const wholeTeam = players.map(({ strPlayer }) =>
   //     <SinglePlayer> {strPlayer} </SinglePlayer> );
   const { strTwitter, strFacebook, strYoutube, strInstagram, strStadium, strStadiumLocation,
@@ -28,13 +28,19 @@ export const Content = ({ nextMatches, lastMatches }) => {
     { icon: location.state.state[1], text:strLeague },
     { icon: IMAGES.calendar, text:intFormedYear },
     { icon: IMAGES.website, text:strWebsite }];
+  if(typeof(nextMatches) !== "string"){
+    upcommingMatches = nextMatches.map(({ dateEvent, strEvent, strTime }) => (
+      <MatchesRow>
+        <MatchIcon src={IMAGES.calendar2} alt="calendar icon"></MatchIcon>
+        <Date>
+          {dateEvent.slice(2)} <br /> {strTime.slice(0, 5)}
+        </Date>
+        {strEvent.split("vs")[0]} <br />
+        {strEvent.split("vs")[1]}
+      </MatchesRow>
+    ));
+  }else upcommingMatches = nextMatches
 
-  const upcommingMatches = nextMatches.map(({ dateEvent, strEvent, strTime }) =>
-    <MatchesRow>
-      <MatchIcon src={IMAGES.calendar2} alt="calendar icon"></MatchIcon>
-      <Date>{dateEvent.slice(2)} <br /> {strTime.slice(0, 5)}</Date>
-      {strEvent.split('vs')[0]} <br />{strEvent.split('vs')[1]}
-    </MatchesRow>);
 
   const previousMatches = lastMatches.map(({ strHomeTeam, strAwayTeam, intAwayScore, intHomeScore }) =>
     <MatchesRow>

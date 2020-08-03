@@ -26,7 +26,7 @@ export const LandingTable = ({windowWidth, leagues}) => {
         }, {
             accessor: 'name',
             minWidth: 160,
-            Cell: ({ value }) => <span >{value}</span>,
+            Cell: ({ value }) => <span>{value}</span>,
             style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%' }
 
         }, {
@@ -72,20 +72,16 @@ export const LandingTable = ({windowWidth, leagues}) => {
                         style: { height: '92px', cursor: 'pointer' },
                         onClick: () => {
                             history.push(`/Football-app/standings/${rowInfo.original.name.split(' ').join('')}`,
-                                {
-                                    state:
+                                { state:
                                     [leagues[rowInfo.index].table,
-                                    leagues[rowInfo.index].orgName,
-                                    leagues[rowInfo.index].logo,
-                                    leagues[rowInfo.index].id]
-                                })
+                                     leagues[rowInfo.index].orgName,
+                                     leagues[rowInfo.index].logo,
+                                     leagues[rowInfo.index].id] })
                         }
                     }
                 }}
                 getProps={() => {
-                    return {
-                        style: { width: '82%', backgroundColor: "rgba(105, 105, 105, 0.78)", margintBottom: "50px" }
-                    }
+                    return {style: { width: '82%', backgroundColor: "rgba(105, 105, 105, 0.78)", margintBottom: "50px" }}
                 }}
                 getTheadProps={() => {
                     return {style: { display: 'none' }}
