@@ -21,7 +21,7 @@ export default (WrappedComponent) => {
             const {LEAGUE_ID, TABLE_URL, LEAGUE_URL} = DATA
 
             for (const item of LEAGUE_ID) {
-                tables.push(await axios.get(TABLE_URL + item + '&s=2019-2020'));
+                tables.push(await axios.get(TABLE_URL + item + '&s=2020-2021'));
             }
 
             for (const item of LEAGUE_ID) {

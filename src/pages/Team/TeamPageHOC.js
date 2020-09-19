@@ -16,7 +16,6 @@ export default (WrappedComponent) => {
 
             let next5 = await axios.get(DATA.NEXT_MATCHES + teamid);
             let last5 = await axios.get(DATA.LAST_MATCHES + teamid);
-            console.log(next5)
             //let players = await axios.get(DATA.PLAYERS + teamid);
 
             this.setState({

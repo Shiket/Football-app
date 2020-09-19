@@ -36,14 +36,15 @@ class SignUpFormBase extends Component {
         this.state = { ...INITIAL_STATE };
     }
 
-    onSubmit = event => {
+    handleOnSubmit = event => {
         const { username, email, passwordOne, favourites } = this.state;
+        const { firebase, history} = this.props;
 
-        this.props.firebase
+            firebase
             .doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
                 // Create a user in your Firebase realtime database
-                return this.props.firebase
+                return firebase
                     .user(authUser.user.uid)
                     .set({
                         username,
@@ -53,7 +54,7 @@ class SignUpFormBase extends Component {
             })
             .then(authUser => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push(ROUTES.LANDING);
+                history.push(ROUTES.LANDING);
 
             })
             .catch(error => {
@@ -63,18 +64,12 @@ class SignUpFormBase extends Component {
         event.preventDefault();
     };
 
-    onChange = event => {
+    handleOnChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
 
     render() {
-        const {
-            username,
-            email,
-            passwordOne,
-            passwordTwo,
-            error,
-        } = this.state;
+        const { username, email, passwordOne, passwordTwo, error } = this.state;
 
         const isInvalid =
             passwordOne !== passwordTwo ||
@@ -83,32 +78,32 @@ class SignUpFormBase extends Component {
             username === '';
 
         return (
-            <Form onSubmit={this.onSubmit}>
+            <Form onSubmit={this.handleOnSubmit}>
                 <Input
                     name="username"
                     value={username}
-                    onChange={this.onChange}
+                    onChange={this.handleOnChange}
                     type="text"
                     placeholder="Full Name"
                 />
                 <Input
                     name="email"
                     value={email}
-                    onChange={this.onChange}
+                    onChange={this.handleOnChange}
                     type="text"
                     placeholder="Email Address"
                 />
                 <Input
                     name="passwordOne"
                     value={passwordOne}
-                    onChange={this.onChange}
+                    onChange={this.handleOnChange}
                     type="password"
                     placeholder="Password"
                 />
                 <Input
                     name="passwordTwo"
                     value={passwordTwo}
-                    onChange={this.onChange}
+                    onChange={this.handleOnChange}
                     type="password"
                     placeholder="Confirm Password"
                 />
