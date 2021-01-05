@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://shiket.github.io/Football-app/",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.1.0",
     "firebase": "^6.6.2",
     "gh-pages": "^2.1.1",
