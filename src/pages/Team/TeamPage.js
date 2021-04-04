@@ -4,13 +4,13 @@ import { withFirebase } from '../../components/Firebase/index';
 import TeamPageHOC from './TeamPageHOC'
 import { Header, Content } from '../../components/index'
 
-const Team = ({ lastMatches, nextMatches, firebase, ...props}) => {
+const Team = ({ lastMatches, nextMatches, firebase, players, ...props}) => {
 
     return (
         <WrapperCenter>
             <TeamWrapper>
                 <Header firebase={firebase} />
-                <Content nextMatches={nextMatches} lastMatches={lastMatches} /> {/*players={players}*/}
+                <Content nextMatches={nextMatches} lastMatches={lastMatches} players={players} />
             </TeamWrapper>
         </WrapperCenter>
     )

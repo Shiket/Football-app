@@ -27,14 +27,14 @@ export const LandingTable = ({windowWidth, leagues}) => {
             accessor: 'name',
             minWidth: 160,
             Cell: ({ value }) => <span>{value}</span>,
-            style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%' }
+            style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%', fontSize:'19px' }
 
         }, {
             accessor: 'country',
             minWidth: 120,
             show: (windowWidth > 500),
             Cell: ({ value }) => <span>{value}</span>,
-            style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%' }
+            style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%', fontSize:'19px' }
         }, {
             accessor: 'medal',
             minWidth: 35,
@@ -46,7 +46,7 @@ export const LandingTable = ({windowWidth, leagues}) => {
             minWidth: 120,
             show: (windowWidth > 750),
             Cell: ({ value }) => <span>{value}</span>,
-            style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%' }
+            style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%', fontSize:'19px' }
         }, {
             accessor: 'secondMedal',
             minWidth: 35,
@@ -58,7 +58,7 @@ export const LandingTable = ({windowWidth, leagues}) => {
             minWidth: 120,
             show: (windowWidth > 1000),
             Cell: ({ value }) => <span>{value}</span>,
-            style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%' }
+            style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '100%', fontSize:'19px' }
         }
     ];
     return(

@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 
 export const SectionNameDetails = styled.span`
-    font-size: 18px;
-    margin-top:3vh;
-    margin-bottom: 2vh;
-    margin-left: 8%;
+    font-size: 22px;
+    margin: 3vh 0 2vh 8%;
+
+    @media(max-width:1920px){
+        font-size: 20px;
+    }
 
     @media(max-width: 1300px){
+        font-size:18px;
         margin:15px 8%;
     }
 

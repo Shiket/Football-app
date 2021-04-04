@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const TeamWrapper = styled.div`
-  margin-top:3vh;
+  margin-top:6vh;
   background-color: #272727a9;
-  margin-bottom: 3vh;
   width:92%;
 `;
 

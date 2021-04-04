@@ -7,6 +7,7 @@ export const MainWrapper = styled.div`
     display: flex;
     animation: 0.2s ${Zoom};
     overflow-y: auto;
+    height:75vh;
 
     @media (max-width: 1300px) {
       flex-direction: column;

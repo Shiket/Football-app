@@ -8,20 +8,21 @@ export default (WrappedComponent) => {
         state = {
             nextMatches: [],
             lastMatches: [],
-            //players: [],
+            players: [],
         };
 
         async componentDidMount() {
             const { teamid } = this.props.location.state.state[0];
+            const { NEXT_MATCHES, LAST_MATCHES, PLAYERS } = DATA
 
-            let next5 = await axios.get(DATA.NEXT_MATCHES + teamid);
-            let last5 = await axios.get(DATA.LAST_MATCHES + teamid);
-            //let players = await axios.get(DATA.PLAYERS + teamid);
+            let next5 = await axios.get(NEXT_MATCHES + teamid);
+            let last5 = await axios.get(LAST_MATCHES + teamid);
+            let players = await axios.get(PLAYERS + teamid);
 
             this.setState({
                  nextMatches: next5.data.events !== null ? [...next5.data.events] : "No upcomming matches this season!",
                  lastMatches: [...last5.data.results],
-            //    // players: [...players.data.player]
+                 players: [...players.data.player]
              });
         }
 
@@ -31,7 +32,7 @@ export default (WrappedComponent) => {
                 <WrappedComponent {...this.props}
                     nextMatches={this.state.nextMatches}
                     lastMatches={this.state.lastMatches}
-                   // players={this.state.players}
+                    players={this.state.players}
                    />
             )
         }

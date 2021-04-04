@@ -2,13 +2,22 @@ import styled from 'styled-components'
 import player from '../../assets/playerIcon.png'
 
 export const Teams = styled.div`
-    width:250px;
+    width:300px;
     border-right: 2px solid #fff;
     margin-right:15px;
     display:flex;
     flex-direction:row;
     align-items: center;
     margin-left: 3%;
+    font-size:19px;
+
+    @media(max-width:1920px){
+        width:250px;
+        font-size:18px;
+    }
+    @media(max-width:1300px){
+        font-size:16px;
+    }
 
     &:before{
         content: '${props => (props.win ? 'W' : (props.lose ? 'L' : 'D'))}';
@@ -22,11 +31,17 @@ export const Teams = styled.div`
 `;
 
 export const Date = styled.span`
-    min-width:83px;
-    font-size:16px;
     border-right: 2px solid #fff;
     margin-right:8px;
     display:flex;
+    text-align:center;
+    font-size:19px;
+    width:100px; 
+    min-width:83px;
+@media(max-width:1920px){
+    font-size:17px;
+    margin-right:8px;
+}
 `;
 
 export const PlayersList = styled.div`
@@ -35,6 +50,8 @@ export const PlayersList = styled.div`
     flex-wrap:wrap;
     padding-left: 15px;
     width: 100%;
+    overflow-y:auto;
+    max-height:35%;
 `
 
 export const SinglePlayer = styled.div`
@@ -43,7 +60,13 @@ export const SinglePlayer = styled.div`
     display:flex;
     flex-direction: row;
     align-items:center;
-    margin-right:5px;
+    margin: 12px 5px 0 0;
+    font-size:19px;
+
+    @media(max-width:1920px){
+        margin: 8px 5px 0 0;
+        font-size:18px;
+    }
 
     ::before{
         content: '';
@@ -56,5 +79,22 @@ export const SinglePlayer = styled.div`
 `
 
 export const Score = styled.div`
+    font-size:18px;
     min-width:35px;
+
+    @media(max-with:1920px){
+        font-size:17px;
+    }
+    @media(max-with:1300px){
+        font-size:16px;
+    }
+`
+export const Result = styled.span`
+    font-size:18px;
+    @media(max-width:1920px){
+        font-size:17px;
+    }
+    @media(max-width:1300px){
+        font-size:16px;
+    }
 `

@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 export const Details = styled.div`
-    padding-top:4vh;
-    height:calc(99vh - 200px);
-    max-height: 720px;
+    padding-top:5vh;
     width:20%;
     min-width:300px;
     overflow-y:auto;
@@ -19,7 +17,6 @@ export const Details = styled.div`
   }
 
   @media(max-width:400px){
-
     min-width:100%;
   }
 `;

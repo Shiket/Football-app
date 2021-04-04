@@ -1,18 +1,21 @@
 import React from 'react'
 import {
   ContentSection, SectionTitle, MainWrapper, Description, Link, Text, RowCenter,
-  MatchIcon, Teams, Date, MatchesRow, Icon, Score, Details, TeamLogo,
-  DetailsRow, SocialIcon, SocialMediaWrapper, SectionNameDetails, MatchesSection, WrapperCenter
+  MatchIcon, Teams, Date, MatchesRow, Icon, Score, Details, TeamLogo, SinglePlayer, PlayersList,
+  DetailsRow, SocialIcon, SocialMediaWrapper, SectionNameDetails, MatchesSection, WrapperCenter, Result
 } from "../../styleComponents"
 import { IMAGES } from '../../assets/index'
 import { useLocation, useRouteMatch } from 'react-router-dom'
 
-export const Content = ({ nextMatches, lastMatches }) => {
+export const Content = ({ nextMatches, lastMatches, players }) => {
   let location = useLocation()
   let match = useRouteMatch()
   let upcommingMatches;
-  // const wholeTeam = players.map(({ strPlayer }) =>
-  //     <SinglePlayer> {strPlayer} </SinglePlayer> );
+
+  const wholeTeam = players.map(({ strPlayer }) =>
+      <SinglePlayer>{strPlayer}</SinglePlayer>
+  );
+
   const { strTwitter, strFacebook, strYoutube, strInstagram, strStadium, strStadiumLocation,
         strLeague, intFormedYear, strWebsite, strTeamBadge, strDescriptionEN } = location.state.state[0];
 
@@ -27,16 +30,20 @@ export const Content = ({ nextMatches, lastMatches }) => {
     { icon: IMAGES.marker, text:strStadiumLocation },
     { icon: location.state.state[1], text:strLeague },
     { icon: IMAGES.calendar, text:intFormedYear },
-    { icon: IMAGES.website, text:strWebsite }];
+    { icon: IMAGES.website, text:strWebsite }
+  ];
+
   if(typeof(nextMatches) !== "string"){
     upcommingMatches = nextMatches.map(({ dateEvent, strEvent, strTime }) => (
       <MatchesRow>
-        <MatchIcon src={IMAGES.calendar2} alt="calendar icon"></MatchIcon>
+        <MatchIcon src={IMAGES.calendar2} alt="calendar icon" />
         <Date>
           {dateEvent.slice(2)} <br /> {strTime.slice(0, 5)}
         </Date>
-        {strEvent.split("vs")[0]} <br />
-        {strEvent.split("vs")[1]}
+        <Result>
+          {strEvent.split("vs")[0]} <br />
+          {strEvent.split("vs")[1]}
+        </Result>
       </MatchesRow>
     ));
   }else upcommingMatches = nextMatches
@@ -87,11 +94,7 @@ export const Content = ({ nextMatches, lastMatches }) => {
         </Description>
 
         <SectionTitle>Players:</SectionTitle>
-        <span>
-          Temporarily unavailable (API's provider has changed their free plan
-          and this option requires additional payment)
-        </span>
-        {/* <PlayersList> {wholeTeam} </PlayersList>s */}
+        <PlayersList> {wholeTeam} </PlayersList>
       </ContentSection>
 
       <MatchesSection>

@@ -7,6 +7,7 @@ import * as DATA from '../../constants/data';
 
 export default (WrappedComponent) => {
     return class indexHOC extends React.Component {
+
         state = {
             leagues: [],
             width: 0,
@@ -31,7 +32,7 @@ export default (WrappedComponent) => {
             const tablesData = tables.map((res) => ({
                 table: res.data.table,
             }));
-
+            
             const leaguesData = data.map((res, i) => ({
                 name: res.data.leagues[0].strLeague.split(' ').splice(1).join(' '),
                 orgName: res.data.leagues[0].strLeague.split(' ').join('%20'),
@@ -44,7 +45,7 @@ export default (WrappedComponent) => {
                 table: tablesData[i].table,
                 id: res.data.leagues[0].idLeague
             }));
-
+            console.log(tablesData)
             this.setState({
                 leagues: [...leaguesData]
             });
