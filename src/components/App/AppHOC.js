@@ -45,7 +45,7 @@ export default (WrappedComponent) => {
                 table: tablesData[i].table,
                 id: res.data.leagues[0].idLeague
             }));
-            console.log(tablesData)
+            
             this.setState({
                 leagues: [...leaguesData]
             });
