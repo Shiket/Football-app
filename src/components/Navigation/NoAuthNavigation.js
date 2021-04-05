@@ -20,7 +20,7 @@ export const NoAuthNavigation = () => {
                 </HeadSection>
                 <NavButton as={Link} to={ROUTES.SIGN_UP} onClick={() => showMenu(!menu)}>Create new account</NavButton>
                 <NavButton as={Link} to={ROUTES.PASSWORD_FORGET} onClick={() => showMenu(!menu)}>Forgot password?</NavButton>
-                <NavLink target="_blank" href="https://shiket.github.io/PortfolioDW" rel="noopener noreferrer"  onClick={() => showMenu(!menu)}>Portfiolio</NavLink>
+                <NavLink target="_blank" href="https://dwportfolio.netlify.app/" rel="noopener noreferrer"  onClick={() => showMenu(!menu)}>Portfiolio</NavLink>
                 <NavButton href="mailto:dwrona9@gmail.com">Contact with me: <br /><br />  <span>dwrona9@gmail.com</span></NavButton>
                 <LogoutButton as={Link} to={ROUTES.SIGN_IN} onClick={() => showMenu(!menu)}>Sign in</LogoutButton>
             </MenuWrapper>
